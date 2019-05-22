@@ -1,0 +1,20 @@
+{
+  "name": "aeorus",
+  "short_name": "aeorus",
+  "icons": [
+    {
+      "src": "./img/icons/favicon-64x64.ico",
+      "sizes": "64x64",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "./img/icons/favicon-128x128.ico",
+      "sizes": "128x128",
+      "type": "image/x-icon"
+    }
+  ],
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#126B9E"
+}
