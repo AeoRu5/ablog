@@ -5,10 +5,8 @@
 			<div
 				ref="enter_view_btn"
 				class="enter_view_btn themeFontColor themeBorder themeBoxShadow themeFontSize cp"
-				:class="isAniSvgAnimationEnd ? isHover ? '' : 'animated infinite flash slower' : 'hide'"
-				@click="view_enter_clickEnterBtn"
-				@mouseout="view_enter_mouseoutEnterBtn"
-				@mouseover="view_enter_mouseoverEnterBtn">Enter</div>
+				:class="isAniSvgAnimationEnd ? 'animated infinite flash slower' : 'hide'"
+				@click="view_enter_clickEnterBtn">Enter</div>
 		</div>
 	</div>
 </template>

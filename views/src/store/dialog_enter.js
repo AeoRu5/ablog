@@ -2,23 +2,14 @@ import less from 'less'
 
 export default {
 	state: {
-		view_enter_isHover: false,
 		view_enter_isAniSvgAnimationEnd: false,
 		component_aniSvg_aniSvgTxt: '',
-		toggleColor: '#000000',
-		toggleFontSize: '24px'
+		toggleColor: '#000000'
 	},
 	mutations: {
-		view_enter_mouseoverEnterBtn(state) {
-			state.view_enter_isHover = true;
-		},
-		view_enter_mouseoutEnterBtn(state) {
-			state.view_enter_isHover = false;
-		},
 		view_enter_clickEnterBtn(state) {
 			less.modifyVars({
 				'@stroke': state.toggleColor,
-				'@font-size': state.toggleFontSize,
 				'@font-color': state.toggleColor,
 				'@background-color': state.toggleColor == '#000000' ? '#ffffff' : '#000000',
 				'@border': '1px solid ' + state.toggleColor,
@@ -27,7 +18,6 @@ export default {
 			});
 
 			state.toggleColor = state.toggleColor == '#000000' ? '#ffffff': '#000000';
-			state.toggleFontSize = state.toggleFontSize == '24px' ? '30px' : '24px';
 		},
 		component_aniSvg_loadAniSvgTxt(state) {
 			this._vm.utils.requestGet('/aeoru5/aniSvgTxt', {}, res => {
@@ -43,12 +33,6 @@ export default {
 		}
 	},
 	actions: {
-		view_enter_mouseoverEnterBtn(ctx) {
-			ctx.commit('view_enter_mouseoverEnterBtn');
-		},
-		view_enter_mouseoutEnterBtn(ctx) {
-			ctx.commit('view_enter_mouseoutEnterBtn');
-		},
 		view_enter_clickEnterBtn(ctx) {
 			ctx.commit('view_enter_clickEnterBtn');
 		},

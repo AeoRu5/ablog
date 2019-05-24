@@ -10,9 +10,7 @@ export default {
 	},
 	methods: {
 		...mapActions([
-			'view_enter_clickEnterBtn',
-			'view_enter_mouseoverEnterBtn',
-			'view_enter_mouseoutEnterBtn'
+			'view_enter_clickEnterBtn'
 		])
 	},
 	computed: {
