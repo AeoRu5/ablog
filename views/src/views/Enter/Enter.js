@@ -15,7 +15,6 @@ export default {
 	},
 	computed: {
 		...mapState({
-			isHover: state => state.dialog_enter.view_enter_isHover,
 			isAniSvgAnimationEnd: state => state.dialog_enter.view_enter_isAniSvgAnimationEnd
 		})
 	}
