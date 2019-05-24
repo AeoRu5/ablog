@@ -11,21 +11,12 @@ module.exports = appInfo => {
       ignoreJSON: true
     },
 
-    domainWhiteList: [ 'http://localhost:8080' ]
+    domainWhiteList: [ 'http://localhost:8080', 'https://aeorus.xyz' ]
   };
 
   config.cors = {
     allowMethods: 'GET,POST',
   };
-
-  config.redis = {
-    client: {
-      port: 6379,
-      host: '127.0.0.1',
-      password: '',
-      db: 0,
-    },
-  }
 
   config.middleware = [];
 
