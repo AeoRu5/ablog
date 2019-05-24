@@ -4,7 +4,9 @@ export default {
 	state: {
 		view_enter_isHover: false,
 		view_enter_isAniSvgAnimationEnd: false,
-		component_aniSvg_aniSvgTxt: ''
+		component_aniSvg_aniSvgTxt: '',
+		toggleColor: '#000000',
+		toggleFontSize: '24px'
 	},
 	mutations: {
 		view_enter_mouseoverEnterBtn(state) {
@@ -15,14 +17,17 @@ export default {
 		},
 		view_enter_clickEnterBtn(state) {
 			less.modifyVars({
-				'@stroke': '#000000',
-				'@font-size': '30px',
-				'@font-color': '#000000',
-				'@background-color': '#ffffff',
-				'@border': '1px solid #000000',
-				'@box-shadow': '-10px -10px #000000',
-				'@text-shadow': '-10px -10px 10px #000000'
+				'@stroke': state.toggleColor,
+				'@font-size': state.toggleFontSize,
+				'@font-color': state.toggleColor,
+				'@background-color': state.toggleColor == '#000000' ? '#ffffff' : '#000000',
+				'@border': '1px solid ' + state.toggleColor,
+				'@box-shadow': '-10px -10px ' + state.toggleColor,
+				'@text-shadow': '-10px -10px 10px ' + state.toggleColor
 			});
+
+			state.toggleColor = state.toggleColor == '#000000' ? '#ffffff': '#000000';
+			state.toggleFontSize = state.toggleFontSize == '24px' ? '30px' : '24px';
 		},
 		component_aniSvg_loadAniSvgTxt(state) {
 			this._vm.utils.requestGet('/aeoru5/aniSvgTxt', {}, res => {
