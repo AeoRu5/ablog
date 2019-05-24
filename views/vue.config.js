@@ -1,4 +1,5 @@
 const path = require('path')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 
 module.exports = {
 	devServer: {
@@ -23,12 +24,10 @@ module.exports = {
 		}
 	},
 	css: {
+		extract: false,
 		sourceMap: false,
 		loaderOptions: {
 			less: {
-				modifyVars: {
-					'background-color': '#cccccc'
-				},
 				javascriptEnabled: true
 			}
 		}

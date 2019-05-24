@@ -149,6 +149,9 @@ summary {
 .inlineBlock,.fl,.fr {
   display:inline-block
 }
+.flex {
+  display: flex
+}
 .fl {
   float:left
 }
@@ -197,6 +200,10 @@ summary {
 }
 .marginMiddle {
   margin:0 auto
+}
+.flexHorVerMid {
+  align-items: center;
+  justify-content: center
 }
 .clearfix {
   *zoom:1

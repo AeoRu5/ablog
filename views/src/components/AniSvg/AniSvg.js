@@ -6,11 +6,11 @@ import {
 export default {
 	mounted() {
 		this.component_aniSvg_loadAniSvgTxt();
-		this.animationend('animationend');
-		this.animationend('webkitAnimationEnd');
+		this._animationend('animationend');
+		this._animationend('webkitAnimationEnd');
 	},
 	methods: {
-		animationend(event) {
+		_animationend(event) {
 			this.$refs.component_aniSvg_svg.addEventListener(event, this.component_aniSvg_animationend);
 		},
 		...mapActions([

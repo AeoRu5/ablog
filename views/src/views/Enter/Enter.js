@@ -8,11 +8,6 @@ export default {
 	components: {
 		AniSvg
 	},
-	created() {
-		// lessLoader.modifyVars({
-		// 	'background-color': '#000000'
-		// });
-	},
 	methods: {
 		...mapActions([
 			'view_enter_clickEnterBtn',

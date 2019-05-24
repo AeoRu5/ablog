@@ -5,7 +5,6 @@
   width: 100%;
   height: 100%;
   font-size: 150px;
-  background-color: @background-color;
 
   .animationMixin(@value, @aniSvgName) {
     animation: @aniSvgName 5s ease-in-out forwards;
@@ -14,14 +13,12 @@
       100% {
         stroke-dashoffset: @value;
         stroke-dasharray: 80 160;
-        text-shadow: -10px -10px 10px #ffffff;
       }
     }
   }
 
   .component_aniSvg_text {
     fill: none;
-    stroke: #ffffff;
     stroke-width: 1;
     stroke-dashoffset: 0;
     stroke-dasharray: 0 300;

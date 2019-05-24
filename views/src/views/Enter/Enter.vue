@@ -1,13 +1,15 @@
 <template>
 	<div class="enter_view_frame relative">
 		<AniSvg/>
-		<div
-			ref="enter_view_btn"
-			class="enter_view_btn absolute horVerMid cp"
-			:class="isAniSvgAnimationEnd ? isHover ? '' : 'animated infinite flash slower' : 'hide'"
-			@click="view_enter_clickEnterBtn"
-			@mouseover="view_enter_mouseoverEnterBtn"
-			@mouseout="view_enter_mouseoutEnterBtn">Enter</div>
+		<div class="enter_view_btn_frame flex">
+			<div
+				ref="enter_view_btn"
+				class="enter_view_btn themeFontColor themeBorder themeBoxShadow themeFontSize cp"
+				:class="isAniSvgAnimationEnd ? isHover ? '' : 'animated infinite flash slower' : 'hide'"
+				@click="view_enter_clickEnterBtn"
+				@mouseout="view_enter_mouseoutEnterBtn"
+				@mouseover="view_enter_mouseoverEnterBtn">Enter</div>
+		</div>
 	</div>
 </template>
 

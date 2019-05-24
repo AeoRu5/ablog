@@ -1,3 +1,5 @@
+import less from 'less'
+
 export default {
 	state: {
 		view_enter_isHover: false,
@@ -12,7 +14,15 @@ export default {
 			state.view_enter_isHover = false;
 		},
 		view_enter_clickEnterBtn(state) {
-			
+			less.modifyVars({
+				'@stroke': '#000000',
+				'@font-size': '30px',
+				'@font-color': '#000000',
+				'@background-color': '#ffffff',
+				'@border': '1px solid #000000',
+				'@box-shadow': '-10px -10px #000000',
+				'@text-shadow': '-10px -10px 10px #000000'
+			});
 		},
 		component_aniSvg_loadAniSvgTxt(state) {
 			this._vm.utils.requestGet('/aeoru5/aniSvgTxt', {}, res => {
