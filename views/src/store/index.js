@@ -1,11 +1,11 @@
 import Vue from 'vue'
 import vuex from 'vuex'
-import dialog_enter from './dialog_enter.js'
+import dialog_entry from './dialog_entry.js'
 
 Vue.use(vuex)
 
 export default new vuex.Store({
   modules: {
-    dialog_enter
+    dialog_entry
   }
 })

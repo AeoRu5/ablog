@@ -10,12 +10,12 @@ export default {
 	},
 	methods: {
 		...mapActions([
-			'view_enter_clickEnterBtn'
+			'view_entry_clickEnterBtn'
 		])
 	},
 	computed: {
 		...mapState({
-			isAniSvgAnimationEnd: state => state.dialog_enter.view_enter_isAniSvgAnimationEnd
+			isAniSvgAnimationEnd: state => state.dialog_entry.view_entry_isAniSvgAnimationEnd
 		})
 	}
 }
