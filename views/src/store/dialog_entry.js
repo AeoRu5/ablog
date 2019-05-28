@@ -10,12 +10,18 @@ export default {
 
 		},
 		component_aniSvg_loadAniSvgTxt(state) {
-			this._vm.utils.requestGet('/aeoru5/aniSvgTxt', {}, res => {
+			this._vm.utils.requestGet('/aeoru5/aniSvgTxt', {
+
+			},
+			res => {
 				if (res.success) {
 					state.component_aniSvg_aniSvgTxt = res.aniSvgTxt;
 				} else {
 					console.log(res.message);
 				}
+			},
+			err => {
+				console.log(err);
 			});
 		},
 		component_aniSvg_animationend(state) {
