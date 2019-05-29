@@ -1,24 +1,54 @@
 'use strict';
 
 module.exports = appInfo => {
-  const config = exports = {};
-  // use for cookie sign key, should change to your own and keep security
-  config.keys = appInfo.name + '_8618659651239_1216';
+	const config = exports = {
+		onerror: {
+			all(err, ctx) {
+				ctx.body = err;
+				ctx.status = 500;
+			}
+		}
+	};
 
-  config.security = {
-    csrf: {
-      enable: false,
-      ignoreJSON: true
-    },
+	config.keys = appInfo.name + '_8618659651239_1216';
 
-    domainWhiteList: [ 'http://localhost:8080', 'https://aeorus.xyz' ]
-  };
+	config.session = {
+		key: 'AEORUSTOKEN',
+		httpOnly: false,
+		encrypt: true,
+		signed: false,
+		renew: true
+	};
 
-  config.cors = {
-    allowMethods: 'GET,POST',
-  };
+	config.security = {
+		csrf: {
+			enable: false,
+			ignoreJSON: true
+		},
+		domainWhiteList: ['.aeorus.xyz']
+	};
 
-  config.middleware = [];
+	config.cors = {
+		allowMethods: 'GET,POST',
+	};
 
-  return config;
+	config.mysql = {
+		client: {
+			db1: {
+				host: '127.0.0.1',
+				port: '3306',
+				user: 'root',
+				password: 'aeorusy1',
+				database: 'test'
+			}
+		},
+		// 是否加载到 app 上，默认开启
+		app: true,
+		// 是否加载到 agent 上，默认关闭
+		agent: false,
+	};
+
+	config.middleware = ['validate', 'notFoundHandler'];
+
+	return config;
 };

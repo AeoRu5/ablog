@@ -10,14 +10,20 @@ export default {
 
 		},
 		component_aniSvg_loadAniSvgTxt(state) {
-			this._vm.utils.requestGet('/aeoru5/aniSvgTxt', {
+			let url = '/aeoru5/aniSvgTxt';
 
+			this._vm.utils.requestPost(url, {
+				data: {
+					name: 'aeorus',
+					age: 15,
+					gender: false
+				}
 			},
 			res => {
 				if (res.success) {
 					state.component_aniSvg_aniSvgTxt = res.aniSvgTxt;
 				} else {
-					console.log(res.message);
+					console.log(`${url}: ${res.message}`);
 				}
 			},
 			err => {
