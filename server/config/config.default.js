@@ -34,13 +34,11 @@ module.exports = appInfo => {
 
 	config.mysql = {
 		client: {
-			db1: {
-				host: '127.0.0.1',
-				port: '3306',
-				user: 'root',
-				password: 'aeorusy1',
-				database: 'test'
-			}
+			host: 'aeorus.xyz',
+			port: '3306',
+			user: 'root',
+			password: 'aeorusy1',
+			database: 'aeorus'
 		},
 		// 是否加载到 app 上，默认开启
 		app: true,
