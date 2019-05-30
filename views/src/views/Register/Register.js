@@ -20,15 +20,12 @@ export default {
 			this.activeComponentsApi.showModal({
 				title: '提示',
 				content: '注册成功',
-				showCancel: true,
+				showCancel: false,
 				confirm() {
 					console.log('confirm');
 				},
 				cancel() {
 					console.log('cancel');
-				},
-				completed() {
-					console.log('completed');
 				}
 			});
 		},

@@ -12,10 +12,10 @@ export default {
 	},
 	computed: {
 		...mapState({
-			modal_show: state => state.dialog_customize_components.component_customize_modal_isShow,
-			modal_title: state => state.dialog_customize_components.component_customize_modal_title,
-			modal_content: state => state.dialog_customize_components.component_customize_modal_content,
-			cancel_show: state => state.dialog_customize_components.component_customize_modal_isShowCancel
+			modal_show: state => state.dialog_customize_modal.component_customize_modal_isShow,
+			modal_title: state => state.dialog_customize_modal.component_customize_modal_title,
+			modal_content: state => state.dialog_customize_modal.component_customize_modal_content,
+			cancel_show: state => state.dialog_customize_modal.component_customize_modal_isShowCancel
 		})
 	}
 }

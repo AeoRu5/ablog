@@ -1,18 +1,11 @@
 export default {
 	state: {
-		component_customize_mask_isShow: false,
 		component_customize_modal_isShow: false,
 		component_customize_modal_title: '',
 		component_customize_modal_content: '',
 		component_customize_modal_isShowCancel: false
 	},
 	mutations: {
-		component_customize_mask_show(state, params) {
-			state.component_customize_mask_isShow = true;
-		},
-		component_customize_mask_hide(state) {
-			state.component_customize_mask_isShow = false;
-		},
 		component_customize_modal_show(state, params) {
 			state.component_customize_modal_isShow = true;
 			state.component_customize_modal_title = params.title;
@@ -27,12 +20,6 @@ export default {
 		component_customize_modal_completed(state) {}
 	},
 	actions: {
-		component_customize_mask_show(ctx) {
-			ctx.commit('component_customize_mask_show');
-		},
-		component_customize_mask_hide(ctx,) {
-			ctx.commit('component_customize_mask_hide');
-		},
 		component_customize_modal_show(ctx, params) {
 			ctx.commit('component_customize_modal_show', params);
 		},

@@ -9,7 +9,7 @@ export default {
 	},
 	computed: {
 		...mapState({
-			mask_show: state => state.dialog_customize_components.component_customize_mask_isShow
+			modal_show: state => state.dialog_customize_modal.component_customize_modal_isShow
 		})
 	}
 }

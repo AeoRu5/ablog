@@ -6,25 +6,31 @@ module.exports = () => {
 			if (ctx.request.method == 'GET') {
 				ctx.validate({
 					name: {
-						type: 'string'
+						type: 'string',
+						required: false
 					},
 					age: {
-						type: 'string'
+						type: 'string',
+						required: false
 					},
 					gender: {
-						type: 'string'
+						type: 'string',
+						required: false
 					}
 				}, ctx.query);
 			} else {
 				ctx.validate({
 					name: {
-						type: 'string'
+						type: 'string',
+						required: false
 					},
 					age: {
-						type: 'number'
+						type: 'number',
+						required: false
 					},
 					gender: {
-						type: 'boolean'
+						type: 'boolean',
+						required: false
 					}
 				}, ctx.request.body);
 			}
