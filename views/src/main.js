@@ -3,12 +3,15 @@ import './plugins/axios'
 import App from './App.vue'
 import router from './router'
 import store from './store'
-import animate from 'animate.css'
 import utils from './plugins/utils.js'
+import activeComponentsApi from './plugins/activeComponentsApi.js'
 import './registerServiceWorker'
+import animate from 'animate.css'
+import './assets/iconfont/iconfont.css'
 
 Vue.use(animate)
 Vue.prototype.utils = utils;
+Vue.prototype.activeComponentsApi = activeComponentsApi;
 Vue.config.productionTip = false
 
 new Vue({

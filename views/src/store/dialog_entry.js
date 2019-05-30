@@ -12,12 +12,8 @@ export default {
 		component_aniSvg_loadAniSvgTxt(state) {
 			let url = '/aeoru5/aniSvgTxt';
 
-			this._vm.utils.requestPost(url, {
-				data: {
-					name: 'aeorus',
-					age: 15,
-					gender: false
-				}
+			this._vm.utils.requestGet(url, {
+
 			},
 			res => {
 				if (res.success) {

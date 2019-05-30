@@ -5,9 +5,9 @@
       <text text-anchor="middle" x="50%" y="50%" dy="-50px">{{aniSvgTxt}}</text>
     </symbol>
     <!-- Duplicate symbols -->
-    <use xlink:href="#component_aniSvg_text_symbol" class="component_aniSvg_text themeStroke themeTextShadow block"></use>
-    <use xlink:href="#component_aniSvg_text_symbol" class="component_aniSvg_text themeStroke themeTextShadow block"></use>
-    <use xlink:href="#component_aniSvg_text_symbol" class="component_aniSvg_text themeStroke themeTextShadow block"></use>
+    <use xlink:href="#component_aniSvg_text_symbol" class="component_aniSvg_text block"></use>
+    <use xlink:href="#component_aniSvg_text_symbol" class="component_aniSvg_text block"></use>
+    <use xlink:href="#component_aniSvg_text_symbol" class="component_aniSvg_text block"></use>
   </svg>
 </template>
 

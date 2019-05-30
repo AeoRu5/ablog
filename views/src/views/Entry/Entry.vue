@@ -1,9 +1,9 @@
 <template>
-	<div class="entry_view_frame relative themeBackgroundColor">
+	<div class="view_entry_frame relative themeBackgroundColor">
 		<AniSvg/>
-		<div class="entry_view_btn_frame flex">
+		<div class="view_entry_btn_frame flex">
 			<div
-				class="entry_view_btn themeFontColor themeBorder themeBoxShadow cp"
+				class="view_entry_btn englishFont themeFontColor cp"
 				:class="isAniSvgAnimationEnd ? 'flex animated fadeIn slower' : 'hide'"
 				@click="view_entry_clickEnterBtn">Enter</div>
 		</div>

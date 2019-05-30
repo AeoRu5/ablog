@@ -1,10 +1,5 @@
-@stroke: #f0ffff;
-@font-size: 4vw;
 @font-color: #f0ffff;
 @background-color: #7b68ee;
-@border: 1px solid #f0ffff;
-@box-shadow: -10px -10px #f0ffff;
-@text-shadow: -10px -10px 8px #f0ffff;
 
 @font-face {
 	font-family: 'englishFont';
@@ -14,26 +9,34 @@ html, body, #app{
   height: 100%;
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
-  font-family: 'englishFont', Microsoft YaHei, sans-serif;
+  font-family: Microsoft YaHei, sans-serif;
 }
-.themeStroke {
-	stroke: @stroke;
+::-webkit-input-placeholder {
+	color: #cccccc;
+	font-size: 3vw;
+	font-weight: 100;
 }
-.themeFontSize {
-	font-size: @font-size;
+::-moz-placeholder {
+	color: #cccccc;
+	font-size: 3vw;
+	font-weight: 100;
+}
+:-ms-input-placeholder {
+ color: #cccccc;
+ font-size: 3vw;
+ font-weight: 100;
+}
+:-moz-placeholder {
+ color: #cccccc;
+ font-size: 3vw;
+ font-weight: 100;
+}
+.englishFont {
+	font-family: 'englishFont';
 }
 .themeFontColor {
 	color: @font-color;
 }
-.themeBorder {
-	border: @border;
-}
 .themeBackgroundColor {
 	background-color: @background-color;
-}
-.themeBoxShadow {
-	box-shadow: @box-shadow;
-}
-.themeTextShadow {
-	text-shadow: @text-shadow;
 }
