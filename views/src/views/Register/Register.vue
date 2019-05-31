@@ -41,6 +41,7 @@
 			</div>
 		</div>
 		<CustomizeMask />
+		<CustomizeToast />
 	</div>
 </template>
 

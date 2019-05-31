@@ -20,7 +20,7 @@ export default {
 	},
 	computed: {
 		...mapState({
-			aniSvgTxt: state => state.dialog_entry.component_aniSvg_aniSvgTxt
+			aniSvgTxt: state => state.entry.component_aniSvg_aniSvgTxt
 		})
 	}
 }

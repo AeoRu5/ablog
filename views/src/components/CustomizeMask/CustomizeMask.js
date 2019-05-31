@@ -9,7 +9,7 @@ export default {
 	},
 	computed: {
 		...mapState({
-			modal_show: state => state.dialog_customize_modal.component_customize_modal_isShow
+			modal_show: state => state.aeorusUI_modal.aeorusUI_modal_isShow
 		})
 	}
 }

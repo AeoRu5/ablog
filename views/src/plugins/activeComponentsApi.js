@@ -1,5 +1,7 @@
 import store from '@/store/index.js'
 
+let toastTimer;
+
 export default {
 	showModal({
 		title = '提示',
@@ -9,23 +11,53 @@ export default {
 		cancel,
 		completed
 	}) {
-		store._mutations.component_customize_modal_show[0]({
+		this.hideToast();
+
+		store._mutations.aeorusUI_modal_show[0]({
 			title,
 			content,
 			showCancel
 		});
-		
-		store._mutations.component_customize_modal_confirm[0] = () => {
+
+		store._mutations.aeorusUI_modal_confirm[0] = () => {
 			confirm();
-			store._mutations.component_customize_modal_hide[0]();
+			if (completed) completed();
+			store._mutations.aeorusUI_modal_hide[0]();
 		};
-		store._mutations.component_customize_modal_cancel[0] = () => {
+		store._mutations.aeorusUI_modal_cancel[0] = () => {
 			cancel();
-			store._mutations.component_customize_modal_hide[0]();
+			if (completed) completed();
+			store._mutations.aeorusUI_modal_hide[0]();
 		};
-		store._mutations.component_customize_modal_completed[0] = () => {
-			completed();
-			store._mutations.component_customize_modal_hide[0]();
-		};
+	},
+	showToast(params) {
+		let duration = 1000;
+
+		if (typeof params == 'string') {
+			store._mutations.aeorusUI_toast_show[0](params);
+		} else if (typeof params == 'object') {
+			let {
+				content,
+				mask
+			} = params;
+
+			if (params.duration) {
+				duration = params.duration;
+			}
+
+			store._mutations.aeorusUI_toast_show[0]({
+				content,
+				mask
+			});
+		}
+
+		toastTimer = setTimeout(() => {
+			store._mutations.aeorusUI_toast_hide[0]();
+			clearTimeout(toastTimer);
+		}, duration)
+	},
+	hideToast() {
+		clearTimeout(toastTimer);
+		store._mutations.aeorusUI_toast_hide[0]();
 	}
 }

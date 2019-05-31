@@ -6,16 +6,16 @@ import {
 export default {
 	methods: {
 		...mapActions([
-			'component_customize_modal_confirm',
-			'component_customize_modal_cancel'
+			'aeorusUI_modal_confirm',
+			'aeorusUI_modal_cancel'
 		])
 	},
 	computed: {
 		...mapState({
-			modal_show: state => state.dialog_customize_modal.component_customize_modal_isShow,
-			modal_title: state => state.dialog_customize_modal.component_customize_modal_title,
-			modal_content: state => state.dialog_customize_modal.component_customize_modal_content,
-			cancel_show: state => state.dialog_customize_modal.component_customize_modal_isShowCancel
+			modal_show: state => state.aeorusUI_modal.aeorusUI_modal_isShow,
+			modal_title: state => state.aeorusUI_modal.aeorusUI_modal_title,
+			modal_content: state => state.aeorusUI_modal.aeorusUI_modal_content,
+			cancel_show: state => state.aeorusUI_modal.aeorusUI_modal_isShowCancel
 		})
 	}
 }

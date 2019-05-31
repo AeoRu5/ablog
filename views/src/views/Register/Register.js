@@ -1,8 +1,10 @@
 import CustomizeMask from '@/components/CustomizeMask/CustomizeMask.vue'
+import CustomizeToast from '@/components/CustomizeToast/CustomizeToast.vue'
 
 export default {
 	components: {
-		CustomizeMask
+		CustomizeMask,
+		CustomizeToast
 	},
 	data() {
 		return {
@@ -15,17 +17,27 @@ export default {
 			view_register_password_type: 'password'
 		}
 	},
+	created() {
+		this.activeComponentsApi.showToast({
+			content: '我需要showToast，所以我觉得需要换行',
+			mask: true,
+			duration: 60000
+		});
+	},
 	methods: {
 		_view_register_confirm_register() {
 			this.activeComponentsApi.showModal({
 				title: '提示',
 				content: '注册成功',
-				showCancel: false,
+				showCancel: true,
 				confirm() {
 					console.log('confirm');
 				},
 				cancel() {
-					console.log('cancel');
+					
+				},
+				completed() {
+					console.log('completed')
 				}
 			});
 		},

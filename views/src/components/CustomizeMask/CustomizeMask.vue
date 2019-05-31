@@ -1,5 +1,5 @@
 <template>
-	<div v-if="modal_show" class="component_customize_mask_frame fixed">
+	<div v-if="modal_show" class="aeorusUI_mask_frame fixed">
 		<CustomizeModal />
 	</div>
 </template>

@@ -15,7 +15,7 @@ export default {
 	},
 	computed: {
 		...mapState({
-			isAniSvgAnimationEnd: state => state.dialog_entry.view_entry_isAniSvgAnimationEnd
+			isAniSvgAnimationEnd: state => state.entry.view_entry_isAniSvgAnimationEnd
 		})
 	}
 }
