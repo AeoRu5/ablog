@@ -40,8 +40,6 @@
 				<div class="view_register_form_confirm themeBackgroundColor themeFontColor cp" @click="_view_register_confirm_register">注册</div>
 			</div>
 		</div>
-		<CustomizeMask />
-		<CustomizeToast />
 	</div>
 </template>
 

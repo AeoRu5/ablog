@@ -1,11 +1,4 @@
-import CustomizeMask from '@/components/CustomizeMask/CustomizeMask.vue'
-import CustomizeToast from '@/components/CustomizeToast/CustomizeToast.vue'
-
 export default {
-	components: {
-		CustomizeMask,
-		CustomizeToast
-	},
 	data() {
 		return {
 			view_register_tel: '',
@@ -18,15 +11,16 @@ export default {
 		}
 	},
 	created() {
-		this.activeComponentsApi.showToast({
+		this.aeorusUI.showToast({
 			content: '我需要showToast，所以我觉得需要换行',
 			mask: true,
-			duration: 60000
+			duration: 3000
 		});
 	},
 	methods: {
 		_view_register_confirm_register() {
-			this.activeComponentsApi.showModal({
+			let self = this;
+			this.aeorusUI.showModal({
 				title: '提示',
 				content: '注册成功',
 				showCancel: true,
@@ -34,7 +28,11 @@ export default {
 					console.log('confirm');
 				},
 				cancel() {
-					
+					// self.aeorusUI.showToast({
+					// 	content: '我需要showToast，所以我觉得需要换行',
+					// 	mask: true,
+					// 	duration: 60000
+					// });
 				},
 				completed() {
 					console.log('completed')

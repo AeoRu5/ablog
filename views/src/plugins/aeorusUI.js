@@ -6,7 +6,7 @@ export default {
 	showModal({
 		title = '提示',
 		content = '提示内容',
-		showCancel = false,
+		showCancel = true,
 		confirm,
 		cancel,
 		completed
@@ -20,14 +20,14 @@ export default {
 		});
 
 		store._mutations.aeorusUI_modal_confirm[0] = () => {
+			store._mutations.aeorusUI_modal_hide[0]();
 			confirm();
 			if (completed) completed();
-			store._mutations.aeorusUI_modal_hide[0]();
 		};
 		store._mutations.aeorusUI_modal_cancel[0] = () => {
+			store._mutations.aeorusUI_modal_hide[0]();
 			cancel();
 			if (completed) completed();
-			store._mutations.aeorusUI_modal_hide[0]();
 		};
 	},
 	showToast(params) {
