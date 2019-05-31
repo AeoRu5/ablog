@@ -14,9 +14,7 @@ export default {
 		_view_register_confirm_register() {
 			this.aeorusUI.showLoading('注册中~');
 
-			let url = '/aeoru5/signUp';
-
-			this.utils.requestPost(url, {
+			this.utils.requestPost('/aeoru5/signUp', {
 				data: {
 					tel: this.view_register_tel,
 					securityCode: Number(this.view_register_securityCode),
@@ -36,7 +34,7 @@ export default {
 					});
 				} else {
 					this.aeorusUI.showToast({
-						content: `${url}: ${res.message}`,
+						content: res.message,
 						duration: 2000
 					});
 				}

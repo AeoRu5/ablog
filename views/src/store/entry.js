@@ -10,16 +10,17 @@ export default {
 
 		},
 		component_aniSvg_loadAniSvgTxt(state) {
-			let url = '/aeoru5/aniSvgTxt';
-
-			this._vm.utils.requestPost(url, {
+			this._vm.utils.requestPost('/aeoru5/aniSvgTxt', {
 
 			},
 			res => {
 				if (res.success) {
 					state.component_aniSvg_aniSvgTxt = res.aniSvgTxt;
 				} else {
-					console.log(`${url}: ${res.message}`);
+					this.aeorusUI.showToast({
+						content: res.message,
+						duration: 2000
+					});
 				}
 			},
 			err => {
