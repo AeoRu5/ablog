@@ -1,5 +1,5 @@
 <template>
-	<div class="view_loginRegister_frame relative themePageBackgroundColor">
+	<div class="view_loginRegister_frame relative">
 		<div class="view_loginRegister_form_frame absolute horVerMid">
 			<div class="view_loginRegister_form_title englishFont ac">WelCome To AeoRus~</div>
 			<div class="view_loginRegister_form_body">
@@ -42,7 +42,7 @@
 					:to="{
 						name: 'login'
 					}"
-					class="view_loginRegister_toEachOther_btn block relative ac cp">登录</router-link>
+					class="view_loginRegister_toEachOther_btn block relative ac cp">登录账号</router-link>
 			</div>
 		</div>
 	</div>

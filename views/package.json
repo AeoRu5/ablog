@@ -53,8 +53,12 @@
       "postcss-px-to-viewport": {
         "unitPrecision": 3,
         "viewportWidth": 750,
+        "viewportHeight": 1334,
         "viewportUnit": "vw",
-        "minPixelValue": 1
+        "minPixelValue": 1,
+        "mediaQuery": false,
+        "landscape": true,
+        "landscapeWidth": 750
       }
     }
   },

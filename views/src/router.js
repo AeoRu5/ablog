@@ -1,8 +1,5 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Entry from './views/Entry/Entry.vue'
-import Login from './views/Login/Login.vue'
-import Register from './views/Register/Register.vue'
 
 Vue.use(Router)
 
@@ -12,14 +9,14 @@ export default new Router({
   routes: [{
     path: '/',
     name: 'entry',
-    component: Entry
+    component: () => import('@/views/Entry/Entry.vue')
   }, {
     path: '/login',
     name: 'login',
-    component: Login
+    component: () => import('@/views/Login/Login.vue')
   }, {
   	path: '/register',
     name: 'register',
-    component: Register
+    component: () => import('@/views/Register/Register.vue')
   }]
 })

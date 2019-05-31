@@ -1,6 +1,6 @@
 <template>
-  <div id="app">
-    <router-view/>
+  <div id="app" class="themePageBackgroundColor">
+    <router-view />
     <CustomizeMask />
 		<CustomizeToast />
   </div>

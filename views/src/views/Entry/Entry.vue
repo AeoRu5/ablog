@@ -1,5 +1,5 @@
 <template>
-	<div class="view_entry_frame relative themePageBackgroundColor">
+	<div class="view_entry_frame relative">
 		<AniSvg/>
 		<div class="view_entry_btn_frame flex">
 			<router-link

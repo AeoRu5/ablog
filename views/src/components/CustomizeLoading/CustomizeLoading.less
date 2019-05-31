@@ -1,20 +1,44 @@
-.aeorusUI_loading_frame {
-	display: flex;
-	z-index: 9999;
-	max-width: 80%;
-	color: @azure;
-	padding: 2vw 5vw;
-	border-radius: 5vw;
-	align-items: center;
-	background-color: #7b68eee6;
+@media screen and (max-width: 1024px) {
+	.aeorusUI_loading_frame {
+		display: flex;
+		z-index: 9999;
+		max-width: 80%;
+		color: @azure;
+		padding: 2vw 5vw;
+		border-radius: 5vw;
+		align-items: center;
+		background-color: #7b68eee6;
 
-	.icon-thunderbolt-fill {
-		font-size: 5vw;
+		.icon-thunderbolt-fill {
+			font-size: 5vw;
+		}
+
+		.aeorusUI_loading_content {
+			font-size: 4vw;
+			overflow: hidden;
+			word-wrap: break-word;
+		}
 	}
+}
+@media screen and (min-width: 1025px) {
+	.aeorusUI_loading_frame {
+		display: flex;
+		z-index: 9999;
+		max-width: 80%;
+		color: @azure;
+		padding: 10px 20px;
+		border-radius: 50px;
+		align-items: center;
+		background-color: #7b68eee6;
 
-	.aeorusUI_loading_content {
-		font-size: 4vw;
-		overflow: hidden;
-		word-wrap: break-word;
+		.icon-thunderbolt-fill {
+			font-size: 20px;
+		}
+
+		.aeorusUI_loading_content {
+			font-size: 16px;
+			overflow: hidden;
+			word-wrap: break-word;
+		}
 	}
 }

@@ -1,83 +1,171 @@
-.view_loginRegister_frame {
-	width: 100%;
-	height: 100%;
+@media screen and (max-width: 1024px) {
+	.view_loginRegister_frame {
+		width: 100%;
+		height: 100%;
 
-	.view_loginRegister_form_frame {
-		width: 80%;
-		padding: 0 5vw;
-		border-radius: 5vw;
-		background-color: #ffffff;
-
-		.view_loginRegister_form_title {
-			color: @MediumSlateBlue;
-			margin-top: 2vw;
-			font-size: 7.5vw;
-		}
-
-		.view_loginRegister_form_input_block {
-			height: 10vw;
-			display: flex;
-			font-size: 4vw;
-			margin-top: 5vw;
-			align-items: center;
-			border-bottom: .25vw solid #f8f8f8;
-
-			.view_loginRegister_form_input {
-				flex: 1;
-				height: 100%;
-				border: none;
-				font-size: 4vw;
-			}
-
-			.view_loginRegister_form_securityCode_btn {
-				color: @MediumSlateBlue;
-			}
-
-			.icon-eye, .icon-eye-close {
-				color: @MediumSlateBlue;
-				font-size: 5vw;
-			}
-		}
-
-		.view_loginRegister_form_input_tip {
-			display: flex;
-			color: #ff0000;
-			font-size: 3vw;
-			margin-top: 5vw;
-			align-items: center;
-
-			.icon-alert {
-				font-size: 4vw;
-			}
-		}
-
-		.view_loginRegister_form_confirm {
+		.view_loginRegister_form_frame {
 			width: 80%;
-			height: 12vw;
-			display: flex;
-			font-size: 4vw;
-			margin: 5vw auto;
-			margin-bottom: 0;
-			border-radius: 6vw;
-			align-items: center;
-			justify-content: center;
+			padding: 0 5vw;
+			border-radius: 5vw;
+			background-color: #ffffff;
+
+			.view_loginRegister_form_title {
+				color: @MediumSlateBlue;
+				margin-top: 2vw;
+				font-size: 7.5vw;
+			}
+
+			.view_loginRegister_form_input_block {
+				height: 10vw;
+				display: flex;
+				font-size: 4vw;
+				margin-top: 5vw;
+				align-items: center;
+				border-bottom: .25vw solid #f8f8f8;
+
+				.view_loginRegister_form_input {
+					flex: 1;
+					height: 100%;
+					border: none;
+					font-size: 4vw;
+				}
+
+				.view_loginRegister_form_securityCode_btn {
+					color: @MediumSlateBlue;
+				}
+
+				.icon-eye, .icon-eye-close {
+					color: @MediumSlateBlue;
+					font-size: 5vw;
+				}
+			}
+
+			.view_loginRegister_form_input_tip {
+				display: flex;
+				color: #ff0000;
+				font-size: 3vw;
+				margin-top: 5vw;
+				align-items: center;
+
+				.icon-alert {
+					font-size: 4vw;
+				}
+			}
+
+			.view_loginRegister_form_confirm {
+				width: 80%;
+				height: 12vw;
+				display: flex;
+				font-size: 4vw;
+				margin: 5vw auto;
+				margin-bottom: 0;
+				border-radius: 6vw;
+				align-items: center;
+				justify-content: center;
+			}
+
+			.view_loginRegister_toEachOther_btn {
+				width: 16vw;
+				color: @MediumSlateBlue;
+				font-size: 3vw;
+				margin: 3vw auto;
+				margin-bottom: 5vw;
+
+				&::after {
+					left: 0;
+					bottom: -1vw;
+					content: '';
+					width: 100%;
+					height: .25vw;
+					position: absolute;
+					background-color: @MediumSlateBlue;
+				}
+			}
 		}
+	}
+}
+@media screen and (min-width: 1025px) {
+	.view_loginRegister_frame {
+		width: 100%;
+		height: 100%;
 
-		.view_loginRegister_toEachOther_btn {
-			width: 16vw;
-			color: @MediumSlateBlue;
-			font-size: 3vw;
-			margin: 3vw auto;
-			margin-bottom: 5vw;
+		.view_loginRegister_form_frame {
+			width: 500px;
+			padding: 0 30px;
+			border-radius: 30px;
+			background-color: #ffffff;
 
-			&::after {
-				left: 0;
-				bottom: -1vw;
-				content: '';
+			.view_loginRegister_form_title {
+				color: @MediumSlateBlue;
+				font-size: 30px;
+				margin-top: 10px;
+			}
+
+			.view_loginRegister_form_input_block {
 				width: 100%;
-				height: .25vw;
-				position: absolute;
-				background-color: @MediumSlateBlue;
+				height: 60px;
+				display: flex;
+				font-size: 24px;
+				margin-top: 30px;
+				align-items: center;
+				border-bottom: 1px solid #f8f8f8;
+
+				.view_loginRegister_form_input {
+					flex: 1;
+					height: 100%;
+					border: none;
+					font-size: 24px;
+				}
+
+				.view_loginRegister_form_securityCode_btn {
+					color: @MediumSlateBlue;
+				}
+
+				.icon-eye, .icon-eye-close {
+					color: @MediumSlateBlue;
+					font-size: 30px;
+				}
+			}
+
+			.view_loginRegister_form_input_tip {
+				display: flex;
+				color: #ff0000;
+				font-size: 20px;
+				margin-top: 30px;
+				align-items: center;
+
+				.icon-alert {
+					font-size: 24px;
+				}
+			}
+
+			.view_loginRegister_form_confirm {
+				width: 80%;
+				height: 50px;
+				display: flex;
+				font-size: 24px;
+				margin: 30px auto;
+				margin-bottom: 0;
+				border-radius: 50px;
+				align-items: center;
+				justify-content: center;
+			}
+
+			.view_loginRegister_toEachOther_btn {
+				width: 100px;
+				color: @MediumSlateBlue;
+				margin: 12px auto;
+				margin-bottom: 30px;
+
+				&::after {
+					left: 0;
+					content: '';
+					width: 100%;
+					height: 2px;
+					bottom: -6px;
+					position: absolute;
+					background-color: @MediumSlateBlue;
+				}
 			}
 		}
 	}
