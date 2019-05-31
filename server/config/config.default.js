@@ -29,7 +29,7 @@ module.exports = appInfo => {
 	};
 
 	config.cors = {
-		allowMethods: 'GET,POST',
+		allowMethods: 'GET,POST'
 	};
 
 	config.mysql = {
@@ -46,7 +46,7 @@ module.exports = appInfo => {
 		agent: false,
 	};
 
-	config.middleware = ['validate', 'notFoundHandler'];
+	config.middleware = ['notFoundHandler'];
 
 	return config;
 };

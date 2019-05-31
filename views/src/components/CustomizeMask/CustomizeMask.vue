@@ -1,6 +1,7 @@
 <template>
-	<div v-if="modal_show" class="aeorusUI_mask_frame fixed">
+	<div v-if="modal_show || loading_show" class="aeorusUI_mask_frame fixed">
 		<CustomizeModal />
+		<CustomizeLoading />
 	</div>
 </template>
 

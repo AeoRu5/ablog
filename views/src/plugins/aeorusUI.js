@@ -30,7 +30,7 @@ export default {
 			if (completed) completed();
 		};
 	},
-	showToast(params) {
+	showToast(params, callback) {
 		let duration = 1000;
 
 		if (typeof params == 'string') {
@@ -53,11 +53,19 @@ export default {
 
 		toastTimer = setTimeout(() => {
 			store._mutations.aeorusUI_toast_hide[0]();
+
+			if (callback) callback();
 			clearTimeout(toastTimer);
-		}, duration)
+		}, duration);
 	},
 	hideToast() {
 		clearTimeout(toastTimer);
 		store._mutations.aeorusUI_toast_hide[0]();
+	},
+	showLoading(content = '加载中') {
+		store._mutations.aeorusUI_loading_show[0](content);
+	},
+	hideLoading() {
+		store._mutations.aeorusUI_loading_hide[0]();
 	}
 }

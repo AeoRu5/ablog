@@ -10,33 +10,42 @@ export default {
 			view_register_password_type: 'password'
 		}
 	},
-	created() {
-		this.aeorusUI.showToast({
-			content: '我需要showToast，所以我觉得需要换行',
-			mask: true,
-			duration: 3000
-		});
-	},
 	methods: {
 		_view_register_confirm_register() {
-			let self = this;
-			this.aeorusUI.showModal({
-				title: '提示',
-				content: '注册成功',
-				showCancel: true,
-				confirm() {
-					console.log('confirm');
-				},
-				cancel() {
-					// self.aeorusUI.showToast({
-					// 	content: '我需要showToast，所以我觉得需要换行',
-					// 	mask: true,
-					// 	duration: 60000
-					// });
-				},
-				completed() {
-					console.log('completed')
+			this.aeorusUI.showLoading('注册中~');
+
+			let url = '/aeoru5/signUp';
+
+			this.utils.requestPost(url, {
+				data: {
+					tel: this.view_register_tel,
+					securityCode: Number(this.view_register_securityCode),
+					password: this.view_register_password
 				}
+			},
+			res => {
+				this.aeorusUI.hideLoading();
+
+				if (res.success) {
+					this.aeorusUI.showToast({
+						content: res.message,
+						mask: true,
+						duration: 3000
+					}, () => {
+						console.log('激活了~');
+					});
+				} else {
+					this.aeorusUI.showToast({
+						content: `${url}: ${res.message}`,
+						duration: 2000
+					});
+				}
+			},
+			err => {
+				this.aeorusUI.showToast({
+					content: '你的网络大概炸了?',
+					duration: 2000
+				});
 			});
 		},
 		_view_register_toggle_password_show() {

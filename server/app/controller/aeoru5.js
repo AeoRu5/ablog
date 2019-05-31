@@ -8,7 +8,48 @@ module.exports = app => {
 				app
 			} = this;
 
-			ctx.body = await ctx.service.getAniSvgTxtResult.get();
+			ctx.body = await ctx.service.getAniSvgTxtResult.post();
+		}
+		async getRegisterForm() {
+			const {
+				ctx,
+				app
+			} = this;
+
+			try {
+				ctx.validate({
+					tel: {
+						type: 'string',
+						require: true
+					},
+					securityCode: {
+						type: 'number',
+						require: true
+					},
+					password: {
+						type: 'string',
+						require: true
+					},
+				}, ctx.request.body);
+			} catch (e) {
+				ctx.logger.warn(e);
+
+				let errors = e.errors,
+					message = '';
+
+				errors.map((error, index) => {
+					message += index > 0 ? ` and '${error.field}' ${error.message}` : `'${error.field}' ${error.message}`;
+				});
+
+				ctx.body = {
+					message,
+					success: false
+				};
+
+				return;
+			}
+
+			ctx.body = await ctx.service.getRegisterFormResult.post(ctx.request.body);
 		}
 	}
 };

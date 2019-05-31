@@ -3,9 +3,8 @@
 const Service = require('egg').Service;
 
 class GetAniSvgTxtResultService extends Service {
-  async get() {
+  async post() {
     try {
-      //console.log(this.ctx.request.socket.remoteAddress)
       const getEntryCount = await this.app.mysql.get('visitors', {
           id: 0
         }),
@@ -15,7 +14,6 @@ class GetAniSvgTxtResultService extends Service {
           entryCount
         },
         updateResult = await this.app.mysql.update('visitors', row),
-        //updataSuccess = updateResult.affectedRows === 1,
         aniSvgTxtResult = {
           aniSvgTxt: '新の助',
           success: true

@@ -12,7 +12,7 @@ export default {
 		component_aniSvg_loadAniSvgTxt(state) {
 			let url = '/aeoru5/aniSvgTxt';
 
-			this._vm.utils.requestGet(url, {
+			this._vm.utils.requestPost(url, {
 
 			},
 			res => {
