@@ -2,10 +2,10 @@
 
 const Service = require('egg').Service;
 
-class GetRegisterFormResultService extends Service {
+class GetSignUpResultService extends Service {
   async post(params) {
     try {
-      let RegisterFormResult;
+      let SignUpResult;
       const {
         tel,
         securityCode,
@@ -24,24 +24,24 @@ class GetRegisterFormResultService extends Service {
           insertUserSuccess = insertUserResult.affectedRows === 1;
 
         if (insertUserSuccess) {
-          RegisterFormResult = {
-            message: '注册成功',
+          SignUpResult = {
+            message: '注册成功~',
             success: true
           };
         } else {
-          RegisterFormResult = {
+          SignUpResult = {
             message: insertUserResult.message,
             success: false
           };
         }
       } else {
-        RegisterFormResult = {
+        SignUpResult = {
           message: '该手机号已被注册啦~',
           success: false
         }
       }
 
-      return RegisterFormResult;
+      return SignUpResult;
     } catch (e) {
       return Object.assign(e, {
         success: false
@@ -50,4 +50,4 @@ class GetRegisterFormResultService extends Service {
   }
 }
 
-module.exports = GetRegisterFormResultService;
+module.exports = GetSignUpResultService;

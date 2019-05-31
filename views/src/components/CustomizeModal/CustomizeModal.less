@@ -1,55 +1,53 @@
-@color: #f8f8f8;
-@font-color: #7b68ee;
-@border: 1px solid @color;
+@border: .25vw solid #f8f8f8;
 
 .aeorusUI_modal_frame {
 	width: 80%;
 	z-index: 9998;
 	display: flex;
-	border-radius: 30px;
+	border-radius: 10vw;
 	flex-direction: column;
 	background-color: #ffffff;
 
 	.aeorusUI_modal_title {
-		height: 100px;
-		color: @font-color;
+		height: 14vw;
+		color: @MediumSlateBlue;
 		font-size: 4vw;
-		line-height: 100px;
+		line-height: 14vw;
 		border-bottom: @border;
 	}
 
 	.aeorusUI_modal_content {
 		flex: 1;
-		padding: 40px;
+		padding: 5vw;
 		font-size: 5vw;
 	}
 
 	.aeorusUI_modal_btns {
 		display: flex;
-		height: 100px;
+		height: 20vw;
 		font-size: 4vw;
-		line-height: 100px;
-		border-radius: 20px 0 0 0;
+		line-height: 20vw;
+		border-radius: 10vw 0 0 0;
 
 		.aeorusUI_modal_btn {
 			flex: 1;
-			letter-spacing: 8px;
+			letter-spacing: 2vw;
 		}
 
 		.aeorusUI_modal_btn_cancel {
-			color: @font-color;
+			color: @MediumSlateBlue;
 			background-color: #ffffff;
-			border-radius: 0 0 0 30px;
+			border-radius: 0 0 0 10vw;
 		}
 
 		.aeorusUI_modal_btn_confirm {
 			color: #ffffff;
-			border-radius: 30px 0 30px 0;
-			background-color: @font-color;
+			border-radius: 10vw 0 10vw 0;
+			background-color: @MediumSlateBlue;
 		}
 
 		.aeorusUI_modal_btn_confirm_only {
-			border-radius: 0 0 30px 30px;
+			border-radius: 0 0 10vw 10vw;
 		}
 	}
 }

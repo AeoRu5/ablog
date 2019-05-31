@@ -4,7 +4,7 @@
   z-index: 0;
   width: 100%;
   height: 100%;
-  font-size: 150px;
+  font-size: 25vw;
 
   .animationMixin(@value, @aniSvgName) {
     animation: @aniSvgName 5s ease-in-out forwards;
@@ -19,11 +19,11 @@
 
   .component_aniSvg_text {
     fill: none;
-    stroke: #f0ffff;
+    stroke: @azure;
     stroke-width: 1;
     stroke-dashoffset: 0;
     stroke-dasharray: 0 300;
-    text-shadow: -10px -10px 8px #f0ffff;
+    text-shadow: -2vw -2vw 1.5vw @azure;
 
     &:nth-child(3n + 1) {
       .animationMixin(1000, aniSvg_one);

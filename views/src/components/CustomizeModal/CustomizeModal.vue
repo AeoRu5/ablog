@@ -5,7 +5,7 @@
 		<div class="aeorusUI_modal_btns">
 			<div
 				v-if="cancel_show"
-				class="aeorusUI_modal_btn_cancel aeorusUI_modal_btn ac"
+				class="aeorusUI_modal_btn_cancel aeorusUI_modal_btn ac cp"
 				@click="aeorusUI_modal_cancel">取消</div>
 			<div
 				class="aeorusUI_modal_btn_confirm aeorusUI_modal_btn ac cp"

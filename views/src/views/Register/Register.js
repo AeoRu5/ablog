@@ -29,8 +29,6 @@ export default {
 						content: res.message,
 						mask: true,
 						duration: 3000
-					}, () => {
-						console.log('激活了~');
 					});
 				} else {
 					this.aeorusUI.showToast({

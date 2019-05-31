@@ -28,6 +28,10 @@ module.exports = {
 		sourceMap: false,
 		loaderOptions: {
 			less: {
+				modifyVars: {
+					'azure': '#f0ffff',
+					'MediumSlateBlue': '#7b68ee'
+				},
 				javascriptEnabled: true
 			}
 		}

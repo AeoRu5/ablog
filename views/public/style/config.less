@@ -1,5 +1,7 @@
-@font-color: #f0ffff;
-@background-color: #7b68ee;
+@azure: #f0ffff;
+@MediumSlateBlue: #7b68ee;
+@component-background-color: @MediumSlateBlue;
+@page-background-color: -webkit-linear-gradient(bottom, @MediumSlateBlue, @azure);
 
 @font-face {
 	font-family: 'englishFont';
@@ -32,11 +34,14 @@ html, body, #app{
  font-weight: 100;
 }
 .englishFont {
-	font-family: 'englishFont';
+	font-family: 'englishFont' !important;
 }
 .themeFontColor {
-	color: @font-color;
+	color: @azure !important;
 }
 .themeBackgroundColor {
-	background-color: @background-color;
+	background-color: @component-background-color !important;
+}
+.themePageBackgroundColor {
+	background: @page-background-color !important;
 }

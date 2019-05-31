@@ -6,9 +6,6 @@ export default {
 		component_aniSvg_aniSvgTxt: ''
 	},
 	mutations: {
-		view_entry_clickEnterBtn(state) {
-
-		},
 		component_aniSvg_loadAniSvgTxt(state) {
 			this._vm.utils.requestPost('/aeoru5/aniSvgTxt', {
 
@@ -32,9 +29,6 @@ export default {
 		}
 	},
 	actions: {
-		view_entry_clickEnterBtn(ctx) {
-			ctx.commit('view_entry_clickEnterBtn');
-		},
 		component_aniSvg_loadAniSvgTxt(ctx) {
 			ctx.commit('component_aniSvg_loadAniSvgTxt');
 		},
