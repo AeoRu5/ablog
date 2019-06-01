@@ -13,11 +13,12 @@ module.exports = appInfo => {
 	config.keys = appInfo.name + '_8618659651239_1216';
 
 	config.session = {
-		key: 'AEORUSTOKEN',
-		httpOnly: false,
+		renew: true,
 		encrypt: true,
 		signed: false,
-		renew: true
+		key: 'USERINFO',
+		httpOnly: false,
+		maxAge: 60 * 1000
 	};
 
 	config.security = {
@@ -46,7 +47,7 @@ module.exports = appInfo => {
 		agent: false,
 	};
 
-	config.middleware = ['notFoundHandler'];
+	config.middleware = ['notFoundHandler', 'checkLoadStatus'];
 
 	return config;
 };

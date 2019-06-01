@@ -27,6 +27,14 @@ class GetSignInResultService extends Service {
             updateUserLoadStatusSuccess = updateUserLoadStatusResult.affectedRows === 1;
 
           if (updateUserLoadStatusSuccess) {
+            this.ctx.session.USERINFO = {
+              loaded: 1,
+              tel: selectUserResult.tel,
+              userid: selectUserResult.userid,
+              nickname: selectUserResult.nickname,
+              createDate: selectUserResult.createDate
+            };
+
             SignInResult = {
               message: '登陆成功~',
               success: true

@@ -29,6 +29,8 @@ export default {
 						content: res.message,
 						mask: true,
 						duration: 3000
+					}, () => {
+						this.$router.go(-1);
 					});
 				} else {
 					this.aeorusUI.showToast({

@@ -1,4 +1,5 @@
 import axios from 'axios'
+import router from '../router'
 
 export default {
 	requestGet(url, params, successCallback, errorCallback) {
@@ -23,9 +24,17 @@ export default {
 			headers
 		}).then(res => {
 			if (res.request.readyState == 4 && res.status == 200) {
-				if (successCallback) successCallback(res.data);
+				let result = res.data;
+
+				if (result.needLoad) {
+					router.push({
+						name: 'login'
+					});
+				} else {
+					if (successCallback) successCallback(result);
+				}
 			} else {
-				if (errorCallback) errorCallback(res.data);
+				if (errorCallback) errorCallback(result);
 			}
 		}).catch(e => {
 			if (errorCallback) errorCallback(e);
@@ -40,9 +49,16 @@ export default {
 			headers
 		}).then(res => {
 			if (res.request.readyState == 4 && res.status == 200) {
-				if (successCallback) successCallback(res.data);
+				let result = res.data;
+				if (result.needLoad) {
+					router.push({
+						name: 'login'
+					});
+				} else {
+					if (successCallback) successCallback(result);
+				}
 			} else {
-				if (errorCallback) errorCallback(res.data);
+				if (errorCallback) errorCallback(result);
 			}
 		}).catch(e => {
 			if (errorCallback) errorCallback(e);

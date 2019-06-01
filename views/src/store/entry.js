@@ -14,7 +14,7 @@ export default {
 				if (res.success) {
 					state.component_aniSvg_aniSvgTxt = res.aniSvgTxt;
 				} else {
-					this.aeorusUI.showToast({
+					this._vm.aeorusUI.showToast({
 						content: res.message,
 						duration: 2000
 					});
