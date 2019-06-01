@@ -5,15 +5,15 @@ const Service = require('egg').Service;
 class GetAniSvgTxtResultService extends Service {
   async post() {
     try {
-      const getEntryCount = await this.app.mysql.get('visitors', {
+      const getVisitorsCounts = await this.app.mysql.get('visitors', {
           id: 0
         }),
-        entryCount = getEntryCount.entryCount + 1,
-        row = {
+        visitorsCounts = getVisitorsCounts.visitorsCounts + 1,
+        updateVisitorsCountsRow = {
           id: 0,
-          entryCount
+          visitorsCounts
         },
-        updateResult = await this.app.mysql.update('visitors', row),
+        updateVisitorsCountsResult = await this.app.mysql.update('visitors', updateVisitorsCountsRow),
         aniSvgTxtResult = {
           aniSvgTxt: '新の助',
           success: true

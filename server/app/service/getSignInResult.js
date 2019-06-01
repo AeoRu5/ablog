@@ -17,9 +17,25 @@ class GetSignInResultService extends Service {
 
       if (selectUserResult && selectUserResult.enabled == 1) {
         if (selectUserResult.password == password) {
-          SignInResult = {
-            message: '登陆成功~',
-            success: true
+          const updateUserLoadStatusResult = await this.app.mysql.update('users', {
+              loaded: 1
+            }, {
+              where: {
+                userid: selectUserResult.userid
+              }
+            }),
+            updateUserLoadStatusSuccess = updateUserLoadStatusResult.affectedRows === 1;
+
+          if (updateUserLoadStatusSuccess) {
+            SignInResult = {
+              message: '登陆成功~',
+              success: true
+            }
+          } else {
+            SignInResult = {
+              message: '登陆失败请重试~',
+              success: false
+            }
           }
         } else {
           SignInResult = {

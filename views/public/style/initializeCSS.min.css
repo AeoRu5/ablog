@@ -2,10 +2,6 @@
 * {
   margin:0;
   padding:0;
-  user-select:none;
-  -ms-user-select:none;
-  -moz-user-select:none;
-  -webkit-user-select:none;
   box-sizing:border-box;
   -webkit-appearance:none;
   -webkit-box-sizing:border-box;
