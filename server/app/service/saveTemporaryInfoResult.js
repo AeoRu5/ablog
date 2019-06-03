@@ -12,7 +12,8 @@ class SaveTemporaryInfoResultService extends Service {
 			} = params,
 			insertTemporaryInfoResult = await this.app.mysql.insert('temporaryInfo', {
 				tel,
-				nickname
+				nickname,
+				ip: this.ctx.request.ip.replace(/::ffff:/, '')
 			}),
 			insertTemporaryInfoSuccess = insertTemporaryInfoResult.affectedRows === 1;
 

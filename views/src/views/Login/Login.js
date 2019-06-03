@@ -13,6 +13,24 @@ export default {
 			this.view_login_password_type = this.view_login_password_type == 'password' ? 'text' : 'password';
 		},
 		_view_login_confirm_login() {
+			if (!/\d{11}/.test(this.view_login_tel)) {
+				this.aeorusUI.showToast({
+					content: '手机号有点东西啊~',
+					mask: true
+				});
+
+				return;
+			}
+
+			if (this.view_login_password.length == 0) {
+				this.aeorusUI.showToast({
+					content: '真就不写密码哦~',
+					mask: true
+				});
+
+				return;
+			}
+
 			this.aeorusUI.showLoading('登录中~');
 
 			this.utils.requestPost('/aeoru5/signIn', {

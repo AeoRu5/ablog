@@ -10,6 +10,7 @@ class GetSignUpResultService extends Service {
 			let SignUpResult;
 			const {
 				tel,
+				nickname,
 				securityCode,
 				password
 			} = params,
@@ -30,7 +31,10 @@ class GetSignUpResultService extends Service {
 					insertUserResult = await this.app.mysql.insert('users', {
 						userid,
 						tel,
-						password: saltPassword
+						nickname,
+						securityCode,
+						password: saltPassword,
+						ip: this.ctx.request.ip.replace(/::ffff:/, '')
 					}),
 					insertUserSuccess = insertUserResult.affectedRows === 1;
 
