@@ -2,7 +2,7 @@ module.exports = () => {
 	return async function checkLoadStatus(ctx, next) {
 		await next();
 
-		let noRight = /signIn|signUp/i.test(ctx.request.url);
+		let noRight = /signIn|signUp|saveTemporaryInfo/i.test(ctx.request.url);
 
 		if (!noRight) {
 			if (!ctx.session.USERINFO) {

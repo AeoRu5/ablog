@@ -10,6 +10,14 @@ module.exports = app => {
 
 			ctx.body = await ctx.service.getAniSvgTxtResult.post();
 		}
+		async saveTemporaryInfo() {
+			const {
+				ctx,
+				app
+			} = this;
+
+			ctx.body = await ctx.service.saveTemporaryInfoResult.post(ctx.request.body);
+		}
 		async signUp() {
 			const {
 				ctx,

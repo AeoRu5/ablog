@@ -10,13 +10,23 @@
 						type="number"
 						placeholder="请输入手机号">
 				</div>
+				<div class="view_loginRegister_form_tel view_loginRegister_form_input_block relative">
+					<input
+						v-model="view_register_nickname"
+						class="view_loginRegister_form_input"
+						type="text"
+						placeholder="请输入昵称">
+				</div>
 				<div class="view_loginRegister_form_securityCode view_loginRegister_form_input_block relative">
 					<input
 						v-model="view_register_securityCode"
 						class="view_loginRegister_form_input"
 						type="number"
 						placeholder="请输入验证码">
-					<div class="view_loginRegister_form_securityCode_btn">获取验证码</div>
+					<div
+						class="view_loginRegister_form_securityCode_btn cp"
+						:class="view_register_securityCode_isGetting ? 'view_loginRegister_form_securityCode_btn_isGetting' : ''"
+						@click="_view_register_securityCode_get">{{view_register_securityCodeTxt}}</div>
 				</div>
 				<div class="view_loginRegister_form_password view_loginRegister_form_input_block relative">
 					<input

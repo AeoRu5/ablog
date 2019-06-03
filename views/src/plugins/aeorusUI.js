@@ -21,12 +21,12 @@ export default {
 
 		store._mutations.aeorusUI_modal_confirm[0] = () => {
 			store._mutations.aeorusUI_modal_hide[0]();
-			confirm();
+			if (confirm) confirm();
 			if (completed) completed();
 		};
 		store._mutations.aeorusUI_modal_cancel[0] = () => {
 			store._mutations.aeorusUI_modal_hide[0]();
-			cancel();
+			if (cancel) cancel();
 			if (completed) completed();
 		};
 	},

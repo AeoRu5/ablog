@@ -2,7 +2,10 @@ export default {
 	data() {
 		return {
 			view_register_tel: '',
+			view_register_nickname: '',
 			view_register_securityCode: '',
+			view_register_securityCode_isGetting: false,
+			view_register_securityCodeTxt: '获取验证码',
 			view_register_password: '',
 			view_register_password_format_error_show: false,
 			view_register_password_format_error_message: '',
@@ -15,34 +18,87 @@ export default {
 			this.aeorusUI.showLoading('注册中~');
 
 			this.utils.requestPost('/aeoru5/signUp', {
-				data: {
-					tel: this.view_register_tel,
-					securityCode: Number(this.view_register_securityCode),
-					password: this.view_register_password
-				}
-			},
-			res => {
-				this.aeorusUI.hideLoading();
+					data: {
+						tel: this.view_register_tel,
+						securityCode: Number(this.view_register_securityCode),
+						password: this.view_register_password
+					}
+				},
+				res => {
+					this.aeorusUI.hideLoading();
 
-				if (res.success) {
+					if (res.success) {
+						this.aeorusUI.showToast({
+							content: res.message,
+							mask: true,
+							duration: 3000
+						});
+					} else {
+						this.aeorusUI.showToast({
+							content: res.message,
+							duration: 2000
+						});
+					}
+				},
+				err => {
 					this.aeorusUI.showToast({
-						content: res.message,
-						mask: true,
-						duration: 3000
-					});
-				} else {
-					this.aeorusUI.showToast({
-						content: res.message,
+						content: '你的网络大概炸了?',
 						duration: 2000
 					});
 				}
-			},
-			err => {
+			);
+		},
+		_view_register_securityCode_get() {
+			if (!/\d{11}/.test(this.view_register_tel)) {
 				this.aeorusUI.showToast({
-					content: '你的网络大概炸了?',
+					content: '请填写正确的手机号~',
+					mask: true,
 					duration: 2000
 				});
-			});
+
+				return;
+			}
+
+			if (this.view_register_nickname == '') {
+				this.aeorusUI.showToast({
+					content: '请填写昵称~',
+					mask: true
+				});
+
+				return;
+			}
+
+			if (!this.view_register_securityCode_isGetting) {
+				this.utils.requestPost('/aeoru5/saveTemporaryInfo', {
+						data: {
+							tel: this.view_register_tel,
+							nickname: this.view_register_nickname
+						}
+					}
+				);
+
+				let restSecs = 30,
+					getSecurityCodeTimer = setInterval(() => {
+						if (restSecs >= 0) {
+							this.view_register_securityCode_isGetting = true;
+							this.view_register_securityCodeTxt = `${restSecs}s后重新获取`;
+							--restSecs;
+						} else {
+							this.view_register_securityCode_isGetting = false;
+							this.view_register_securityCodeTxt = `获取验证码`;
+
+							this.aeorusUI.showModal({
+								title: '经费不足',
+								content: '哪有钱做短信验证啊，随便写个六位数得了~',
+								showCancel: false
+							});
+
+							clearInterval(getSecurityCodeTimer);
+						}
+					}, 1000);
+			} else {
+				return;
+			}
 		},
 		_view_register_toggle_password_show() {
 			this.view_register_toggle_password_show = !this.view_register_toggle_password_show;

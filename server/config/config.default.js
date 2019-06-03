@@ -18,7 +18,7 @@ module.exports = appInfo => {
 		signed: false,
 		key: 'USERINFO',
 		httpOnly: false,
-		maxAge: 60 * 1000
+		maxAge: 3600 * 1000
 	};
 
 	config.security = {
