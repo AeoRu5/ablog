@@ -52,7 +52,10 @@ export default {
 				let result = res.data;
 				if (result.needLoad) {
 					router.push({
-						name: 'login'
+						name: 'login',
+						query: {
+							redirect: router.currentRoute.fullPath
+						}
 					});
 				} else {
 					if (successCallback) successCallback(result);

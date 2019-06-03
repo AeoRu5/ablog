@@ -30,7 +30,9 @@ export default {
 						mask: true,
 						duration: 3000
 					}, () => {
-						this.$router.go(-1);
+						this.$router.push({
+							path: decodeURIComponent(this.$route.query.redirect)
+						});
 					});
 				} else {
 					this.aeorusUI.showToast({

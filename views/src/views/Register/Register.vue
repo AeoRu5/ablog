@@ -40,7 +40,10 @@
 				<div class="view_loginRegister_form_confirm themeBackgroundColor themeFontColor cp" @click="_view_register_confirm_register">注册</div>
 				<router-link
 					:to="{
-						name: 'login'
+						name: 'login',
+						query: {
+							redirect: $route.query.redirect
+						}
 					}"
 					class="view_loginRegister_toEachOther_btn block relative ac cp">登录账号</router-link>
 			</div>
