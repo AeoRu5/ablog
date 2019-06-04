@@ -1,6 +1,7 @@
 'use strict';
 
-const Service = require('egg').Service;
+const Service = require('egg').Service,
+	ak = 'Bmss8DCGOPjfL2cPNm8mNkYmnWNsP1e1';
 
 class SaveTemporaryInfoResultService extends Service {
 	async post(params) {
@@ -10,12 +11,19 @@ class SaveTemporaryInfoResultService extends Service {
 				tel,
 				nickname
 			} = params,
-			insertTemporaryInfoResult = await this.app.mysql.insert('temporaryInfo', {
-				tel,
-				nickname,
-				ip: this.ctx.request.header['x-forwarded-for']
-			}),
-			insertTemporaryInfoSuccess = insertTemporaryInfoResult.affectedRows === 1;
+			ip = this.ctx.request.header['x-forwarded-for'],
+				getPositionResult = await this.ctx.curl('https://api.map.baidu.com/location/ip?ip=' + ip + '&ak=' + ak + '&coor=bd09ll', {
+					method: 'GET',
+					contentType: 'json',
+					dataType: 'json'
+				}),
+				insertTemporaryInfoResult = await this.app.mysql.insert('temporaryInfo', {
+					tel,
+					nickname,
+					ip,
+					position: getPositionResult.data.content.address
+				}),
+				insertTemporaryInfoSuccess = insertTemporaryInfoResult.affectedRows === 1;
 
 			if (insertTemporaryInfoSuccess) {
 				saveTemporaryInfoResult = {
@@ -26,7 +34,7 @@ class SaveTemporaryInfoResultService extends Service {
 					success: false
 				}
 			}
-			
+
 			return saveTemporaryInfoResult;
 		} catch (e) {
 			return Object.assign(e, {
