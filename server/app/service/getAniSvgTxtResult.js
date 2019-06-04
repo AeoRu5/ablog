@@ -7,7 +7,7 @@ const Service = require('egg').Service,
     async post() {
       try {
         const ip = this.ctx.request.header['x-forwarded-for'],
-          getPositionResult = await this.ctx.curl('https://api.map.baidu.com/location/ip?ip=58.23.237.225&ak=' + ak + '&coor=bd09ll', {
+          getPositionResult = await this.ctx.curl('https://api.map.baidu.com/location/ip?ip=' + ip + '&ak=' + ak + '&coor=bd09ll', {
             method: 'GET',
             contentType: 'json',
             dataType: 'json'
