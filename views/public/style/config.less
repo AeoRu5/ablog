@@ -1,7 +1,7 @@
-@azure: #f0ffff;
-@MediumSlateBlue: #7b68ee;
-@component-background-color: @MediumSlateBlue;
-@page-background-color: -webkit-linear-gradient(bottom, @MediumSlateBlue, @azure);
+@themeColorSub: #f0ffff;
+@themeColorMain: #7b68ee;
+@purityBackgroundColor: @themeColorMain;
+@linearGradientBackgroundColor: -webkit-linear-gradient(bottom, @themeColorMain, @themeColorSub);
 
 @font-face {
 	font-family: 'englishFont';
@@ -34,6 +34,15 @@ html, body, #app{
 	 font-size: 3.8vw;
 	 font-weight: 100;
 	}
+	.themeBorder {
+		border: .26vw solid @themeColorSub;
+	}
+	.themeTextShadow {
+		text-shadow: -2vw -2vw 2vw @themeColorSub;
+	}
+	.themeBoxShadow {
+		box-shadow: -1.3vw -1.3vw @themeColorSub;
+	}
 }
 @media screen and (min-width: 751px) {
 	::-webkit-input-placeholder {
@@ -47,25 +56,55 @@ html, body, #app{
 		font-weight: 100;
 	}
 	:-ms-input-placeholder {
-	 color: #cccccc;
-	 font-size: 28px;
-	 font-weight: 100;
+		color: #cccccc;
+		font-size: 28px;
+		font-weight: 100;
 	}
 	:-moz-placeholder {
-	 color: #cccccc;
-	 font-size: 28px;
-	 font-weight: 100;
+		color: #cccccc;
+		font-size: 28px;
+		font-weight: 100;
+	}
+	.themeBorder {
+		border: 2px solid @themeColorSub;
+	}
+	.themeTextShadow {
+		text-shadow: -15px -15px 15px @themeColorSub;
+	}
+	.themeBoxShadow {
+		box-shadow: -10px -10px @themeColorSub;
 	}
 }
 .englishFont {
-	font-family: 'englishFont' !important;
+	font-family: 'englishFont';
 }
-.themeFontColor {
-	color: @azure !important;
+.themeStroke {
+	stroke: @themeColorSub;
 }
-.themeBackgroundColor {
-	background-color: @component-background-color !important;
+.themeFontColorSub {
+	color: @themeColorSub;
 }
-.themePageBackgroundColor {
-	background: @page-background-color !important;
+.themeFontColorMain {
+	color: @themeColorMain;
+}
+.themeBackgroundColorSub {
+	background-color: @themeColorSub;
+}
+.themeBackgroundColorMain {
+	background-color: @themeColorMain;
+}
+.themeLinearGradientBackgroundColor {
+	background: @linearGradientBackgroundColor;
+}
+.themeBeforeBackgroundColor {
+
+	&::before {
+		background-color: @themeColorMain;
+	}
+}
+.themeAfterBackgroundColor {
+
+	&::after {
+		background-color: @themeColorMain;
+	}
 }

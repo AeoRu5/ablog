@@ -1,5 +1,5 @@
 <template>
-  <div id="app" class="themePageBackgroundColor">
+  <div id="app" class="themeLinearGradientBackgroundColor">
     <router-view />
     <CustomizeMask />
 		<CustomizeToast />

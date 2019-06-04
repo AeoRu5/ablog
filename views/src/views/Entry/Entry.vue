@@ -6,7 +6,7 @@
 				:to="{
 					name: 'login'
 				}"
-				class="view_entry_btn englishFont themeFontColor cp"
+				class="view_entry_btn themeBorder themeBoxShadow englishFont themeFontColorSub cp"
 				:class="isAniSvgAnimationEnd ? 'flex animated fadeIn slower' : 'hide'"
 				@click="view_entry_clickEnterBtn">Enter</router-link>
 		</div>

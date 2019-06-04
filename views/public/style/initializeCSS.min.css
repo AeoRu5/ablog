@@ -26,9 +26,6 @@ a {
 a:focus,*:focus {
   outline:none
 }
-a:link,a:visited,a:hover,a:active {
-  color:#3a3c4c
-}
 abbr[title] {
   border-bottom:none;
   text-decoration:underline;
