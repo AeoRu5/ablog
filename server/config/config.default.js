@@ -10,6 +10,10 @@ module.exports = appInfo => {
 		}
 	};
 
+	config.proxy = true;
+	config.maxProxyCount = 1;
+	config.hostHeaders = 'X-Forwarded-For';
+
 	config.keys = appInfo.name + '_8618659651239_1216';
 
 	config.session = {

@@ -1,13 +1,12 @@
 'use strict';
 
-const Service = require('egg').Service,
-  utils = require('./utils.js');
+const Service = require('egg').Service;
 
 class GetAniSvgTxtResultService extends Service {
   async post() {
     try {
       const insertVisitorsInfoResult = await this.app.mysql.insert('visitors', {
-          ip: utils.getRemoteIP()
+          ip: this.ctx.request.header['x-forwarded-for']
         }),
         aniSvgTxtResult = {
           aniSvgTxt: '新の助',

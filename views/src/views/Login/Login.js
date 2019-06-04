@@ -49,7 +49,7 @@ export default {
 						duration: 3000
 					}, () => {
 						this.$router.push({
-							path: decodeURIComponent(this.$route.query.redirect)
+							path: decodeURIComponent(this.$route.query.redirect || '/')
 						});
 					});
 				} else {

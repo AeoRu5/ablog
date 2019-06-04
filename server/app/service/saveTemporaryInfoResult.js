@@ -1,7 +1,6 @@
 'use strict';
 
-const Service = require('egg').Service,
-  utils = require('./utils.js');
+const Service = require('egg').Service;
 
 class SaveTemporaryInfoResultService extends Service {
 	async post(params) {
@@ -14,7 +13,7 @@ class SaveTemporaryInfoResultService extends Service {
 			insertTemporaryInfoResult = await this.app.mysql.insert('temporaryInfo', {
 				tel,
 				nickname,
-				ip: utils.getRemoteIP()
+				ip: this.ctx.request.header['x-forwarded-for']
 			}),
 			insertTemporaryInfoSuccess = insertTemporaryInfoResult.affectedRows === 1;
 

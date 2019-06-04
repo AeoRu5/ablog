@@ -177,5 +177,8 @@ export default {
 				}
 			}
 		}
+	},
+	destroyed() {
+		clearInterval(getSecurityCodeTimer);
 	}
 }
