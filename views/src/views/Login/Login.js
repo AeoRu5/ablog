@@ -35,7 +35,7 @@ export default {
 
 			this.utils.requestPost('/aeoru5/signIn', {
 				data: {
-					tel: this.view_login_tel,
+					tel: Number(this.view_login_tel),
 					password: this.view_login_password
 				}
 			},

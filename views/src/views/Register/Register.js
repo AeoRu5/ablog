@@ -39,7 +39,7 @@ export default {
 			if (!this.view_register_securityCode_isGetting) {
 				this.utils.requestPost('/aeoru5/saveTemporaryInfo', {
 						data: {
-							tel: this.view_register_tel,
+							tel: Number(this.view_register_tel),
 							nickname: this.view_register_nickname
 						}
 					}
@@ -112,9 +112,9 @@ export default {
 
 			this.utils.requestPost('/aeoru5/signUp', {
 					data: {
-						tel: this.view_register_tel,
+						tel: Number(this.view_register_tel),
 						nickname: this.view_register_nickname,
-						securityCode: this.view_register_securityCode,
+						securityCode: Number(this.view_register_securityCode),
 						password: this.view_register_password
 					}
 				},

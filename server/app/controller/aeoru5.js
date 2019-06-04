@@ -19,7 +19,7 @@ module.exports = app => {
 			try {
 				ctx.validate({
 					tel: {
-						type: 'string',
+						type: 'number',
 						require: true
 					},
 					nickname: {
@@ -55,7 +55,7 @@ module.exports = app => {
 			try {
 				ctx.validate({
 					tel: {
-						type: 'string',
+						type: 'number',
 						require: true
 					},
 					nickname: {
@@ -63,7 +63,7 @@ module.exports = app => {
 						require: true
 					},
 					securityCode: {
-						type: 'string',
+						type: 'number',
 						require: true
 					},
 					password: {
@@ -100,7 +100,7 @@ module.exports = app => {
 			try {
 				ctx.validate({
 					tel: {
-						type: 'string',
+						type: 'number',
 						require: true
 					},
 					password: {
