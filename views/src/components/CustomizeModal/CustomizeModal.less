@@ -1,11 +1,46 @@
+@keyframes modalAnimation {
+	0% {
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -60%)
+	}
+	100% {
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%)
+	}
+}
+.aeorusUI_modal_frame {
+	z-index: 9998;
+	display: flex;
+	flex-direction: column;
+	background-color: #ffffff;
+	animation: modalAnimation .5s ease-out forwards;
+
+	.aeorusUI_modal_content {
+		flex: 1;
+	}
+
+	.aeorusUI_modal_btns {
+		display: flex;
+
+		.aeorusUI_modal_btn {
+			flex: 1;
+		}
+
+		.aeorusUI_modal_btn_cancel {
+			background-color: #ffffff;
+		}
+
+		.aeorusUI_modal_btn_confirm {
+			color: #ffffff;
+		}
+	}
+}
 @media screen and (max-width: 750px) {
 	.aeorusUI_modal_frame {
 		width: 80%;
-		z-index: 9998;
-		display: flex;
 		border-radius: 10vw;
-		flex-direction: column;
-		background-color: #ffffff;
 
 		.aeorusUI_modal_title {
 			height: 14vw;
@@ -15,30 +50,25 @@
 		}
 
 		.aeorusUI_modal_content {
-			flex: 1;
 			padding: 5vw;
 			font-size: 4vw;
 		}
 
 		.aeorusUI_modal_btns {
-			display: flex;
 			height: 14vw;
 			font-size: 4vw;
 			line-height: 14vw;
 			border-radius: 10vw 0 0 0;
 
 			.aeorusUI_modal_btn {
-				flex: 1;
 				letter-spacing: 2vw;
 			}
 
 			.aeorusUI_modal_btn_cancel {
-				background-color: #ffffff;
 				border-radius: 0 0 0 10vw;
 			}
 
 			.aeorusUI_modal_btn_confirm {
-				color: #ffffff;
 				border-radius: 10vw 0 10vw 0;
 			}
 
@@ -51,11 +81,7 @@
 @media screen and (min-width: 751px) {
 	.aeorusUI_modal_frame {
 		width: 600px;
-		z-index: 9998;
-		display: flex;
 		border-radius: 75px;
-		flex-direction: column;
-		background-color: #ffffff;
 
 		.aeorusUI_modal_title {
 			height: 105px;
@@ -65,30 +91,25 @@
 		}
 
 		.aeorusUI_modal_content {
-			flex: 1;
 			padding: 38px;
 			font-size: 30px;
 		}
 
 		.aeorusUI_modal_btns {
-			display: flex;
 			height: 105px;
 			font-size: 30px;
 			line-height: 105px;
 			border-radius: 75px 0 0 0;
 
 			.aeorusUI_modal_btn {
-				flex: 1;
 				letter-spacing: 15px;
 			}
 
 			.aeorusUI_modal_btn_cancel {
-				background-color: #ffffff;
 				border-radius: 0 0 0 75px;
 			}
 
 			.aeorusUI_modal_btn_confirm {
-				color: #ffffff;
 				border-radius: 75px 0 75px 0;
 			}
 

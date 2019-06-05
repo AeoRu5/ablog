@@ -1,5 +1,5 @@
 <template>
-	<div v-if="modal_show" class="aeorusUI_modal_frame fixed horVerMid">
+	<div v-if="modal_show" class="aeorusUI_modal_frame fixed">
 		<div class="aeorusUI_modal_title themeFontColorMain ac">{{modal_title}}</div>
 		<div class="aeorusUI_modal_content ac">{{modal_content}}</div>
 		<div class="aeorusUI_modal_btns">

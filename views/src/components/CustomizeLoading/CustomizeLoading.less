@@ -1,11 +1,18 @@
+.aeorusUI_loading_frame {
+	display: flex;
+	z-index: 9999;
+	max-width: 80%;
+	align-items: center;
+
+	.aeorusUI_loading_content {
+		overflow: hidden;
+		word-wrap: break-word;
+	}
+}
 @media screen and (max-width: 750px) {
 	.aeorusUI_loading_frame {
-		display: flex;
-		z-index: 9999;
-		max-width: 80%;
 		padding: 2vw 5vw;
 		border-radius: 5vw;
-		align-items: center;
 
 		.icon-thunderbolt-fill {
 			font-size: 5vw;
@@ -13,19 +20,13 @@
 
 		.aeorusUI_loading_content {
 			font-size: 4vw;
-			overflow: hidden;
-			word-wrap: break-word;
 		}
 	}
 }
 @media screen and (min-width: 751px) {
 	.aeorusUI_loading_frame {
-		display: flex;
-		z-index: 9999;
-		max-width: 80%;
 		padding: 15px 38px;
 		border-radius: 38px;
-		align-items: center;
 
 		.icon-thunderbolt-fill {
 			font-size: 38px;
@@ -33,8 +34,6 @@
 
 		.aeorusUI_loading_content {
 			font-size: 30px;
-			overflow: hidden;
-			word-wrap: break-word;
 		}
 	}
 }

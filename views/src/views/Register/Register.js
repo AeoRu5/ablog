@@ -1,3 +1,4 @@
+const MD5 = require('md5.js');
 let getSecurityCodeTimer;
 
 export default {
@@ -115,7 +116,7 @@ export default {
 						tel: Number(this.view_register_tel),
 						nickname: this.view_register_nickname,
 						securityCode: Number(this.view_register_securityCode),
-						password: this.view_register_password
+						password: new MD5().update(this.view_register_tel + this.view_register_password).digest('hex')
 					}
 				},
 				res => {

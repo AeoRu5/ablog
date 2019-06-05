@@ -48,7 +48,7 @@ class GetSignInResultService extends Service {
 						};
 
 						SignInResult = {
-							message: '登陆成功~',
+							message: '登陆成功了哟~',
 							success: true
 						}
 					} else {
@@ -59,13 +59,13 @@ class GetSignInResultService extends Service {
 					}
 				} else {
 					SignInResult = {
-						message: '密码错误~',
+						message: '密码错误了哎~',
 						success: false
 					}
 				}
 			} else {
 				SignInResult = {
-					message: '未注册该账号~',
+					message: '该账号不存在哦~',
 					success: false
 				}
 			}

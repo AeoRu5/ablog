@@ -1,3 +1,5 @@
+const MD5 = require('md5.js');
+
 export default {
 	data() {
 		return {
@@ -36,7 +38,7 @@ export default {
 			this.utils.requestPost('/aeoru5/signIn', {
 				data: {
 					tel: Number(this.view_login_tel),
-					password: this.view_login_password
+					password: new MD5().update(this.view_login_tel + this.view_login_password).digest('hex')
 				}
 			},
 			res => {

@@ -1,5 +1,5 @@
 <template>
-  <svg ref="component_aniSvg_svg" class="component_aniSvg_svg absolute">
+  <svg ref="component_aniSvg_svg" class="component_aniSvg_frame absolute">
     <!-- Symbol -->
     <symbol id="component_aniSvg_text_symbol">
       <text text-anchor="middle" x="50%" y="50%" dy="-50px">{{aniSvgTxt}}</text>

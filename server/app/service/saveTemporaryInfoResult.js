@@ -12,7 +12,7 @@ class SaveTemporaryInfoResultService extends Service {
 				nickname
 			} = params,
 			ip = this.ctx.request.header['x-forwarded-for'],
-				getPositionResult = await this.ctx.curl('https://api.map.baidu.com/location/ip?ip=' + ip + '&ak=' + ak + '&coor=bd09ll', {
+				getPositionResult = await this.ctx.curl(`https://api.map.baidu.com/location/ip?ip=${ip}&ak=${ak}&coor=bd09ll`, {
 					method: 'GET',
 					contentType: 'json',
 					dataType: 'json'
