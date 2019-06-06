@@ -1,13 +1,22 @@
 <template>
-  <svg ref="component_aniSvg_svg" class="component_aniSvg_frame absolute">
+  <svg ref="component_aniSvg_svg" class="component_aniSvg_frame frameConfig absolute">
     <!-- Symbol -->
     <symbol id="component_aniSvg_text_symbol">
       <text text-anchor="middle" x="50%" y="50%" dy="-50px">{{aniSvgTxt}}</text>
     </symbol>
     <!-- Duplicate symbols -->
-    <use xlink:href="#component_aniSvg_text_symbol" class="component_aniSvg_text themeStroke themeTextShadow block"></use>
-    <use xlink:href="#component_aniSvg_text_symbol" class="component_aniSvg_text themeStroke themeTextShadow block"></use>
-    <use xlink:href="#component_aniSvg_text_symbol" class="component_aniSvg_text themeStroke themeTextShadow block"></use>
+    <use
+      xlink:href="#component_aniSvg_text_symbol"
+      class="themeStroke themeTextShadowEntry block"
+      :class="component_aniSvg_text_loaded ? 'component_aniSvg_text' : ''"></use>
+    <use
+      xlink:href="#component_aniSvg_text_symbol"
+      class="themeStroke themeTextShadowEntry block"
+      :class="component_aniSvg_text_loaded ? 'component_aniSvg_text' : ''"></use>
+    <use
+      xlink:href="#component_aniSvg_text_symbol"
+      class="themeStroke themeTextShadowEntry block"
+      :class="component_aniSvg_text_loaded ? 'component_aniSvg_text' : ''"></use>
   </svg>
 </template>
 

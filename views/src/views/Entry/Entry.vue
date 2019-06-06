@@ -1,12 +1,12 @@
 <template>
-	<div class="view_entry_frame relative">
+	<div class="view_entry_frame frameConfig relative">
 		<AniSvg/>
 		<div class="view_entry_btn_frame flex">
 			<router-link
 				:to="{
-					name: 'login'
+					name: 'home'
 				}"
-				class="view_entry_btn themeBorder themeBoxShadow englishFont themeFontColorSub cp"
+				class="view_entry_btn themeBorder themeBoxShadowEntry englishFont themeFontColorSub cp"
 				:class="isAniSvgAnimationEnd ? 'flex animated fadeIn slower' : 'hide'"
 				@click="view_entry_clickEnterBtn">Enter</router-link>
 		</div>

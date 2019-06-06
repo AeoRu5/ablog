@@ -1,5 +1,5 @@
 <template>
-	<div class="view_loginRegister_frame relative">
+	<div class="view_loginRegister_frame frameConfig relative">
 		<div class="view_loginRegister_form_frame absolute horVerMid">
 			<div class="view_loginRegister_form_title themeFontColorMain englishFont ac">WelCome To AeoRus~</div>
 			<div class="view_loginRegister_form_body">

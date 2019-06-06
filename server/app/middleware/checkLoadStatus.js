@@ -3,7 +3,7 @@ module.exports = () => {
 		await next();
 
 		let noRight = /signIn|signUp|saveTemporaryInfo/i.test(ctx.request.url);
-
+		
 		if (!noRight) {
 			if (!ctx.session.USERINFO) {
 				ctx.body = {

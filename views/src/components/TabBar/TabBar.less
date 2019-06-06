@@ -3,15 +3,39 @@
 	bottom: 0;
 	width: 100%;
 	z-index: 9996;
-	background-color: #ffffff;
+	display: flex;
+
+	.component_tabBar_block {
+		flex: 1;
+		display: flex;
+		align-items: center;
+		flex-direction: column;
+		justify-content: center;
+	}
 }
 @media screen and (max-width: 750px) {
 	.component_tabBar_frame {
 		height: 12vw;
+
+		.component_tabBar_block {
+			font-size: 3vw;
+
+			.iconfont {
+				font-size: 6vw;
+			}
+		}
 	}
 }
 @media screen and (min-width: 751px) {
 	.component_tabBar_frame {
 		height: 90px;
+
+		.component_tabBar_block {
+			font-size: 24px;
+
+			.iconfont {
+				font-size: 45px;
+			}
+		}
 	}
 }
