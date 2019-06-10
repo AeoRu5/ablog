@@ -2,9 +2,10 @@
   top: 0;
   left: 0;
   z-index: 0;
+  font-size: 180px;
 
   .animationMixin(@value, @aniSvgName) {
-    animation: @aniSvgName 5s ease-in-out forwards;
+    animation: @aniSvgName 1s ease-in-out forwards;
 
     @keyframes @aniSvgName {
       100% {
@@ -31,15 +32,5 @@
     &:nth-child(3n + 3) {
       .animationMixin(1160, aniSvg_three);
     }
-  }
-}
-@media screen and (max-width: 750px) {
-  .component_aniSvg_frame {
-    font-size: 24vw;
-  }
-}
-@media screen and (min-width: 751px) {
-  .component_aniSvg_frame {
-    font-size: 180px;
   }
 }

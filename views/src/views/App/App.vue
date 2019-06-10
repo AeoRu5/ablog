@@ -1,5 +1,5 @@
 <template>
-	<div class="view_app_frame frameConfig relative">
+	<div class="view_app_frame_ignore frameConfig">
 		<Navigator />
 		<Home v-if="component_tabBar_actived == 'home'" />
 		<Account v-if="component_tabBar_actived == 'account'" />

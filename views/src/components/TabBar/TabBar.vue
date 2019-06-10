@@ -1,5 +1,5 @@
 <template>
-	<div class="component_tabBar_frame themeBackgroundColorSub themeBoxShadowTabBar fixed">
+	<div class="component_tabBar_frame_ignore themeBackgroundColorSub themeBoxShadowTabBar fixed">
 		<div
 			class="component_tabBar_block cp"
 			:class="component_tabBar_actived == 'home' ? 'themeFontColorMain' : '' "
