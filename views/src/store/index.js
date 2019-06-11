@@ -9,11 +9,40 @@ import aeorusUI_loading from './aeorusUI_loading.js'
 Vue.use(vuex)
 
 export default new vuex.Store({
-  modules: {
-    entry,
-    tabBar,
-    aeorusUI_modal,
-    aeorusUI_toast,
-    aeorusUI_loading
-  }
+	modules: {
+		entry,
+		tabBar,
+		aeorusUI_modal,
+		aeorusUI_toast,
+		aeorusUI_loading
+	},
+	state: {
+		is_mobile: false
+	},
+	mutations: {
+		checkClient(state) {
+			let is_mobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
+
+			if (is_mobile) {
+				state.is_mobile = true;
+			} else {
+				state.is_mobile = false;
+			}
+
+			window.onresize = () => {
+				is_mobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
+
+				if (is_mobile) {
+					state.is_mobile = true;
+				} else {
+					state.is_mobile = false;
+				}
+			}
+		}
+	},
+	actions: {
+		checkClient(ctx) {
+			ctx.commit('checkClient');
+		}
+	}
 })

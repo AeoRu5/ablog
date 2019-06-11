@@ -13,13 +13,9 @@ export default {
 		Account,
 		Navigator
 	},
-	data() {
-		return {
-
-		}
-	},
 	computed: {
 		...mapState({
+			is_mobile: state => state.is_mobile,
 			component_tabBar_actived: state => state.tabBar.component_tabBar_actived
 		})
 	}

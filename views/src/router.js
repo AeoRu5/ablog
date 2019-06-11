@@ -9,18 +9,34 @@ export default new Router({
   routes: [{
     path: '/',
     name: 'entry',
-    component: () => import('@/views/Entry/Entry.vue')
+    component: () =>
+      import ('@/views/Entry/Entry.vue'),
+    meta: {
+      keepAlive: false
+    }
   }, {
     path: '/login',
     name: 'login',
-    component: () => import('@/views/Login/Login.vue')
+    component: () =>
+      import ('@/views/Login/Login.vue'),
+    meta: {
+      keepAlive: false
+    }
   }, {
-  	path: '/register',
+    path: '/register',
     name: 'register',
-    component: () => import('@/views/Register/Register.vue')
+    component: () =>
+      import ('@/views/Register/Register.vue'),
+    meta: {
+      keepAlive: false
+    }
   }, {
     path: '/app',
     name: 'app',
-    component: () => import('@/views/App/App.vue')
+    component: () =>
+      import ('@/views/App/App.vue'),
+    meta: {
+      keepAlive: false
+    }
   }]
 })

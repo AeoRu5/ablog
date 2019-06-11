@@ -11,8 +11,8 @@ import animate from 'animate.css'
 import './assets/iconfont/iconfont.css'
 
 Vue.use(animate)
-Vue.prototype.utils = utils;
-Vue.prototype.aeorusUI = aeorusUI;
+Vue.prototype.utils = utils
+Vue.prototype.aeorusUI = aeorusUI
 Vue.config.productionTip = false
 
 new Vue({

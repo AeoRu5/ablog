@@ -1,9 +1,10 @@
-const MD5 = require('md5.js');
+import MD5 from 'md5.js';
 let getSecurityCodeTimer;
 
 export default {
 	data() {
 		return {
+			view_register_mounted: false,
 			view_register_tel: '',
 			view_register_nickname: '',
 			view_register_securityCode: '',
@@ -15,6 +16,9 @@ export default {
 			view_register_toggle_password_show: false,
 			view_register_password_type: 'password'
 		}
+	},
+	mounted() {
+		this.view_register_mounted = true;
 	},
 	methods: {
 		_view_register_securityCode_get() {

@@ -1,13 +1,17 @@
-const MD5 = require('md5.js');
+import MD5 from 'md5.js';
 
 export default {
 	data() {
 		return {
+			view_login_mounted: false,
 			view_login_tel: '',
 			view_login_password: '',
 			view_login_toggle_password_show: false,
 			view_login_password_type: 'password'
 		}
+	},
+	mounted() {
+		this.view_login_mounted = true;
 	},
 	methods: {
 		_view_login_toggle_password_show() {

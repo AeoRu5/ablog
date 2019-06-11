@@ -37,8 +37,7 @@ export default {
 			store._mutations.aeorusUI_toast_show[0](params);
 		} else if (typeof params == 'object') {
 			let {
-				content,
-				mask
+				content
 			} = params;
 
 			if (params.duration) {
@@ -46,8 +45,7 @@ export default {
 			}
 
 			store._mutations.aeorusUI_toast_show[0]({
-				content,
-				mask
+				content
 			});
 		}
 
