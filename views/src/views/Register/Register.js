@@ -132,6 +132,7 @@ export default {
 					}
 				},
 				err => {
+					this.hideLoading();
 					this.showToast({
 						icon: 'netError',
 						content: '你的网络大概炸了?',
