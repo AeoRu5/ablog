@@ -12,14 +12,11 @@ export default {
 	mounted() {
 		this.component_aniSvg_loadAniSvgTxt(() => {
 			this.component_aniSvg_text_loaded = true;
-			this._animationend('animationend');
-			this._animationend('webkitAnimationEnd');
+			this.checkAnimationEnd(this.$refs.component_aniSvg_svg, 'animationend', this.component_aniSvg_animationend);
+			this.checkAnimationEnd(this.$refs.component_aniSvg_svg, 'webkitAnimationEnd', this.component_aniSvg_animationend);
 		});
 	},
 	methods: {
-		_animationend(event) {
-			this.$refs.component_aniSvg_svg.addEventListener(event, this.component_aniSvg_animationend);
-		},
 		...mapActions([
 			'component_aniSvg_loadAniSvgTxt',
 			'component_aniSvg_animationend'

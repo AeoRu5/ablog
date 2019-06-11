@@ -66,5 +66,8 @@ export default {
 		}).catch(e => {
 			if (errorCallback) errorCallback(e);
 		});
+	},
+	checkAnimationEnd(vm, event, callback) {
+		vm.addEventListener(event, callback);
 	}
 }

@@ -23,31 +23,31 @@ export default {
 		},
 		_view_login_confirm_login() {
 			if (!/\d{11}/.test(this.view_login_tel)) {
-				this.aeorusUI.showToast('手机号有点东西啊~');
+				this.showToast('手机号有点东西啊~');
 
 				return;
 			}
 
 			if (this.view_login_password.length == 0) {
-				this.aeorusUI.showToast('真就不写密码哦~');
+				this.showToast('真就不写密码哦~');
 
 				return;
 			}
 
-			this.aeorusUI.showLoading('登录中~');
+			this.showLoading('登录中~');
 
-			this.utils.requestPost('/aeoru5/signIn', {
+			this.requestPost('/aeoru5/signIn', {
 				data: {
 					tel: Number(this.view_login_tel),
 					password: new MD5().update(this.view_login_tel + this.view_login_password).digest('hex')
 				}
 			},
 			res => {
-				this.aeorusUI.hideLoading();
+				this.hideLoading();
 
 				if (res.success) {
-					this.aeorusUI.showToast({
-						icon: 'safe',
+					this.showToast({
+						icon: 'success',
 						content: res.message,
 						duration: 3000
 					}, () => {
@@ -56,14 +56,14 @@ export default {
 						});
 					});
 				} else {
-					this.aeorusUI.showToast({
+					this.showToast({
 						content: res.message,
 						duration: 2000
 					});
 				}
 			},
 			err => {
-				this.aeorusUI.showToast({
+				this.showToast({
 					icon: 'netError',
 					content: '你的网络大概炸了?',
 					duration: 2000

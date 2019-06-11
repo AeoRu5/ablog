@@ -7,7 +7,7 @@ export default {
 	},
 	mutations: {
 		component_aniSvg_loadAniSvgTxt(state, callback) {
-			this._vm.utils.requestPost('/aeoru5/aniSvgTxt', {
+			this._vm.requestPost('/aeoru5/aniSvgTxt', {
 
 			},
 			res => {
@@ -16,7 +16,7 @@ export default {
 
 					if (callback) callback();
 				} else {
-					this._vm.aeorusUI.showToast({
+					this._vm.showToast({
 						icon: 'warn',
 						content: res.message,
 						duration: 2000

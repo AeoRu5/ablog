@@ -26,7 +26,7 @@ export default {
 	methods: {
 		_view_register_securityCode_get() {
 			if (!/\d{11}/.test(this.view_register_tel)) {
-				this.aeorusUI.showToast({
+				this.showToast({
 					content: '请填写正确的手机号~',
 					duration: 2000
 				});
@@ -35,13 +35,13 @@ export default {
 			}
 
 			if (this.view_register_nickname == '') {
-				this.aeorusUI.showToast('请填写昵称~');
+				this.showToast('请填写昵称~');
 
 				return;
 			}
 
 			if (!this.view_register_securityCode_isGetting) {
-				this.utils.requestPost('/aeoru5/saveTemporaryInfo', {
+				this.requestPost('/aeoru5/saveTemporaryInfo', {
 					data: {
 						tel: Number(this.view_register_tel),
 						nickname: this.view_register_nickname
@@ -59,7 +59,7 @@ export default {
 						this.view_register_securityCode_isGetting = false;
 						this.view_register_securityCodeTxt = `获取验证码`;
 
-						this.aeorusUI.showModal({
+						this.showModal({
 							title: '经费不足',
 							content: '哪有钱做短信验证啊，随便写个六位数得了~',
 							showCancel: false
@@ -78,30 +78,30 @@ export default {
 		},
 		_view_register_confirm_register() {
 			if (!/\d{11}/.test(this.view_register_tel)) {
-				this.aeorusUI.showToast('请填写正确的手机号~');
+				this.showToast('请填写正确的手机号~');
 			}
 
 			if (this.view_register_nickname == '') {
-				this.aeorusUI.showToast('请填写昵称~');
+				this.showToast('请填写昵称~');
 
 				return;
 			}
 
 			if (!/\d{6}/.test(this.view_register_securityCode)) {
-				this.aeorusUI.showToast('请填写验证码~');
+				this.showToast('请填写验证码~');
 
 				return;
 			}
 
 			if (this.view_register_password.length < 6) {
-				this.aeorusUI.showToast('密码不够长哦~');
+				this.showToast('密码不够长哦~');
 
 				return;
 			}
 
-			this.aeorusUI.showLoading('注册中~');
+			this.showLoading('注册中~');
 
-			this.utils.requestPost('/aeoru5/signUp', {
+			this.requestPost('/aeoru5/signUp', {
 					data: {
 						tel: Number(this.view_register_tel),
 						nickname: this.view_register_nickname,
@@ -110,11 +110,11 @@ export default {
 					}
 				},
 				res => {
-					this.aeorusUI.hideLoading();
+					this.hideLoading();
 
 					if (res.success) {
-						this.aeorusUI.showToast({
-							icon: 'safe',
+						this.showToast({
+							icon: 'success',
 							content: res.message
 						}, () => {
 							this.$router.push({
@@ -125,14 +125,14 @@ export default {
 							});
 						});
 					} else {
-						this.aeorusUI.showToast({
+						this.showToast({
 							content: res.message,
 							duration: 2000
 						});
 					}
 				},
 				err => {
-					this.aeorusUI.showToast({
+					this.showToast({
 						icon: 'netError',
 						content: '你的网络大概炸了?',
 						duration: 2000
