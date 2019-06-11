@@ -12,8 +12,8 @@ export default {
 	mounted() {
 		this.component_aniSvg_loadAniSvgTxt(() => {
 			this.component_aniSvg_text_loaded = true;
-			this.checkAnimationEnd(this.$refs.component_aniSvg_svg, 'animationend', this.component_aniSvg_animationend);
-			this.checkAnimationEnd(this.$refs.component_aniSvg_svg, 'webkitAnimationEnd', this.component_aniSvg_animationend);
+			this.checkAnimationEnd(this.$refs.component_aniSvg_ref, 'animationend', this.component_aniSvg_animationend);
+			this.checkAnimationEnd(this.$refs.component_aniSvg_ref, 'webkitAnimationEnd', this.component_aniSvg_animationend);
 		});
 	},
 	methods: {

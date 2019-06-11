@@ -20,14 +20,29 @@ export default {
 		});
 
 		store._mutations.aeorusUI_modal_confirm[0] = () => {
-			store._mutations.aeorusUI_modal_hide[0]();
-			if (confirm) confirm();
-			if (completed) completed();
+			store._mutations.aeorusUI_modal_showOut[0]();
+
+			let modalTimer = setTimeout(() => {
+				store._mutations.aeorusUI_modal_hide[0]();
+
+				if (confirm) confirm();
+				if (completed) completed();
+
+				clearTimeout(modalTimer);
+			}, 500);
 		};
+
 		store._mutations.aeorusUI_modal_cancel[0] = () => {
-			store._mutations.aeorusUI_modal_hide[0]();
-			if (cancel) cancel();
-			if (completed) completed();
+			store._mutations.aeorusUI_modal_showOut[0]();
+
+			let modalTimer = setTimeout(() => {
+				store._mutations.aeorusUI_modal_hide[0]();
+
+				if (cancel) cancel();
+				if (completed) completed();
+
+				clearTimeout(modalTimer);
+			}, 500);
 		};
 	},
 	showToast(params, callback) {

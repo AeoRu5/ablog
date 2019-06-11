@@ -61,7 +61,10 @@
         "mediaQuery": false,
         "landscape": true,
         "landscapeWidth": 750,
-        "selectorBlackList": ["ignore", "aeorusUI"]
+        "selectorBlackList": [
+          "ignore",
+          "aeorusUI"
+        ]
       }
     }
   },

@@ -15,14 +15,10 @@ export default {
 			state.aeorusUI_modal_isShowCancel = params.showCancel;
 		},
 		aeorusUI_modal_hide(state) {
-			state.aeorusUI_modal_isShowIn = false;
 			state.aeorusUI_modal_isShow = false;
-			// this._vm.checkAnimationEnd(this._vm.$refs.aeorusUI_modal_frame, 'animationend', () => {
-			// 	state.aeorusUI_modal_isShow = false;
-			// });
-			// this._vm.checkAnimationEnd(this._vm.$refs.aeorusUI_modal_frame, 'webkitAnimationEnd', () => {
-			// 	state.aeorusUI_modal_isShow = false;
-			// });
+		},
+		aeorusUI_modal_showOut(state) {
+			state.aeorusUI_modal_isShowIn = false;
 		},
 		aeorusUI_modal_confirm(state) {},
 		aeorusUI_modal_cancel(state) {}
@@ -33,6 +29,9 @@ export default {
 		},
 		aeorusUI_modal_hide(ctx) {
 			ctx.commit('aeorusUI_modal_hide');
+		},
+		aeorusUI_modal_showOut(ctx) {
+			ctx.commit('aeorusUI_modal_showOut');
 		},
 		aeorusUI_modal_confirm(ctx) {
 			ctx.commit('aeorusUI_modal_confirm');

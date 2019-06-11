@@ -13,12 +13,6 @@ export default {
 		Account,
 		Navigator
 	},
-	mounted() {
-		this.showModal({
-			title: '标题',
-			content: '内容'
-		})
-	},
 	computed: {
 		...mapState({
 			is_mobile: state => state.is_mobile,
