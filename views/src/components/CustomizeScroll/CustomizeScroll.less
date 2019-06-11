@@ -1,0 +1,27 @@
+.aeorusUI_scroll_frame {
+
+	.aeorusUI_scroll_reload_slot {
+		display: flex;
+		font-size: 12px;
+		align-items: center;
+		justify-content: center;
+
+		.iconfont {
+			font-size: 14px;
+			margin-right: 4px;
+		}
+
+		@keyframes reload_roll_animation {
+			0% {
+				transform: rotate(0deg);
+			}
+			100% {
+				transform: rotate(360deg);
+			}
+		}
+
+		.icon-reload {
+			animation: reload_roll_animation 1s linear infinite;
+		}
+	}
+}

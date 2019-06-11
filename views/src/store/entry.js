@@ -17,6 +17,7 @@ export default {
 					if (callback) callback();
 				} else {
 					this._vm.aeorusUI.showToast({
+						icon: 'warn',
 						content: res.message,
 						duration: 2000
 					});
@@ -28,15 +29,6 @@ export default {
 		},
 		component_aniSvg_animationend(state) {
 			state.view_entry_isAniSvgAnimationEnd = true;
-		},
-		view_entry_clickEnterBtn(state) {
-			if (this._vm.utils.checkClient()) {
-				console.log("手机端");
-				router.replace('/app');
-			} else {
-				console.log("pc端");
-				router.replace('/web');
-			}
 		}
 	},
 	actions: {
@@ -45,9 +37,6 @@ export default {
 		},
 		component_aniSvg_animationend(ctx) {
 			ctx.commit('component_aniSvg_animationend');
-		},
-		view_entry_clickEnterBtn(ctx) {
-			ctx.commit('view_entry_clickEnterBtn');
 		}
 	}
 }

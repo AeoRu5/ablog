@@ -1,13 +1,52 @@
+@netError: #00BFFF;
+@safe: #4EEE94;
+@warn: #EE2C2C;
+
 .aeorusUI_toast_frame {
+	display: flex;
 	z-index: 9999;
 	max-width: 80%;
 	padding: 8px 20px;
 	border-radius: 16px;
+	align-items: center;
 	background-color: rgba(0, 0, 0, .6);
 
+	.iconfont_frame {
+
+		.iconfont {
+			font-size: 20px;
+			margin-right: 4px;
+		}
+
+		.icon-wifi {
+			color: @netError;
+		}
+
+		.icon-check-circle {
+			color: @safe;
+		}
+
+		.icon-close-circle {
+			color: @warn;
+		}
+	}
+
 	.aeorusUI_toast_content {
-		font-size: 12px;
+		color: #ffffff;
+		font-size: 14px;
 		overflow: hidden;
 		word-wrap: break-word;
+	}
+
+	.netError {
+		color: @netError;
+	}
+
+	.safe {
+		color: @safe;
+	}
+
+	.warn {
+		color: @warn;
 	}
 }

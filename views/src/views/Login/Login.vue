@@ -1,5 +1,5 @@
 <template>
-	<div v-if="view_login_mounted" class="view_loginRegister_frame_app frameConfig relative">
+	<div v-if="view_login_mounted && is_mobile" class="view_loginRegister_frame_app frameConfig relative">
 		<div class="view_loginRegister_form_frame absolute horVerMid">
 			<div class="view_loginRegister_form_title themeFontColorMain englishFont ac">WelCome To AeoRus~</div>
 			<div class="view_loginRegister_form_body">

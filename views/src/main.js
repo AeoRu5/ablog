@@ -11,6 +11,7 @@ import animate from 'animate.css'
 import './assets/iconfont/iconfont.css'
 
 Vue.use(animate)
+Vue.use(vuescroll)
 Vue.prototype.utils = utils
 Vue.prototype.aeorusUI = aeorusUI
 Vue.config.productionTip = false

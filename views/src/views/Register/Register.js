@@ -1,3 +1,6 @@
+import {
+	mapState
+} from 'vuex'
 import MD5 from 'md5.js';
 let getSecurityCodeTimer;
 
@@ -25,7 +28,6 @@ export default {
 			if (!/\d{11}/.test(this.view_register_tel)) {
 				this.aeorusUI.showToast({
 					content: '请填写正确的手机号~',
-					mask: true,
 					duration: 2000
 				});
 
@@ -33,22 +35,18 @@ export default {
 			}
 
 			if (this.view_register_nickname == '') {
-				this.aeorusUI.showToast({
-					content: '请填写昵称~',
-					mask: true
-				});
+				this.aeorusUI.showToast('请填写昵称~');
 
 				return;
 			}
 
 			if (!this.view_register_securityCode_isGetting) {
 				this.utils.requestPost('/aeoru5/saveTemporaryInfo', {
-						data: {
-							tel: Number(this.view_register_tel),
-							nickname: this.view_register_nickname
-						}
+					data: {
+						tel: Number(this.view_register_tel),
+						nickname: this.view_register_nickname
 					}
-				);
+				});
 
 				let restSecs = 30;
 
@@ -80,35 +78,23 @@ export default {
 		},
 		_view_register_confirm_register() {
 			if (!/\d{11}/.test(this.view_register_tel)) {
-				this.aeorusUI.showToast({
-					content: '请填写正确的手机号~',
-					mask: true
-				});
+				this.aeorusUI.showToast('请填写正确的手机号~');
 			}
 
 			if (this.view_register_nickname == '') {
-				this.aeorusUI.showToast({
-					content: '请填写昵称~',
-					mask: true
-				});
+				this.aeorusUI.showToast('请填写昵称~');
 
 				return;
 			}
 
 			if (!/\d{6}/.test(this.view_register_securityCode)) {
-				this.aeorusUI.showToast({
-					content: '请填写验证码~',
-					mask: true
-				});
+				this.aeorusUI.showToast('请填写验证码~');
 
 				return;
 			}
 
 			if (this.view_register_password.length < 6) {
-				this.aeorusUI.showToast({
-					content: '密码不够长哦~',
-					mask: true
-				});
+				this.aeorusUI.showToast('密码不够长哦~');
 
 				return;
 			}
@@ -128,8 +114,8 @@ export default {
 
 					if (res.success) {
 						this.aeorusUI.showToast({
-							content: res.message,
-							mask: true
+							icon: 'safe',
+							content: res.message
 						}, () => {
 							this.$router.push({
 								name: 'login',
@@ -147,6 +133,7 @@ export default {
 				},
 				err => {
 					this.aeorusUI.showToast({
+						icon: 'netError',
 						content: '你的网络大概炸了?',
 						duration: 2000
 					});
@@ -182,6 +169,11 @@ export default {
 				}
 			}
 		}
+	},
+	computed: {
+		...mapState({
+			is_mobile: state => state.is_mobile
+		})
 	},
 	destroyed() {
 		clearInterval(getSecurityCodeTimer);

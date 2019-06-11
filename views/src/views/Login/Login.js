@@ -1,3 +1,6 @@
+import {
+	mapState
+} from 'vuex'
 import MD5 from 'md5.js';
 
 export default {
@@ -20,19 +23,13 @@ export default {
 		},
 		_view_login_confirm_login() {
 			if (!/\d{11}/.test(this.view_login_tel)) {
-				this.aeorusUI.showToast({
-					content: '手机号有点东西啊~',
-					mask: true
-				});
+				this.aeorusUI.showToast('手机号有点东西啊~');
 
 				return;
 			}
 
 			if (this.view_login_password.length == 0) {
-				this.aeorusUI.showToast({
-					content: '真就不写密码哦~',
-					mask: true
-				});
+				this.aeorusUI.showToast('真就不写密码哦~');
 
 				return;
 			}
@@ -50,8 +47,8 @@ export default {
 
 				if (res.success) {
 					this.aeorusUI.showToast({
+						icon: 'safe',
 						content: res.message,
-						mask: true,
 						duration: 3000
 					}, () => {
 						this.$router.push({
@@ -67,10 +64,16 @@ export default {
 			},
 			err => {
 				this.aeorusUI.showToast({
+					icon: 'netError',
 					content: '你的网络大概炸了?',
 					duration: 2000
 				});
 			});
 		}
+	},
+	computed: {
+		...mapState({
+			is_mobile: state => state.is_mobile
+		})
 	}
 }

@@ -31,21 +31,25 @@ export default {
 		};
 	},
 	showToast(params, callback) {
-		let duration = 1000;
+		let duration = 1000,
+			icon = null;
 
 		if (typeof params == 'string') {
-			store._mutations.aeorusUI_toast_show[0](params);
+			store._mutations.aeorusUI_toast_show[0]({
+				content: params
+			});
 		} else if (typeof params == 'object') {
-			let {
-				content
-			} = params;
+			if (params.icon) {
+				icon = params.icon;
+			}
 
 			if (params.duration) {
 				duration = params.duration;
 			}
 
 			store._mutations.aeorusUI_toast_show[0]({
-				content
+				icon,
+				content: params.content
 			});
 		}
 

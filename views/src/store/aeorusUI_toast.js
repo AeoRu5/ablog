@@ -1,15 +1,19 @@
 export default {
 	state: {
 		aeorusUI_toast_isShow: false,
+		aeorusUI_toast_icon: null,
 		aeorusUI_toast_content: ''
 	},
 	mutations: {
 		aeorusUI_toast_show(state, params) {
 			state.aeorusUI_toast_isShow = true;
+			state.aeorusUI_toast_icon = params.icon;
 			state.aeorusUI_toast_content = params.content;
 		},
 		aeorusUI_toast_hide(state) {
 			state.aeorusUI_toast_isShow = false;
+			state.aeorusUI_toast_icon = null;
+			state.aeorusUI_toast_content = '';
 		}
 	},
 	actions: {

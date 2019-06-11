@@ -13,79 +13,25 @@ html, body, #app{
   -webkit-font-smoothing: antialiased;
   font-family: Microsoft YaHei, sans-serif;
 }
-@media screen and (max-width: 750px) {
-	::-webkit-input-placeholder {
-		color: #cccccc;
-		font-size: 3.8vw;
-		font-weight: 100;
-	}
-	::-moz-placeholder {
-		color: #cccccc;
-		font-size: 3.8vw;
-		font-weight: 100;
-	}
-	:-ms-input-placeholder {
-	 color: #cccccc;
-	 font-size: 3.8vw;
-	 font-weight: 100;
-	}
-	:-moz-placeholder {
-	 color: #cccccc;
-	 font-size: 3.8vw;
-	 font-weight: 100;
-	}
-	.themeBorder {
-		border: .26vw solid @themeColorSub;
-	}
-	.themeTextShadowEntry {
-		text-shadow: -2vw -2vw 2vw @themeColorSub;
-	}
-	.themeBoxShadowEntry {
-		box-shadow: -1.3vw -1.3vw @themeColorSub;
-	}
-	.themeBoxShadowTabBar {
-		box-shadow: 0 -2vw 4vw 0 rgba(0, 0, 0, .1);
-	}
-	.themeBoxShadowNavigator {
-		box-shadow: 0 2vw 4vw 0 rgba(0, 0, 0, .1);
-	}
+::-webkit-input-placeholder {
+	color: #cccccc;
+	font-weight: 100;
 }
-@media screen and (min-width: 751px) {
-	::-webkit-input-placeholder {
-		color: #cccccc;
-		font-size: 28px;
-		font-weight: 100;
-	}
-	::-moz-placeholder {
-		color: #cccccc;
-		font-size: 28px;
-		font-weight: 100;
-	}
-	:-ms-input-placeholder {
-		color: #cccccc;
-		font-size: 28px;
-		font-weight: 100;
-	}
-	:-moz-placeholder {
-		color: #cccccc;
-		font-size: 28px;
-		font-weight: 100;
-	}
-	.themeBorder {
-		border: 2px solid @themeColorSub;
-	}
-	.themeTextShadowEntry {
-		text-shadow: -15px -15px 15px @themeColorSub;
-	}
-	.themeBoxShadowEntry {
-		box-shadow: -10px -10px @themeColorSub;
-	}
-	.themeBoxShadowTabBar {
-		box-shadow: 0 -15px 30px 0 rgba(0, 0, 0, .1);
-	}
-	.themeBoxShadowNavigator {
-		box-shadow: 0 15px 30px 0 rgba(0, 0, 0, .1);
-	}
+::-moz-placeholder {
+	color: #cccccc;
+	font-weight: 100;
+}
+:-ms-input-placeholder {
+	color: #cccccc;
+	font-weight: 100;
+}
+:-moz-placeholder {
+	color: #cccccc;
+	font-weight: 100;
+}
+.themeBorderStyle {
+	border-style: solid;
+	border-color: @themeColorSub;
 }
 .englishFont {
 	font-family: 'englishFont';

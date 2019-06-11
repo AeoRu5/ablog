@@ -7,15 +7,15 @@
     <!-- Duplicate symbols -->
     <use
       xlink:href="#component_aniSvg_text_symbol"
-      class="themeStroke themeTextShadowEntry block"
+      class="themeStroke block"
       :class="component_aniSvg_text_loaded ? 'component_aniSvg_text' : ''"></use>
     <use
       xlink:href="#component_aniSvg_text_symbol"
-      class="themeStroke themeTextShadowEntry block"
+      class="themeStroke block"
       :class="component_aniSvg_text_loaded ? 'component_aniSvg_text' : ''"></use>
     <use
       xlink:href="#component_aniSvg_text_symbol"
-      class="themeStroke themeTextShadowEntry block"
+      class="themeStroke block"
       :class="component_aniSvg_text_loaded ? 'component_aniSvg_text' : ''"></use>
   </svg>
 </template>
