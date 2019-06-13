@@ -6,7 +6,7 @@ const Service = require('egg').Service,
 class GetAniSvgTxtResultService extends Service {
   async post() {
     try {
-      const ip = '58.23.237.225' || this.ctx.request.header['x-forwarded-for'],
+      const ip = this.ctx.request.header['x-forwarded-for'],
         getPositionResult = await this.ctx.curl(`https://api.map.baidu.com/location/ip?ip=${ip}&ak=${ak}&coor=bd09ll`, {
           method: 'GET',
           contentType: 'json',

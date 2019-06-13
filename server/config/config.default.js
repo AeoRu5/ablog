@@ -19,7 +19,7 @@ module.exports = appInfo => {
 	config.session = {
 		renew: true,
 		encrypt: true,
-		signed: false,
+		signed: true,
 		key: 'USERINFO',
 		httpOnly: false,
 		maxAge: 3600 * 1000

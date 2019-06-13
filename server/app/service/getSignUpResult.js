@@ -14,7 +14,7 @@ class GetSignUpResultService extends Service {
 				securityCode,
 				password
 			} = params,
-			ip = '58.23.237.225' || this.ctx.request.header['x-forwarded-for'],
+			ip = this.ctx.request.header['x-forwarded-for'],
 			selectUserResult = await this.app.mysql.get('users', {
 				tel,
 				enabled: 1

@@ -3,8 +3,6 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 
 module.exports = {
 	devServer: {
-		port: 8080,
-		host: 'localhost',
 		https: false,
 		open: false,
 		proxy: {
