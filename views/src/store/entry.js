@@ -7,25 +7,26 @@ export default {
 	},
 	mutations: {
 		component_aniSvg_loadAniSvgTxt(state, callback) {
-			utils.requestPost('/aeoru5/aniSvgTxt', {
+			app.requestPost('/aeoru5/aniSvgTxt', {
 
-			},
-			res => {
-				if (res.success) {
-					state.component_aniSvg_aniSvgTxt = res.aniSvgTxt;
+				},
+				res => {
+					if (res.success) {
+						state.component_aniSvg_aniSvgTxt = res.aniSvgTxt;
 
-					if (callback) callback();
-				} else {
-					aeorus.showToast({
-						icon: 'warn',
-						content: res.message,
-						duration: 2000
-					});
+						if (callback) callback();
+					} else {
+						aeorus.showToast({
+							icon: 'warn',
+							content: res.message,
+							duration: 2000
+						});
+					}
+				},
+				err => {
+					console.log(err);
 				}
-			},
-			err => {
-				console.log(err);
-			});
+			);
 		},
 		component_aniSvg_animationend(state) {
 			state.view_entry_isAniSvgAnimationEnd = true;

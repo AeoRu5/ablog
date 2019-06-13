@@ -4,14 +4,14 @@ import App from './App.vue'
 import router from './router'
 import store from './store'
 import vuescroll from 'vuescroll'
-import utils from './plugins/utils'
+import app from './plugins/app'
 import aeorusUI from './plugins/aeorusUI'
 import './registerServiceWorker'
 import animate from 'animate.css'
 import './assets/iconfont/iconfont.css'
 import 'swiper/dist/css/swiper.css'
 
-window.utils = utils
+window.app = app
 window.aeorus = aeorusUI
 Vue.use(animate)
 Vue.use(vuescroll)

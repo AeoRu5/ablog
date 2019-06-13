@@ -128,5 +128,13 @@ module.exports = app => {
 
 			ctx.body = await ctx.service.getSignInResult.post(ctx.request.body);
 		}
+		async userInfo() {
+			const {
+				ctx,
+				app
+			} = this;
+
+			ctx.body = await ctx.service.getUserInfoResult.get();
+		}
 	}
 };

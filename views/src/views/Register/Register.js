@@ -38,7 +38,7 @@ export default {
 			}
 
 			if (!this.view_register_securityCode_isGetting) {
-				utils.requestPost('/aeoru5/saveTemporaryInfo', {
+				app.requestPost('/aeoru5/saveTemporaryInfo', {
 					data: {
 						tel: Number(this.view_register_tel),
 						nickname: this.view_register_nickname
@@ -98,7 +98,7 @@ export default {
 
 			aeorus.showLoading('注册中~');
 
-			utils.requestPost('/aeoru5/signUp', {
+			app.requestPost('/aeoru5/signUp', {
 					data: {
 						tel: Number(this.view_register_tel),
 						nickname: this.view_register_nickname,

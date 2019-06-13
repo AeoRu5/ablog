@@ -33,40 +33,41 @@ export default {
 
 			aeorus.showLoading('登录中~');
 
-			utils.requestPost('/aeoru5/signIn', {
-				data: {
-					tel: Number(this.view_login_tel),
-					password: new MD5().update(this.view_login_tel + this.view_login_password).digest('hex')
-				}
-			},
-			res => {
-				aeorus.hideLoading();
+			app.requestPost('/aeoru5/signIn', {
+					data: {
+						tel: Number(this.view_login_tel),
+						password: new MD5().update(this.view_login_tel + this.view_login_password).digest('hex')
+					}
+				},
+				res => {
+					aeorus.hideLoading();
 
-				if (res.success) {
-					aeorus.showToast({
-						icon: 'success',
-						content: res.message,
-						duration: 3000
-					}, () => {
-						this.$router.replace({
-							path: decodeURIComponent(this.$route.query.redirect || '/')
+					if (res.success) {
+						aeorus.showToast({
+							icon: 'success',
+							content: res.message,
+							duration: 3000
+						}, () => {
+							this.$router.replace({
+								path: decodeURIComponent(this.$route.query.redirect || '/')
+							});
 						});
-					});
-				} else {
+					} else {
+						aeorus.showToast({
+							content: res.message,
+							duration: 2000
+						});
+					}
+				},
+				err => {
+					aeorus.hideLoading();
 					aeorus.showToast({
-						content: res.message,
+						icon: 'netError',
+						content: '你的网络大概炸了?',
 						duration: 2000
 					});
 				}
-			},
-			err => {
-				aeorus.hideLoading();
-				aeorus.showToast({
-					icon: 'netError',
-					content: '你的网络大概炸了?',
-					duration: 2000
-				});
-			});
+			);
 		}
 	}
 }

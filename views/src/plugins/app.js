@@ -72,5 +72,25 @@ export default {
 	},
 	checkAnimationEnd(vm, event, callback) {
 		vm.addEventListener(event, callback);
+	},
+	getUserInfo(callback) {
+		this.requestGet('/aeoru5/userInfo', {
+
+			},
+			res => {
+				if (res.success) {
+					if (callback) callback(res.userInfo);
+				} else {
+					aeorus.showToast({
+						icon: 'warn',
+						content: res.message,
+						duration: 2000
+					});
+				}
+			},
+			err => {
+				console.log(err);
+			}
+		);
 	}
 }
