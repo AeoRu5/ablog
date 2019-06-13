@@ -1,9 +1,9 @@
 <template>
 	<div v-if="is_mobile" class="view_app_frame_ignore frameConfig">
-		<Navigator />
+		<Navigator :tabLists="tabLists" />
 		<Home v-if="component_tabBar_actived == 'home'" />
 		<Account v-if="component_tabBar_actived == 'account'" />
-		<TabBar />
+		<TabBar :tabLists="tabLists" />
 	</div>
 </template>
 

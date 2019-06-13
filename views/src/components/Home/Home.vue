@@ -1,6 +1,7 @@
 <template>
-	<div class="component_home_frame frameConfig themeBackgroundColorSub">
-		<scroll />
+	<div class="component_home_frame frameConfig">
+		<Carousel />
+		<Scroll />
 	</div>
 </template>
 

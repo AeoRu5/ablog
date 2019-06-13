@@ -9,6 +9,7 @@ import aeorusUI from './plugins/aeorusUI'
 import './registerServiceWorker'
 import animate from 'animate.css'
 import './assets/iconfont/iconfont.css'
+import 'swiper/dist/css/swiper.css'
 
 window.utils = utils
 window.aeorus = aeorusUI

@@ -13,6 +13,21 @@ export default {
 		Account,
 		Navigator
 	},
+	data() {
+		return {
+			tabLists: [{
+				navigator: '兔走',
+				tabBar: '首页',
+				target: 'home',
+				icon: 'icon-fire'
+			}, {
+				navigator: '我的',
+				tabBar: '我的',
+				target: 'account',
+				icon: 'icon-mobile'
+			}]
+		}
+	},
 	computed: {
 		...mapState({
 			is_mobile: state => state.is_mobile,

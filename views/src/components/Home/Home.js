@@ -1,8 +1,10 @@
-import scroll from '@/components/CustomizeScroll/CustomizeScroll.vue'
+import Scroll from '@/components/CustomizeScroll/CustomizeScroll.vue'
+import Carousel from '@/components/CustomizeCarousel/CustomizeCarousel.vue'
 
 export default {
 	components: {
-		scroll
+		Scroll,
+		Carousel
 	},
 	data() {
 		return {
