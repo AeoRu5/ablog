@@ -74,7 +74,7 @@ export default {
 			this.view_register_password_type = this.view_register_password_type == 'password' ? 'text' : 'password';
 		},
 		_view_register_confirm_register() {
-			if (!/\d{11}/.test(this.view_register_tel)) {
+			if (!/^1\d{10}/.test(this.view_register_tel)) {
 				aeorus.showToast('请填写正确的手机号~');
 			}
 
@@ -114,7 +114,7 @@ export default {
 							icon: 'success',
 							content: res.message
 						}, () => {
-							this.$router.push({
+							this.$router.replace({
 								name: 'login',
 								query: {
 									redirect: this.$route.query.redirect

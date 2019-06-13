@@ -27,8 +27,11 @@ export default {
 				let result = res.data;
 
 				if (result.needLoad) {
-					router.push({
-						name: 'login'
+					router.replace({
+						name: 'login',
+						query: {
+							redirect: router.currentRoute.fullPath
+						}
 					});
 				} else {
 					if (successCallback) successCallback(result);
@@ -51,7 +54,7 @@ export default {
 			if (res.request.readyState == 4 && res.status == 200) {
 				let result = res.data;
 				if (result.needLoad) {
-					router.push({
+					router.replace({
 						name: 'login',
 						query: {
 							redirect: router.currentRoute.fullPath

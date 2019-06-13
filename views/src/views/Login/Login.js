@@ -19,8 +19,8 @@ export default {
 			this.view_login_password_type = this.view_login_password_type == 'password' ? 'text' : 'password';
 		},
 		_view_login_confirm_login() {
-			if (!/\d{11}/.test(this.view_login_tel)) {
-				aeorus.showToast('手机号有点东西啊~');
+			if (!/^1\d{10}/.test(this.view_login_tel)) {
+				aeorus.showToast('手机号格式有点东西啊~');
 
 				return;
 			}
@@ -48,7 +48,7 @@ export default {
 						content: res.message,
 						duration: 3000
 					}, () => {
-						this.$router.push({
+						this.$router.replace({
 							path: decodeURIComponent(this.$route.query.redirect || '/')
 						});
 					});

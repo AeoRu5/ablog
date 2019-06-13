@@ -29,6 +29,9 @@ export default {
 		},
 		component_aniSvg_animationend(state) {
 			state.view_entry_isAniSvgAnimationEnd = true;
+		},
+		view_entry_btn(state) {
+			router.replace('/app');
 		}
 	},
 	actions: {
@@ -37,6 +40,9 @@ export default {
 		},
 		component_aniSvg_animationend(ctx) {
 			ctx.commit('component_aniSvg_animationend');
+		},
+		view_entry_btn(ctx) {
+			ctx.commit('view_entry_btn');
 		}
 	}
 }
