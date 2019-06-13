@@ -1,4 +1,8 @@
 .view_entry_frame {
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	justify-content: center;
 
 	.view_entry_btn_frame {
 		width: 100%;
@@ -8,11 +12,21 @@
 
 		.view_entry_btn {
 			font-size: 45px;
-			margin-top: 225px;
 			padding: 15px 30px;
-			border-radius: 14px;
 			align-items: center;
 			justify-content: center;
+		}
+	}
+}
+@media screen and (min-width: 900px) {
+	.view_entry_frame {
+		
+		.view_entry_btn_frame {
+
+			.view_entry_btn {
+				padding: 18px 36px !important;
+				font-size: 54px !important;
+			}
 		}
 	}
 }

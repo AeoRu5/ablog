@@ -7,7 +7,8 @@
 					name: 'app'
 				}"
 				class="view_entry_btn englishFont themeFontColorSub cp"
-				:class="isAniSvgAnimationEnd ? 'flex animated fadeIn slower' : 'hide'">Enter</router-link>
+				:class="isAniSvgAnimationEnd ? 'flex animated fadeIn slower' : ''"
+				:style="isAniSvgAnimationEnd ? '' : 'visibility:hidden'">Enter</router-link>
 		</div>
 	</div>
 </template>

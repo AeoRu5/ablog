@@ -1,5 +1,5 @@
 <template>
-	<div id="app" class="themeLinearGradientBackgroundColor">
+	<div id="app">
 		<router-view v-if="$route.meta.keepAlive"></router-view>
 		<router-view v-else></router-view>
 		<AeorusUI />

@@ -1,6 +1,3 @@
-import {
-	mapState
-} from 'vuex'
 import MD5 from 'md5.js';
 
 export default {
@@ -23,30 +20,30 @@ export default {
 		},
 		_view_login_confirm_login() {
 			if (!/\d{11}/.test(this.view_login_tel)) {
-				this.showToast('手机号有点东西啊~');
+				aeorus.showToast('手机号有点东西啊~');
 
 				return;
 			}
 
 			if (this.view_login_password.length == 0) {
-				this.showToast('真就不写密码哦~');
+				aeorus.showToast('真就不写密码哦~');
 
 				return;
 			}
 
-			this.showLoading('登录中~');
+			aeorus.showLoading('登录中~');
 
-			this.requestPost('/aeoru5/signIn', {
+			utils.requestPost('/aeoru5/signIn', {
 				data: {
 					tel: Number(this.view_login_tel),
 					password: new MD5().update(this.view_login_tel + this.view_login_password).digest('hex')
 				}
 			},
 			res => {
-				this.hideLoading();
+				aeorus.hideLoading();
 
 				if (res.success) {
-					this.showToast({
+					aeorus.showToast({
 						icon: 'success',
 						content: res.message,
 						duration: 3000
@@ -56,25 +53,20 @@ export default {
 						});
 					});
 				} else {
-					this.showToast({
+					aeorus.showToast({
 						content: res.message,
 						duration: 2000
 					});
 				}
 			},
 			err => {
-				this.hideLoading();
-				this.showToast({
+				aeorus.hideLoading();
+				aeorus.showToast({
 					icon: 'netError',
 					content: '你的网络大概炸了?',
 					duration: 2000
 				});
 			});
 		}
-	},
-	computed: {
-		...mapState({
-			is_mobile: state => state.is_mobile
-		})
 	}
 }

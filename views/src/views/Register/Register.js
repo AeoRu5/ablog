@@ -1,6 +1,3 @@
-import {
-	mapState
-} from 'vuex'
 import MD5 from 'md5.js';
 let getSecurityCodeTimer;
 
@@ -25,8 +22,8 @@ export default {
 	},
 	methods: {
 		_view_register_securityCode_get() {
-			if (!/\d{11}/.test(this.view_register_tel)) {
-				this.showToast({
+			if (!/^1\d{10}/.test(this.view_register_tel)) {
+				aeorus.showToast({
 					content: '请填写正确的手机号~',
 					duration: 2000
 				});
@@ -35,13 +32,13 @@ export default {
 			}
 
 			if (this.view_register_nickname == '') {
-				this.showToast('请填写昵称~');
+				aeorus.showToast('请填写昵称~');
 
 				return;
 			}
 
 			if (!this.view_register_securityCode_isGetting) {
-				this.requestPost('/aeoru5/saveTemporaryInfo', {
+				utils.requestPost('/aeoru5/saveTemporaryInfo', {
 					data: {
 						tel: Number(this.view_register_tel),
 						nickname: this.view_register_nickname
@@ -59,7 +56,7 @@ export default {
 						this.view_register_securityCode_isGetting = false;
 						this.view_register_securityCodeTxt = `获取验证码`;
 
-						this.showModal({
+						aeorus.showModal({
 							title: '经费不足',
 							content: '哪有钱做短信验证啊，随便写个六位数得了~',
 							showCancel: false
@@ -78,30 +75,30 @@ export default {
 		},
 		_view_register_confirm_register() {
 			if (!/\d{11}/.test(this.view_register_tel)) {
-				this.showToast('请填写正确的手机号~');
+				aeorus.showToast('请填写正确的手机号~');
 			}
 
 			if (this.view_register_nickname == '') {
-				this.showToast('请填写昵称~');
+				aeorus.showToast('请填写昵称~');
 
 				return;
 			}
 
 			if (!/\d{6}/.test(this.view_register_securityCode)) {
-				this.showToast('请填写验证码~');
+				aeorus.showToast('请填写验证码~');
 
 				return;
 			}
 
 			if (this.view_register_password.length < 6) {
-				this.showToast('密码不够长哦~');
+				aeorus.showToast('密码不够长哦~');
 
 				return;
 			}
 
-			this.showLoading('注册中~');
+			aeorus.showLoading('注册中~');
 
-			this.requestPost('/aeoru5/signUp', {
+			utils.requestPost('/aeoru5/signUp', {
 					data: {
 						tel: Number(this.view_register_tel),
 						nickname: this.view_register_nickname,
@@ -110,10 +107,10 @@ export default {
 					}
 				},
 				res => {
-					this.hideLoading();
+					aeorus.hideLoading();
 
 					if (res.success) {
-						this.showToast({
+						aeorus.showToast({
 							icon: 'success',
 							content: res.message
 						}, () => {
@@ -125,15 +122,15 @@ export default {
 							});
 						});
 					} else {
-						this.showToast({
+						aeorus.showToast({
 							content: res.message,
 							duration: 2000
 						});
 					}
 				},
 				err => {
-					this.hideLoading();
-					this.showToast({
+					aeorus.hideLoading();
+					aeorus.showToast({
 						icon: 'netError',
 						content: '你的网络大概炸了?',
 						duration: 2000
@@ -170,11 +167,6 @@ export default {
 				}
 			}
 		}
-	},
-	computed: {
-		...mapState({
-			is_mobile: state => state.is_mobile
-		})
 	},
 	destroyed() {
 		clearInterval(getSecurityCodeTimer);

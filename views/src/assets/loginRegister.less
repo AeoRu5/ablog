@@ -1,21 +1,28 @@
-.view_loginRegister_frame_app {
+.view_loginRegister_frame_app_ignore {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	&::after {
+		content: "";
+		height: 260px;
+		display: block;
+	}
 
 	.view_loginRegister_form_frame {
-		width: 600px;
+		width: 80%;
 		padding: 0 30px;
 		border-radius: 30px;
 		background-color: #ffffff;
 
 		.view_loginRegister_form_title {
-			font-size: 52px;
+			font-size: 24px;
 			margin-top: 15px;
 		}
 
 		.view_loginRegister_form_input_block {
+			height: 48px;
 			display: flex;
-			height: 75px;
-			font-size: 30px;
-			margin-top: 30px;
 			align-items: center;
 			border-bottom: 1px solid #f8f8f8;
 
@@ -24,78 +31,81 @@
 				width: 100%;
 				height: 100%;
 				border: none;
-				font-size: 30px;
+				font-size: 14px;
 				font-weight: 100;
 			}
 
-			::-webkit-input-placeholder {
-				font-size: 28px;
-				letter-spacing: 2px;
-			}
-
-			::-moz-placeholder {
-				font-size: 28px;
-				letter-spacing: 2px;
-			}
-
-			:-ms-input-placeholder {
-				font-size: 28px;
-				letter-spacing: 2px;
-			}
-			
-			:-moz-placeholder {
-				font-size: 28px;
-				letter-spacing: 2px;
-			}
-
 			.icon-eye, .icon-eye-close {
-				font-size: 30px;
+				font-size: 20px;
 			}
 
 			.view_loginRegister_form_securityCode_btn.view_loginRegister_form_securityCode_btn_isGetting {
 				color: #cccccc;
 			}
+
+			::-webkit-input-placeholder {
+				font-size: 12px;
+			}
+
+			::-moz-placeholder {
+				font-size: 12px;
+			}
+
+			:-ms-input-placeholder {
+				font-size: 12px;
+			}
+			
+			:-moz-placeholder {
+				font-size: 12px;
+			}
 		}
 
 		.view_loginRegister_form_input_tip {
-			font-size: 15px;
-			margin-top: 30px;
 			display: flex;
 			color: #ff0000;
+			font-size: 12px;
+			margin-top: 10px;
 			align-items: center;
 
 			.icon-alert {
-				font-size: 30px;
+				font-size: 14px;
 			}
 		}
 
 		.view_loginRegister_form_confirm {
-			width: 432px;
-			height: 90px;
+			width: 100%;
+			height: 48px;
 			display: flex;
-			font-size: 30px;
-			margin: 30px auto;
+			font-size: 16px;
+			margin: 20px auto;
 			margin-bottom: 0px;
-			border-radius: 45px;
+			border-radius: 60px;
 			align-items: center;
 			justify-content: center;
 		}
 
 		.view_loginRegister_toEachOther_btn {
-			width: 120px;
-			font-size: 16px;
+			width: 80px;
+			font-size: 14px;
 			font-weight: 700;
 			margin: 15px auto;
-			margin-bottom: 30px;
 
 			&::after {
 				left: 0;
 				content: '';
 				width: 100%;
-				height: 2px;
+				height: 1px;
 				bottom: -6px;
 				position: absolute;
 			}
+		}
+	}
+}
+@media screen and (min-width: 540px) {
+	.view_loginRegister_frame_app_ignore {
+
+		.view_loginRegister_form_frame {
+			width: 432px;
 		}
 	}
 }
