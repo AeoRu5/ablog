@@ -17,7 +17,8 @@ export default new vuex.Store({
 		aeorusUI_loading
 	},
 	state: {
-		is_mobile: false
+		is_mobile: false,
+		userInfo: {}
 	},
 	mutations: {
 		checkClient(state) {
@@ -38,11 +39,17 @@ export default new vuex.Store({
 					state.is_mobile = false;
 				}
 			}
+		},
+		saveUserInfo(state, params) {
+			state.userInfo = Object.assign({}, params);
 		}
 	},
 	actions: {
 		checkClient(ctx) {
 			ctx.commit('checkClient');
+		},
+		saveUserInfo(ctx, params) {
+			ctx.commit('saveUserInfo', params);
 		}
 	}
 })

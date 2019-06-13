@@ -1,4 +1,4 @@
-import MD5 from 'md5.js';
+import MD5 from 'md5.js'
 
 export default {
 	data() {
