@@ -1,3 +1,6 @@
+import {
+	mapActions
+} from 'vuex'
 import MD5 from 'md5.js'
 
 export default {
@@ -14,6 +17,9 @@ export default {
 		this.view_login_mounted = true;
 	},
 	methods: {
+		...mapActions([
+			'saveUserInfo'
+		]),
 		_view_login_toggle_password_show() {
 			this.view_login_toggle_password_show = !this.view_login_toggle_password_show;
 			this.view_login_password_type = this.view_login_password_type == 'password' ? 'text' : 'password';

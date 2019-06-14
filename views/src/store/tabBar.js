@@ -1,6 +1,6 @@
 export default {
 	state: {
-		component_tabBar_actived: 'home'
+		component_tabBar_actived: 'account'
 	},
 	mutations: {
 		component_tabBar_switch(state, param) {

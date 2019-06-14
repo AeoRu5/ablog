@@ -47,11 +47,13 @@ export default {
 
 				let restSecs = 30;
 
+				this.view_register_securityCode_isGetting = true;
+				this.view_register_securityCodeTxt = `${restSecs}s后重新获取`;
+
 				getSecurityCodeTimer = setInterval(() => {
 					if (restSecs >= 0) {
-						this.view_register_securityCode_isGetting = true;
-						this.view_register_securityCodeTxt = `${restSecs}s后重新获取`;
 						--restSecs;
+						this.view_register_securityCodeTxt = `${restSecs}s后重新获取`;
 					} else {
 						this.view_register_securityCode_isGetting = false;
 						this.view_register_securityCodeTxt = `获取验证码`;

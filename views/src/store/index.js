@@ -17,8 +17,8 @@ export default new vuex.Store({
 		aeorusUI_loading
 	},
 	state: {
-		is_mobile: false,
-		userInfo: {}
+		userInfo: {},
+		is_mobile: false
 	},
 	mutations: {
 		checkClient(state) {
@@ -42,6 +42,7 @@ export default new vuex.Store({
 		},
 		saveUserInfo(state, params) {
 			state.userInfo = Object.assign({}, params);
+			sessionStorage.setItem('USERINFO', JSON.stringify(state.userInfo));
 		}
 	},
 	actions: {

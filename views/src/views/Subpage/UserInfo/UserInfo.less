@@ -1,0 +1,50 @@
+.component_userInfo_frame_ignore {
+	width: 100%;
+	height: 100%;
+	padding: 0 20px;
+	background-color: #ffffff;
+
+	.component_userInfo_block {
+		height: 48px;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		border-bottom: 1px solid #7b68ee1a;
+
+		.component_userInfo_left {
+			width: 50px;
+			margin-right: 10px;
+		}
+
+		.component_userInfo_right {
+
+			.component_userInfo_right_hasArrows {
+				padding-right: 20px;
+			}
+
+			.arrows {
+
+				&::before {
+					right: 8px;
+				}
+			}
+		}
+	}
+
+	.component_userInfo_avater {
+		height: 80px;
+
+		.component_userInfo_right {
+
+			.component_userInfo_right_hasArrows {
+
+				.component_userInfo_avater_img {
+					width: 60px;
+					height: 60px;
+					border-radius: 50%;
+					background-color: #000;
+				}
+			}
+		}
+	}
+}

@@ -2,6 +2,7 @@
 	<div class="component_home_frame frameConfig">
 		<Carousel />
 		<Scroll />
+		<Constructing />
 	</div>
 </template>
 

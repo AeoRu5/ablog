@@ -1,9 +1,9 @@
 import {
 	mapState
 } from 'vuex'
-import CustomizeToast from '@/components/CustomizeToast/CustomizeToast.vue'
-import CustomizeModal from '@/components/CustomizeModal/CustomizeModal.vue'
-import CustomizeLoading from '@/components/CustomizeLoading/CustomizeLoading.vue'
+import CustomizeToast from './CustomizeToast/CustomizeToast.vue'
+import CustomizeModal from './CustomizeModal/CustomizeModal.vue'
+import CustomizeLoading from './CustomizeLoading/CustomizeLoading.vue'
 
 export default {
 	components: {

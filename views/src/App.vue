@@ -23,6 +23,6 @@
 			...mapActions([
 				'checkClient'
 			])
-		},
+		}
 	}
 </script>

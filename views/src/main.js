@@ -10,6 +10,7 @@ import './registerServiceWorker'
 import animate from 'animate.css'
 import './assets/iconfont/iconfont.css'
 import 'swiper/dist/css/swiper.css'
+import './assets/iconfont/iconfont.js'
 
 window.app = app
 window.aeorus = aeorusUI

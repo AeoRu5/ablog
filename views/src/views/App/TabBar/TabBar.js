@@ -10,6 +10,11 @@ export default {
 			'component_tabBar_switch'
 		])
 	},
+	created() {
+		this.tabLists.map(tabList => {
+			tabList.activeIcon = `${tabList.icon}-fill`
+		});
+	},
 	computed: {
 		...mapState({
 			component_tabBar_actived: state => state.tabBar.component_tabBar_actived

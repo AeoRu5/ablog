@@ -4,39 +4,47 @@ import Router from 'vue-router'
 Vue.use(Router)
 
 export default new Router({
-  mode: 'history',
-  base: process.env.BASE_URL,
-  routes: [{
-    path: '/',
-    name: 'entry',
-    component: () =>
-      import ('@/views/Entry/Entry.vue'),
-    meta: {
-      keepAlive: false
-    }
-  }, {
-    path: '/login',
-    name: 'login',
-    component: () =>
-      import ('@/views/Login/Login.vue'),
-    meta: {
-      keepAlive: false
-    }
-  }, {
-    path: '/register',
-    name: 'register',
-    component: () =>
-      import ('@/views/Register/Register.vue'),
-    meta: {
-      keepAlive: false
-    }
-  }, {
-    path: '/app',
-    name: 'app',
-    component: () =>
-      import ('@/views/App/App.vue'),
-    meta: {
-      keepAlive: false
-    }
-  }]
+	mode: 'history',
+	base: process.env.BASE_URL,
+	routes: [{
+		path: '/',
+		name: 'entry',
+		component: () =>
+			import ('@/views/Entry/Entry.vue'),
+		meta: {
+			keepAlive: false
+		}
+	}, {
+		path: '/login',
+		name: 'login',
+		component: () =>
+			import ('@/views/Login/Login.vue'),
+		meta: {
+			keepAlive: false
+		}
+	}, {
+		path: '/register',
+		name: 'register',
+		component: () =>
+			import ('@/views/Register/Register.vue'),
+		meta: {
+			keepAlive: false
+		}
+	}, {
+		path: '/app',
+		name: 'app',
+		component: () =>
+			import ('@/views/App/App.vue'),
+		meta: {
+			keepAlive: false
+		}
+	}, {
+		path: '/subpage',
+		name: 'subpage',
+		component: () =>
+			import ('@/views/Subpage/Subpage.vue'),
+		meta: {
+			keepAlive: false
+		}
+	}]
 })

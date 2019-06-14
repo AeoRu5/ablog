@@ -2,7 +2,6 @@
 @themeColorMain: #7b68ee;
 @purityBackgroundColor: @themeColorMain;
 @linearGradientBackgroundColor: -webkit-linear-gradient(bottom, @themeColorMain, @themeColorSub);
-
 @font-face {
 	font-family: 'englishFont';
 	src: url('../fonts/englishFont.ttf');
@@ -37,6 +36,20 @@ html, body, #app{
 	width: 100%;
 	min-height: 100%;
 	overflow: hidden;
+}
+.arrows::before {
+	top: 50%;
+	width: 8px;
+	height: 8px;
+	content: "";
+	right: 20px;
+	opacity: .3;
+	position: absolute;
+	border-style: solid;
+	display: inline-block;
+	border-width: 1px 1px 0 0;
+	border-color: @themeColorMain;
+	transform: rotate(45deg) translateY(-50%);
 }
 .themeStroke {
 	stroke: @themeColorSub;

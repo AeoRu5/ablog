@@ -8,10 +8,10 @@
 		<div class="aeorusUI_modal_btns">
 			<div
 				v-if="cancel_show"
-				class="aeorusUI_modal_btn_cancel aeorusUI_modal_btn themeFontColorMain ac cp"
+				class="aeorusUI_modal_btn_cancel aeorusUI_modal_btn themeFontColorMain ac"
 				@click="aeorusUI_modal_cancel">取消</div>
 			<div
-				class="aeorusUI_modal_btn_confirm aeorusUI_modal_btn themeBackgroundColorMain ac cp"
+				class="aeorusUI_modal_btn_confirm aeorusUI_modal_btn themeBackgroundColorMain ac"
 				:class="cancel_show ? '' : 'aeorusUI_modal_btn_confirm_only'"
 				@click="aeorusUI_modal_confirm">确认</div>
 		</div>

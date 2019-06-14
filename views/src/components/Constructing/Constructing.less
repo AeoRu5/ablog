@@ -1,0 +1,25 @@
+.component_constructing_frame {
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	justify-content: center;
+	
+	@keyframes constructing_roll_animation {
+		0% {
+			transform: rotate(0deg);
+		}
+		100% {
+			transform: rotate(360deg);
+		}
+	}
+	.component_constructing_svg {
+		width: 200px;
+		height: 200px;
+		animation: constructing_roll_animation 3s linear infinite;
+	}
+
+	.component_constructing_tip {
+		font-size: 20px;
+		margin-top: 20px;
+	}
+}

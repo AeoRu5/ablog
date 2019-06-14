@@ -23,7 +23,8 @@ a {
   text-decoration:none;
   background-color:transparent
 }
-a:focus,*:focus {
+a:focus,*:focus,a:active {
+  color:inherit;
   outline:none
 }
 abbr[title] {

@@ -1,15 +1,17 @@
 import {
 	mapState
 } from 'vuex'
-import Home from '@/components/Home/Home.vue'
-import TabBar from '@/components/TabBar/TabBar.vue'
-import Account from '@/components/Account/Account.vue'
-import Navigator from '@/components/Navigator/Navigator.vue'
+import Home from './Home/Home.vue'
+import TabBar from './TabBar/TabBar.vue'
+import Message from './Message/Message.vue'
+import Account from './Account/Account.vue'
+import Navigator from './Navigator/Navigator.vue'
 
 export default {
 	components: {
 		Home,
 		TabBar,
+		Message,
 		Account,
 		Navigator
 	},
@@ -19,12 +21,19 @@ export default {
 				navigator: '兔走',
 				tabBar: '首页',
 				target: 'home',
-				icon: 'icon-fire'
+				icon: 'icon-fire',
+				functionIcon: 'icon-RectangleCopy'
+			}, {
+				navigator: '消息',
+				tabBar: '消息',
+				target: 'message',
+				icon: 'icon-rocket'
 			}, {
 				navigator: '我的',
 				tabBar: '我的',
 				target: 'account',
-				icon: 'icon-mobile'
+				icon: 'icon-mobile',
+				functionIcon: 'icon-settings'
 			}]
 		}
 	},

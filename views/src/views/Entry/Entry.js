@@ -2,7 +2,7 @@ import {
 	mapState,
 	mapActions
 } from 'vuex'
-import AniSvg from '@/components/AniSvg/AniSvg.vue'
+import AniSvg from '@/views/Entry/AniSvg/AniSvg.vue'
 
 export default {
 	components: {
