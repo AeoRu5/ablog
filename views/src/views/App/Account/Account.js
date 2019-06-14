@@ -8,7 +8,7 @@ export default {
 	data() {
 		return {
 			avater: defaultAvater,
-			view_account_mounted: false
+			component_account_mounted: false
 		}
 	},
 	created() {
@@ -17,7 +17,7 @@ export default {
 		});
 	},
 	mounted() {
-		this.view_account_mounted = true;
+		this.component_account_mounted = true;
 	},
 	methods: {
 		...mapActions([
@@ -36,5 +36,5 @@ export default {
 		...mapState({
 			userInfo: state => state.userInfo
 		})
-	},
+	}
 }

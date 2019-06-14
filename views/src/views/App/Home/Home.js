@@ -10,10 +10,10 @@ export default {
 	},
 	data() {
 		return {
-			view_home_mounted: false
+			component_home_mounted: false
 		}
 	},
 	mounted() {
-		this.view_home_mounted = true;
-	},
+		this.component_home_mounted = true;
+	}
 }

@@ -6,10 +6,10 @@ export default {
 	},
 	data() {
 		return {
-			view_message_mounted: false
+			component_message_mounted: false
 		}
 	},
 	mounted() {
-		this.view_message_mounted = true;
-	},
+		this.component_message_mounted = true;
+	}
 }
