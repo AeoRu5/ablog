@@ -1,5 +1,5 @@
 <template>
-	<div class="component_message_frame frameConfig">
+	<div v-if="view_message_mounted" class="component_message_frame frameConfig">
 		<Constructing />
 	</div>
 </template>

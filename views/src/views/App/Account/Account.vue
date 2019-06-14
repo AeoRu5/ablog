@@ -1,5 +1,5 @@
 <template>
-	<div class="component_account_frame_ignore frameConfig">
+	<div v-if="view_account_mounted" class="component_account_frame_ignore frameConfig">
 		<div class="component_account_userInfo themeFontColorSub">
 			<div class="component_account_nickname">{{userInfo.nickname}}</div>
 			<img

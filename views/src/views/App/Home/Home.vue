@@ -1,5 +1,5 @@
 <template>
-	<div class="component_home_frame frameConfig">
+	<div v-if="view_home_mounted" class="component_home_frame frameConfig">
 		<Carousel />
 		<Scroll />
 		<Constructing />

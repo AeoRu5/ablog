@@ -7,13 +7,17 @@ import defaultAvater from '@/assets/img/usagi.jpg'
 export default {
 	data() {
 		return {
-			avater: defaultAvater
+			avater: defaultAvater,
+			view_account_mounted: false
 		}
 	},
 	created() {
 		this._component_account_userInfo_get().then(userInfo => {
 			this.saveUserInfo(userInfo);
 		});
+	},
+	mounted() {
+		this.view_account_mounted = true;
 	},
 	methods: {
 		...mapActions([
