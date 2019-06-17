@@ -34,13 +34,13 @@ export default {
 						}
 					});
 				} else {
-					if (successCallback) successCallback(result);
+					successCallback && successCallback(result);
 				}
 			} else {
-				if (errorCallback) errorCallback(result);
+				errorCallback && errorCallback(result);
 			}
 		}).catch(e => {
-			if (errorCallback) errorCallback(e);
+			errorCallback && errorCallback(e);
 		});
 	},
 	requestPost(url, params, successCallback, errorCallback) {
@@ -61,13 +61,13 @@ export default {
 						}
 					});
 				} else {
-					if (successCallback) successCallback(result);
+					successCallback && successCallback(result);
 				}
 			} else {
-				if (errorCallback) errorCallback(result);
+				errorCallback && errorCallback(result);
 			}
 		}).catch(e => {
-			if (errorCallback) errorCallback(e);
+			errorCallback && errorCallback(e);
 		});
 	},
 	checkAnimationEnd(vm, event, callback) {
@@ -79,7 +79,7 @@ export default {
 			},
 			res => {
 				if (res.success) {
-					if (callback) callback(res.userInfo);
+					callback && callback(res.userInfo);
 				} else {
 					aeorus.showToast({
 						icon: 'warn',

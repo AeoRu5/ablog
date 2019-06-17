@@ -71,7 +71,7 @@ export default {
 		toastTimer = setTimeout(() => {
 			store._mutations.aeorusUI_toast_hide[0]();
 
-			if (callback) callback();
+			callback && callback();
 			clearTimeout(toastTimer);
 		}, duration);
 	},

@@ -14,7 +14,7 @@ export default {
 					if (res.success) {
 						state.component_aniSvg_aniSvgTxt = res.aniSvgTxt;
 
-						if (callback) callback();
+						callback && callback();
 					} else {
 						aeorus.showToast({
 							icon: 'warn',
