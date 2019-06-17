@@ -4,7 +4,6 @@ let getSecurityCodeTimer;
 export default {
 	data() {
 		return {
-			view_register_mounted: false,
 			view_register_tel: '',
 			view_register_nickname: '',
 			view_register_securityCode: '',
@@ -17,13 +16,10 @@ export default {
 			view_register_password_type: 'password'
 		}
 	},
-	mounted() {
-		this.view_register_mounted = true;
-	},
 	methods: {
 		_view_register_securityCode_get() {
 			if (!/^1\d{10}/.test(this.view_register_tel)) {
-				aeorus.showToast({
+				this.$showToast({
 					content: '请填写正确的手机号~',
 					duration: 2000
 				});
@@ -32,13 +28,13 @@ export default {
 			}
 
 			if (this.view_register_nickname == '') {
-				aeorus.showToast('请填写昵称~');
+				this.$showToast('请填写昵称~');
 
 				return;
 			}
 
 			if (!this.view_register_securityCode_isGetting) {
-				app.requestPost('/aeoru5/saveTemporaryInfo', {
+				this.$requestPost('/aeoru5/saveTemporaryInfo', {
 					data: {
 						tel: Number(this.view_register_tel),
 						nickname: this.view_register_nickname
@@ -58,7 +54,7 @@ export default {
 						this.view_register_securityCode_isGetting = false;
 						this.view_register_securityCodeTxt = `获取验证码`;
 
-						aeorus.showModal({
+						this.$showModal({
 							title: '经费不足',
 							content: '哪有钱做短信验证啊，随便写个六位数得了~',
 							showCancel: false
@@ -77,30 +73,30 @@ export default {
 		},
 		_view_register_confirm_register() {
 			if (!/^1\d{10}/.test(this.view_register_tel)) {
-				aeorus.showToast('请填写正确的手机号~');
+				this.$showToast('请填写正确的手机号~');
 			}
 
 			if (this.view_register_nickname == '') {
-				aeorus.showToast('请填写昵称~');
+				this.$showToast('请填写昵称~');
 
 				return;
 			}
 
 			if (!/\d{6}/.test(this.view_register_securityCode)) {
-				aeorus.showToast('请填写验证码~');
+				this.$showToast('请填写验证码~');
 
 				return;
 			}
 
 			if (this.view_register_password.length < 6) {
-				aeorus.showToast('密码不够长哦~');
+				this.$showToast('密码不够长哦~');
 
 				return;
 			}
 
-			aeorus.showLoading('注册中~');
+			this.$showLoading('注册中~');
 
-			app.requestPost('/aeoru5/signUp', {
+			this.$requestPost('/aeoru5/signUp', {
 					data: {
 						tel: Number(this.view_register_tel),
 						nickname: this.view_register_nickname,
@@ -109,10 +105,10 @@ export default {
 					}
 				},
 				res => {
-					aeorus.hideLoading();
+					this.$hideLoading();
 
 					if (res.success) {
-						aeorus.showToast({
+						this.$showToast({
 							icon: 'success',
 							content: res.message
 						}, () => {
@@ -124,15 +120,15 @@ export default {
 							});
 						});
 					} else {
-						aeorus.showToast({
+						this.$showToast({
 							content: res.message,
 							duration: 2000
 						});
 					}
 				},
 				err => {
-					aeorus.hideLoading();
-					aeorus.showToast({
+					this.$hideLoading();
+					this.$showToast({
 						icon: 'netError',
 						content: '你的网络大概炸了?',
 						duration: 2000

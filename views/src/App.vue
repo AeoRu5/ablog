@@ -2,7 +2,7 @@
 	<div id="app">
 		<router-view v-if="$route.meta.keepAlive"></router-view>
 		<router-view v-else></router-view>
-		<AeorusUI />
+		<Aeorus />
 	</div>
 </template>
 
@@ -10,12 +10,8 @@
 	import {
 		mapActions
 	} from 'vuex'
-	import AeorusUI from '@/components/AeorusUI/AeorusUI.vue'
 
 	export default {
-		components: {
-			AeorusUI
-		},
 		mounted() {
 			this.checkClient();
 		},

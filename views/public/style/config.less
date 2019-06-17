@@ -1,7 +1,8 @@
+@direction: bottom;
 @themeColorSub: #f0ffff;
 @themeColorMain: #7b68ee;
 @purityBackgroundColor: @themeColorMain;
-@linearGradientBackgroundColor: -webkit-linear-gradient(bottom, @themeColorMain, @themeColorSub);
+@linearGradientBackgroundColor: -webkit-linear-gradient(@direction, @themeColorMain, @themeColorSub);
 @font-face {
 	font-family: 'englishFont';
 	src: url('../fonts/englishFont.ttf');
@@ -68,6 +69,12 @@ html, body, #app{
 }
 .themeLinearGradientBackgroundColor {
 	background: @linearGradientBackgroundColor;
+}
+.themeLinearGradientFontColor {
+	@direction: left;
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	background-image: @linearGradientBackgroundColor;
 }
 .themeBeforeBackgroundColor {
 

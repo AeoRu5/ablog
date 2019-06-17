@@ -18,6 +18,6 @@
 	</div>
 </template>
 
-<script src="./AeorusUI.js"></script>
+<script src="./Aeorus.js"></script>
 
-<style scoped lang="less" src="./AeorusUI.less"></style>
+<style scoped lang="less" src="./Aeorus.less"></style>

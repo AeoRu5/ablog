@@ -1,8 +1,16 @@
 import store from '@/store/index.js'
-
+import Aeorus from '@/components/Aeorus/Aeorus.vue'
 let toastTimer;
 
 export default {
+	install(Vue, options) {
+		Vue.component('Aeorus', Aeorus);
+		Vue.prototype.$showModal = this.showModal;
+		Vue.prototype.$showToast = this.showToast;
+		Vue.prototype.$hideToast = this.hideToast;
+		Vue.prototype.$showLoading = this.showLoading;
+		Vue.prototype.$hideLoading = this.hideLoading;
+	},
 	showModal({
 		title = '提示',
 		content = '提示内容',
@@ -25,8 +33,8 @@ export default {
 			let modalTimer = setTimeout(() => {
 				store._mutations.aeorusUI_modal_hide[0]();
 
-				if (confirm) confirm();
-				if (completed) completed();
+				confirm && confirm();
+				completed && completed();
 
 				clearTimeout(modalTimer);
 			}, 500);
@@ -38,8 +46,8 @@ export default {
 			let modalTimer = setTimeout(() => {
 				store._mutations.aeorusUI_modal_hide[0]();
 
-				if (cancel) cancel();
-				if (completed) completed();
+				cancel && cancel();
+				completed && completed();
 
 				clearTimeout(modalTimer);
 			}, 500);
@@ -71,7 +79,7 @@ export default {
 		toastTimer = setTimeout(() => {
 			store._mutations.aeorusUI_toast_hide[0]();
 
-			if (callback) callback();
+			callback && callback();
 			clearTimeout(toastTimer);
 		}, duration);
 	},

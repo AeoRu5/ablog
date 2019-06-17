@@ -7,16 +7,20 @@ export default {
 	},
 	mutations: {
 		component_aniSvg_loadAniSvgTxt(state, callback) {
-			app.requestPost('/aeoru5/aniSvgTxt', {
+			this._vm.$showLoading();
+
+			this._vm.$requestPost('/aeoru5/aniSvgTxt', {
 
 				},
 				res => {
+					this._vm.$hideLoading();
+
 					if (res.success) {
 						state.component_aniSvg_aniSvgTxt = res.aniSvgTxt;
 
-						if (callback) callback();
+						callback && callback();
 					} else {
-						aeorus.showToast({
+						this._vm.$showToast({
 							icon: 'warn',
 							content: res.message,
 							duration: 2000
@@ -24,6 +28,7 @@ export default {
 					}
 				},
 				err => {
+					this._vm.$hideLoading();
 					console.log(err);
 				}
 			);

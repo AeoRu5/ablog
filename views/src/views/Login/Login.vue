@@ -1,5 +1,5 @@
 <template>
-	<div v-if="view_login_mounted" class="view_loginRegister_frame_app_ignore frameConfig">
+	<div class="view_loginRegister_frame_app_ignore frameConfig">
 		<div class="view_loginRegister_form_frame">
 			<div class="view_loginRegister_form_title themeFontColorMain englishFont ac">WelCome To AeoRus~</div>
 			<div class="view_loginRegister_form_body">

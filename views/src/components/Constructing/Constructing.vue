@@ -3,7 +3,7 @@
 		<svg class="component_constructing_svg" aria-hidden="true">
 			<use xlink:href="#icon-shezhi"></use>
 		</svg>
-		<div class="component_constructing_tip animated flash infinite slow">{{component_constructing_tip}}</div>
+		<div class="component_constructing_tip themeLinearGradientFontColor animated flash infinite slow">{{component_constructing_tip}}</div>
 	</div>
 </template>
 

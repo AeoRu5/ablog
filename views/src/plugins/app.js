@@ -1,7 +1,14 @@
 import axios from 'axios'
-import router from '../router'
+import router from '@/router'
 
 export default {
+	install(Vue, options) {
+		Vue.prototype.$requestGet = this.requestGet;
+		Vue.prototype.$requestPost = this.requestPost;
+		Vue.prototype.$getUserInfo = this.getUserInfo;
+		Vue.prototype.$isEmptyObject = this.isEmptyObject;
+		Vue.prototype.$checkAnimationEnd = this.checkAnimationEnd;
+	},
 	requestGet(url, params, successCallback, errorCallback) {
 		let _linkRequestParams,
 			headers = params.headers || {};
@@ -34,13 +41,13 @@ export default {
 						}
 					});
 				} else {
-					if (successCallback) successCallback(result);
+					successCallback && successCallback(result);
 				}
 			} else {
-				if (errorCallback) errorCallback(result);
+				errorCallback && errorCallback(result);
 			}
 		}).catch(e => {
-			if (errorCallback) errorCallback(e);
+			errorCallback && errorCallback(e);
 		});
 	},
 	requestPost(url, params, successCallback, errorCallback) {
@@ -61,27 +68,28 @@ export default {
 						}
 					});
 				} else {
-					if (successCallback) successCallback(result);
+					successCallback && successCallback(result);
 				}
 			} else {
-				if (errorCallback) errorCallback(result);
+				errorCallback && errorCallback(result);
 			}
 		}).catch(e => {
-			if (errorCallback) errorCallback(e);
+			errorCallback && errorCallback(e);
 		});
 	},
-	checkAnimationEnd(vm, event, callback) {
-		vm.addEventListener(event, callback);
-	},
-	getUserInfo(callback) {
-		this.requestGet('/aeoru5/userInfo', {
+	getUserInfo(successCallback, errorCallback) {
+		this.$showLoading();
+
+		this.$requestGet('/aeoru5/userInfo', {
 
 			},
 			res => {
+				this.$hideLoading();
+
 				if (res.success) {
-					if (callback) callback(res.userInfo);
+					successCallback && successCallback(res.userInfo);
 				} else {
-					aeorus.showToast({
+					this.$showToast({
 						icon: 'warn',
 						content: res.message,
 						duration: 2000
@@ -89,8 +97,15 @@ export default {
 				}
 			},
 			err => {
-				console.log(err);
+				this.$hideLoading();
+				errorCallback && errorCallback(err);
 			}
 		);
+	},
+	isEmptyObject(object) {
+		return Object.keys(object).length == 0 ? true : false;
+	},
+	checkAnimationEnd(vm, event, callback) {
+		vm.addEventListener(event, callback);
 	}
 }
