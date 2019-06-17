@@ -1,5 +1,5 @@
 <template>
-	<vue-scroll
+	<vuescroll
 		class="aeorusUI_scroll_frame"
 		:ops="slideOptions"
 		@refresh-activate="refreshActivate"
@@ -32,7 +32,7 @@
 			<div class="aeorusUI_scroll_reload_slot_text">松开刷新</div>
 			<div class="iconfont icon-down"></div>
 		</div>
-	</vue-scroll>
+	</vuescroll>
 </template>
 
 <script src="./CustomizeScroll.js"></script>

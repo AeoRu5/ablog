@@ -1,5 +1,10 @@
+import vuescroll from 'vuescroll'
+
 export default {
 	props: [],
+	components: {
+		vuescroll
+	},
 	data() {
 		return {
 			slideOptions: {

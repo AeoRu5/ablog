@@ -1,21 +1,23 @@
 import Vue from 'vue'
-import './plugins/axios'
 import App from './App.vue'
-import router from './router'
 import store from './store'
-import vuescroll from 'vuescroll'
+import router from './router'
 import app from './plugins/app'
-import aeorusUI from './plugins/aeorusUI'
-import './registerServiceWorker'
 import animate from 'animate.css'
-import './assets/iconfont/iconfont.css'
-import 'swiper/dist/css/swiper.css'
+import aeorus from './plugins/aeorus'
+import './registerServiceWorker'
 import './assets/iconfont/iconfont.js'
+import './assets/iconfont/iconfont.css'
+/* 全局组件 */
+import NetError from './components/NetError/NetError.vue'
+import Constructing from './components/Constructing/Constructing.vue'
 
-window.app = app
-window.aeorus = aeorusUI
+Vue.use(app)
+Vue.use(aeorus)
 Vue.use(animate)
-Vue.use(vuescroll)
+/* 全局组件 */
+Vue.component('NetError', NetError)
+Vue.component('Constructing', Constructing)
 Vue.config.productionTip = false
 
 new Vue({

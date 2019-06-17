@@ -8,28 +8,41 @@ export default {
 	data() {
 		return {
 			avater: defaultAvater,
-			component_account_mounted: false
+			reloadMethod: '',
+			isUserInfoLoadedStatus: 0
 		}
 	},
 	created() {
-		this._component_account_userInfo_get().then(userInfo => {
-			this.saveUserInfo(userInfo);
-		});
-	},
-	mounted() {
-		this.component_account_mounted = true;
+		if (!this.$isEmptyObject(this.userInfo)) {
+			this.isUserInfoLoadedStatus = 1;
+
+			return;
+		} else {
+			this._component_account_userInfo_render();
+		}
 	},
 	methods: {
 		...mapActions([
-			'saveUserInfo',
-			'component_account_function_switch'
+			'saveUserInfo'
 		]),
 		_component_account_userInfo_get() {
 			return new Promise((resolve, reject) => {
-				app.getUserInfo(userInfo => {
+				this.$getUserInfo(userInfo => {
 					resolve(userInfo);
+				}, err => {
+					reject(err);
 				});
 			});
+		},
+		_component_account_userInfo_render() {
+			this._component_account_userInfo_get().then(userInfo => {
+				this.isUserInfoLoadedStatus = 1;
+				this.saveUserInfo(userInfo);
+			}).catch(err => {
+				console.log(err);
+				this.isUserInfoLoadedStatus = 2;
+				this.reloadMethod = '_component_account_userInfo_render';
+			})
 		}
 	},
 	computed: {
