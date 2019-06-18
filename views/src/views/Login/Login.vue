@@ -5,7 +5,7 @@
 			<div class="view_loginRegister_form_body">
 				<div class="view_loginRegister_form_tel view_loginRegister_form_input_block relative">
 					<input
-						v-model="view_login_tel"
+						v-model="login_tel"
 						class="view_loginRegister_form_input"
 						type="number"
 						placeholder="请输入手机号">
@@ -13,20 +13,20 @@
 				</div>
 				<div class="view_loginRegister_form_password view_loginRegister_form_input_block relative">
 					<input
-						v-model="view_login_password"
+						v-model="login_password"
 						class="view_loginRegister_form_input"
-						:type="view_login_password_type"
+						:type="login_password_type"
 						placeholder="请输入密码">
 					<div
-						v-if="!view_login_toggle_password_show"
+						v-if="!login_toggle_password_show"
 						class="iconfont icon-eye themeFontColorMain cp"
-						@click="_view_login_toggle_password_show"></div>
+						@click="_login_toggle_password_show"></div>
 					<div
 						v-else
 						class="iconfont icon-eye-close themeFontColorMain cp"
-						@click="_view_login_toggle_password_show"></div>
+						@click="_login_toggle_password_show"></div>
 				</div>
-				<div class="view_loginRegister_form_confirm themeBackgroundColorMain themeFontColorSub cp" @click="_view_login_confirm_login">登录</div>
+				<div class="view_loginRegister_form_confirm themeBackgroundColorMain themeFontColorSub cp" @click="_login_confirm_login">登录</div>
 				<router-link
 					:to="{
 						name: 'register',

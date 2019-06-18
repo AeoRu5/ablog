@@ -1,25 +1,19 @@
-import {
-	mapState,
-	mapActions
-} from 'vuex'
 import UserInfo from './UserInfo/UserInfo.vue'
 import Navigator from '@/views/App/Navigator/Navigator.vue'
+import ImagePreview from '@/components/CustomizeImagePreview/CustomizeImagePreview.vue'
 
 export default {
 	components: {
 		UserInfo,
-		Navigator
+		Navigator,
+		ImagePreview
 	},
 	data() {
 		return {
-			tabLists: []
-		}
-	},
-	beforeMount() {
-		let userInfo = sessionStorage.getItem('USERINFO');
-
-		if (userInfo) {
-			this.saveUserInfo(JSON.parse(userInfo));
+			app_tab_lists: [],
+			avater_preview_info: {},
+			avater_preview_start: false,
+			avater_upload_success: false
 		}
 	},
 	created() {
@@ -30,21 +24,22 @@ export default {
 			navigator = '我的资料';
 		}
 
-		this.tabLists.push({
+		this.app_tab_lists.push({
 			navigator,
 			alwaysShow: true
 		});
 	},
 	methods: {
-		...mapActions([
-			'saveUserInfo'
-		])
-	},
-	computed: {
-		...mapState({
-			userInfo: state => state.userInfo,
-			is_mobile: state => state.is_mobile,
-			component_tabBar_actived: state => state.tabBar.component_tabBar_actived
-		})
+		_userInfo_avatar_preview_get(data) {
+			this.avater_preview_start = data.isSelected;
+
+			if (data.avatarInfo) {
+				this.avater_preview_info = data.avatarInfo;
+			}
+
+			if (data.isSuccessUpload) {
+				this.avater_upload_success = data.isSuccessUpload;
+			}
+		}
 	}
 }

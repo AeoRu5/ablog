@@ -7,7 +7,7 @@ export default {
 	},
 	data() {
 		return {
-			slideOptions: {
+			slide_options: {
 				vuescroll: {
 					mode: 'slide',
 					detectResize: true,
@@ -49,29 +49,29 @@ export default {
 		}
 	},
 	methods: {
-		refreshActivate(vm, refreshDom) {
+		_scroll_refreshActivate(vm, refreshDom) {
 
 		},
-		refreshStart(vm, refreshDom, done) {
+		_scroll_refreshStart(vm, refreshDom, done) {
 			//获取数据之后done()
 			setTimeout(() => {
 				done();
 			}, 60000)
 		},
-		refreshBeforeDeactivate(vm, refreshDom, done) {
+		_scroll_refreshBeforeDeactivate(vm, refreshDom, done) {
 			//获取数据之后进行提示然后done()
 			done();
 		},
-		loadActivate(vm, refreshDom) {
+		_scroll_loadActivate(vm, refreshDom) {
 
 		},
-		loadStart(vm, refreshDom, done) {
+		_scroll_loadStart(vm, refreshDom, done) {
 			//获取数据之后done()
 			setTimeout(() => {
 				done();
 			}, 1000)
 		},
-		loadBeforeDeactivate(vm, refreshDom, done) {
+		_scroll_loadBeforeDeactivate(vm, refreshDom, done) {
 			//获取数据之后进行提示然后done()
 			done();
 		}

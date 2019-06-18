@@ -36,7 +36,7 @@ export default new Router({
 		component: () =>
 			import ('@/views/App/App.vue'),
 		meta: {
-			keepAlive: false
+			keepAlive: true
 		}
 	}, {
 		path: '/subpage',

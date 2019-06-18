@@ -17,7 +17,7 @@ export default {
 	},
 	data() {
 		return {
-			tabLists: [{
+			app_tab_lists: [{
 				navigator: '兔走',
 				tabBar: '首页',
 				target: 'home',
@@ -40,7 +40,7 @@ export default {
 	computed: {
 		...mapState({
 			is_mobile: state => state.is_mobile,
-			component_tabBar_actived: state => state.tabBar.component_tabBar_actived
+			tabBar_actived: state => state.tabBar.component_tabBar_actived
 		})
 	}
 }

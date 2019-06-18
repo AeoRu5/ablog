@@ -3,10 +3,10 @@ import {
 } from 'vuex'
 
 export default {
-	props: [ 'tabLists' ],
+	props: [ 'app_tab_lists' ],
 	computed: {
 		...mapState({
-			component_tabBar_actived: state => state.tabBar.component_tabBar_actived
+			tabBar_actived: state => state.tabBar.component_tabBar_actived
 		})
 	}
 }

@@ -6,25 +6,25 @@ import {
 export default {
 	data() {
 		return {
-			component_aniSvg_text_loaded: false
+			aniSvg_text_loaded: false
 		}
 	},
 	mounted() {
-		this.component_aniSvg_loadAniSvgTxt(() => {
-			this.component_aniSvg_text_loaded = true;
-			this.$checkAnimationEnd(this.$refs.component_aniSvg_ref, 'animationend', this.component_aniSvg_animationend);
-			this.$checkAnimationEnd(this.$refs.component_aniSvg_ref, 'webkitAnimationEnd', this.component_aniSvg_animationend);
+		this.component_aniSvg_loadAniSvgText(() => {
+			this.aniSvg_text_loaded = true;
+			this.$checkAnimationEnd(this.$refs.aniSvg_ref, 'animationend', this.component_aniSvg_animationend);
+			this.$checkAnimationEnd(this.$refs.aniSvg_ref, 'webkitAnimationEnd', this.component_aniSvg_animationend);
 		});
 	},
 	methods: {
 		...mapActions([
-			'component_aniSvg_loadAniSvgTxt',
+			'component_aniSvg_loadAniSvgText',
 			'component_aniSvg_animationend'
 		])
 	},
 	computed: {
 		...mapState({
-			aniSvgTxt: state => state.entry.component_aniSvg_aniSvgTxt
+			aniSvg_text: state => state.entry.component_aniSvg_text
 		})
 	}
 }

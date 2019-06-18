@@ -2,49 +2,13 @@
 
 module.exports = app => {
 	return class AeoRu5Controller extends app.Controller {
-		async getAniSvgTxt() {
+		async userInfo() {
 			const {
 				ctx,
 				app
 			} = this;
 
-			ctx.body = await ctx.service.getAniSvgTxtResult.post();
-		}
-		async saveTemporaryInfo() {
-			const {
-				ctx,
-				app
-			} = this;
-
-			try {
-				ctx.validate({
-					tel: {
-						type: 'number',
-						require: true
-					},
-					nickname: {
-						type: 'string',
-						require: true
-					}
-				}, ctx.request.body);
-			} catch (e) {
-				ctx.logger.warn(e);
-
-				let errors = e.errors,
-					message = '';
-
-				errors.map((error, index) => {
-					message += index > 0 ? ` and '${error.field}' ${error.message}` : `'${error.field}' ${error.message}`;
-				});
-
-				ctx.body = {
-					success: false
-				};
-
-				return;
-			}
-
-			ctx.body = await ctx.service.saveTemporaryInfoResult.post(ctx.request.body);
+			ctx.body = await ctx.service.getUserInfoResult.get();
 		}
 		async signUp() {
 			const {
@@ -128,13 +92,57 @@ module.exports = app => {
 
 			ctx.body = await ctx.service.getSignInResult.post(ctx.request.body);
 		}
-		async userInfo() {
+		async getAniSvgText() {
 			const {
 				ctx,
 				app
 			} = this;
 
-			ctx.body = await ctx.service.getUserInfoResult.get();
+			ctx.body = await ctx.service.getAniSvgTextResult.post();
+		}
+		async uploadAvatar() {
+			const {
+				ctx,
+				app
+			} = this;
+
+			ctx.body = await ctx.service.getUploadAvatarResult.post();
+		}
+		async saveTemporaryInfo() {
+			const {
+				ctx,
+				app
+			} = this;
+
+			try {
+				ctx.validate({
+					tel: {
+						type: 'number',
+						require: true
+					},
+					nickname: {
+						type: 'string',
+						require: true
+					}
+				}, ctx.request.body);
+			} catch (e) {
+				ctx.logger.warn(e);
+
+				let errors = e.errors,
+					message = '';
+
+				errors.map((error, index) => {
+					message += index > 0 ? ` and '${error.field}' ${error.message}` : `'${error.field}' ${error.message}`;
+				});
+
+				ctx.body = {
+					success: false
+				};
+
+				return;
+			}
+
+			ctx.body = await ctx.service.saveTemporaryInfoResult.post(ctx.request.body);
 		}
 	}
 };

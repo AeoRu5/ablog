@@ -6,28 +6,28 @@ import MD5 from 'md5.js'
 export default {
 	data() {
 		return {
-			view_login_tel: '',
-			view_login_password: '',
-			view_login_toggle_password_show: false,
-			view_login_password_type: 'password'
+			login_tel: '',
+			login_password: '',
+			login_toggle_password_show: false,
+			login_password_type: 'password'
 		}
 	},
 	methods: {
 		...mapActions([
 			'saveUserInfo'
 		]),
-		_view_login_toggle_password_show() {
-			this.view_login_toggle_password_show = !this.view_login_toggle_password_show;
-			this.view_login_password_type = this.view_login_password_type == 'password' ? 'text' : 'password';
+		_login_toggle_password_show() {
+			this.login_toggle_password_show = !this.login_toggle_password_show;
+			this.login_password_type = this.login_password_type == 'password' ? 'text' : 'password';
 		},
-		_view_login_confirm_login() {
-			if (!/^1\d{10}/.test(this.view_login_tel)) {
+		_login_confirm_login() {
+			if (!/^1\d{10}/.test(this.login_tel)) {
 				this.$showToast('手机号格式有点东西啊~');
 
 				return;
 			}
 
-			if (this.view_login_password.length == 0) {
+			if (this.login_password.length == 0) {
 				this.$showToast('真就不写密码哦~');
 
 				return;
@@ -35,8 +35,8 @@ export default {
 
 			this.$requestPost('/aeoru5/signIn', {
 					data: {
-						tel: Number(this.view_login_tel),
-						password: new MD5().update(this.view_login_tel + this.view_login_password).digest('hex')
+						tel: Number(this.login_tel),
+						password: new MD5().update(this.login_tel + this.login_password).digest('hex')
 					}
 				},
 				res => {

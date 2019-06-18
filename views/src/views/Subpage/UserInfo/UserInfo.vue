@@ -1,12 +1,21 @@
 <template>
 	<div class="component_userInfo_frame_ignore absolute">
-		<div class="component_userInfo_block component_userInfo_avater">
+		<div class="component_userInfo_block component_userInfo_avatar">
 			<div class="component_userInfo_left">头像</div>
 			<div class="component_userInfo_right relative">
 				<div class="component_userInfo_right_hasArrows">
+					<input
+						type="file"
+						accept="image"
+						enctype="multipart/form-data"
+						class="component_userInfo_avatar_upload absolute"
+						@change="_userInfo_avatar_upload($event)" />
 					<img
-						:src="userInfo.avater"
-						class="component_userInfo_avater_img block">
+						v-show="userInfo_avaterVisible"
+						:src="'/avatar/' + userInfo.avatar || userInfo_defaultAvatar"
+						:onerror="userInfo_defaultAvatar"
+						class="component_userInfo_avatar_img"
+						@load="_userInfo_avatar_rendered" />
 				</div>
 				<div class="arrows"></div>
 			</div>

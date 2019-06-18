@@ -3,7 +3,7 @@
 const Service = require('egg').Service,
   ak = 'Bmss8DCGOPjfL2cPNm8mNkYmnWNsP1e1';
 
-class GetAniSvgTxtResultService extends Service {
+class GetAniSvgTextResultService extends Service {
   async post() {
     try {
       const ip = '58.23.237.225' || this.ctx.request.header['x-forwarded-for'],
@@ -16,12 +16,12 @@ class GetAniSvgTxtResultService extends Service {
           ip,
           position: getPositionResult.data.content.address
         }),
-        aniSvgTxtResult = {
-          aniSvgTxt: '新の助',
+        aniSvgTextResult = {
+          aniSvgText: '新の助',
           success: true
         };
 
-      return aniSvgTxtResult;
+      return aniSvgTextResult;
     } catch (e) {
       return Object.assign(e, {
         success: false
@@ -30,4 +30,4 @@ class GetAniSvgTxtResultService extends Service {
   }
 }
 
-module.exports = GetAniSvgTxtResultService;
+module.exports = GetAniSvgTextResultService;

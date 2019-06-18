@@ -4,7 +4,7 @@
 		class="aeorusUI_modal_frame fixed"
 		:class="modal_isShowIn ? 'aeorusUI_modal_frame_animation_showIn' : 'aeorusUI_modal_frame_animation_showOut'">
 		<div class="aeorusUI_modal_title themeFontColorMain relative ac">{{modal_title}}</div>
-		<div class="aeorusUI_modal_content ac">{{modal_content}}</div>
+		<div class="aeorusUI_modal_content forcewrap ac">{{modal_content}}</div>
 		<div class="aeorusUI_modal_btns">
 			<div
 				v-if="cancel_show"

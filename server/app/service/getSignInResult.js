@@ -16,7 +16,7 @@ class GetSignInResultService extends Service {
 				enabled: 1
 			});
 
-			if (selectUserResult && selectUserResult.enabled == 1) {
+			if (selectUserResult) {
 				const selectSaleResult = await this.app.mysql.get('verification', {
 					userid: selectUserResult.userid
 				}),

@@ -4,20 +4,20 @@ import {
 } from 'vuex'
 
 export default {
-	props: [ 'tabLists' ],
+	props: [ 'app_tab_lists' ],
 	methods: {
 		...mapActions([
 			'component_tabBar_switch'
 		])
 	},
 	created() {
-		this.tabLists.map(tabList => {
+		this.app_tab_lists.map(tabList => {
 			tabList.activeIcon = `${tabList.icon}-fill`
 		});
 	},
 	computed: {
 		...mapState({
-			component_tabBar_actived: state => state.tabBar.component_tabBar_actived
+			tabBar_actived: state => state.tabBar.component_tabBar_actived
 		})
 	}
 }

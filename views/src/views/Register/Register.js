@@ -4,21 +4,21 @@ let getSecurityCodeTimer;
 export default {
 	data() {
 		return {
-			view_register_tel: '',
-			view_register_nickname: '',
-			view_register_securityCode: '',
-			view_register_securityCode_isGetting: false,
-			view_register_securityCodeTxt: '获取验证码',
-			view_register_password: '',
-			view_register_password_format_error_show: false,
-			view_register_password_format_error_message: '',
-			view_register_toggle_password_show: false,
-			view_register_password_type: 'password'
+			register_tel: '',
+			register_nickname: '',
+			register_securityCode: '',
+			register_securityCode_isGetting: false,
+			register_securityCodeTxt: '获取验证码',
+			register_password: '',
+			register_password_format_error_show: false,
+			register_password_format_error_message: '',
+			register_toggle_password_show: false,
+			register_password_type: 'password'
 		}
 	},
 	methods: {
-		_view_register_securityCode_get() {
-			if (!/^1\d{10}/.test(this.view_register_tel)) {
+		_register_securityCode_get() {
+			if (!/^1\d{10}/.test(this.register_tel)) {
 				this.$showToast({
 					content: '请填写正确的手机号~',
 					duration: 2000
@@ -27,32 +27,32 @@ export default {
 				return;
 			}
 
-			if (this.view_register_nickname == '') {
+			if (this.register_nickname == '') {
 				this.$showToast('请填写昵称~');
 
 				return;
 			}
 
-			if (!this.view_register_securityCode_isGetting) {
+			if (!this.register_securityCode_isGetting) {
 				this.$requestPost('/aeoru5/saveTemporaryInfo', {
 					data: {
-						tel: Number(this.view_register_tel),
-						nickname: this.view_register_nickname
+						tel: Number(this.register_tel),
+						nickname: this.register_nickname
 					}
 				});
 
 				let restSecs = 30;
 
-				this.view_register_securityCode_isGetting = true;
-				this.view_register_securityCodeTxt = `${restSecs}s后重新获取`;
+				this.register_securityCode_isGetting = true;
+				this.register_securityCodeTxt = `${restSecs}s后重新获取`;
 
 				getSecurityCodeTimer = setInterval(() => {
 					if (restSecs > 0) {
 						--restSecs;
-						this.view_register_securityCodeTxt = `${restSecs}s后重新获取`;
+						this.register_securityCodeTxt = `${restSecs}s后重新获取`;
 					} else {
-						this.view_register_securityCode_isGetting = false;
-						this.view_register_securityCodeTxt = `获取验证码`;
+						this.register_securityCode_isGetting = false;
+						this.register_securityCodeTxt = `获取验证码`;
 
 						this.$showModal({
 							title: '经费不足',
@@ -67,28 +67,28 @@ export default {
 				return;
 			}
 		},
-		_view_register_toggle_password_show() {
-			this.view_register_toggle_password_show = !this.view_register_toggle_password_show;
-			this.view_register_password_type = this.view_register_password_type == 'password' ? 'text' : 'password';
+		_register_toggle_password_show() {
+			this.register_toggle_password_show = !this.register_toggle_password_show;
+			this.register_password_type = this.register_password_type == 'password' ? 'text' : 'password';
 		},
-		_view_register_confirm_register() {
-			if (!/^1\d{10}/.test(this.view_register_tel)) {
+		_register_confirm_register() {
+			if (!/^1\d{10}/.test(this.register_tel)) {
 				this.$showToast('请填写正确的手机号~');
 			}
 
-			if (this.view_register_nickname == '') {
+			if (this.register_nickname == '') {
 				this.$showToast('请填写昵称~');
 
 				return;
 			}
 
-			if (!/\d{6}/.test(this.view_register_securityCode)) {
+			if (!/\d{6}/.test(this.register_securityCode)) {
 				this.$showToast('请填写验证码~');
 
 				return;
 			}
 
-			if (this.view_register_password.length < 6) {
+			if (this.register_password.length < 6) {
 				this.$showToast('密码不够长哦~');
 
 				return;
@@ -96,10 +96,10 @@ export default {
 
 			this.$requestPost('/aeoru5/signUp', {
 					data: {
-						tel: Number(this.view_register_tel),
-						nickname: this.view_register_nickname,
-						securityCode: Number(this.view_register_securityCode),
-						password: new MD5().update(this.view_register_tel + this.view_register_password).digest('hex')
+						tel: Number(this.register_tel),
+						nickname: this.register_nickname,
+						securityCode: Number(this.register_securityCode),
+						password: new MD5().update(this.register_tel + this.register_password).digest('hex')
 					}
 				},
 				res => {
@@ -134,30 +134,30 @@ export default {
 		}
 	},
 	watch: {
-		view_register_tel(newVal, oldVal) {
+		register_tel(newVal, oldVal) {
 			if (newVal.length > 11) {
-				this.view_register_tel = oldVal;
+				this.register_tel = oldVal;
 			}
 		},
-		view_register_securityCode(newVal, oldVal) {
+		register_securityCode(newVal, oldVal) {
 			if (newVal.length > 6) {
-				this.view_register_securityCode = oldVal;
+				this.register_securityCode = oldVal;
 			}
 		},
-		view_register_password(newVal, oldVal) {
+		register_password(newVal, oldVal) {
 			if (newVal.length > 20) {
-				this.view_register_password = oldVal;
+				this.register_password = oldVal;
 			} else {
 				let specialCharactersReg = /[`~!！@#$%^&*()_+<>?:"{},.\/;'[\]]/im;
 
-				this.view_register_password = this.view_register_password.trim();
+				this.register_password = this.register_password.trim();
 
 				if (specialCharactersReg.test(newVal)) {
-					this.view_register_password_format_error_show = true;
-					this.view_register_password_format_error_message = '密码包含特殊字符';
+					this.register_password_format_error_show = true;
+					this.register_password_format_error_message = '密码包含特殊字符';
 				} else {
-					this.view_register_password_format_error_show = false;
-					this.view_register_password_format_error_message = '';
+					this.register_password_format_error_show = false;
+					this.register_password_format_error_message = '';
 				}
 			}
 		}

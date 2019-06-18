@@ -1,8 +1,8 @@
 <template>
 	<div class="component_navigator_frame_ignore fixed">
 		<div
-			v-if="component_tabBar_actived == item.target || item.alwaysShow"
-			v-for="item in tabLists"
+			v-if="tabBar_actived == item.target || item.alwaysShow"
+			v-for="item in app_tab_lists"
 			class="component_navigator_title relative ac">{{item.navigator}}
 			<div
 				v-if="item.functionIcon"

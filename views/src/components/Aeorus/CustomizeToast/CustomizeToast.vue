@@ -6,7 +6,7 @@
 				<div v-if="icon_type == 'success'" class="iconfont icon-check-circle"></div>
 				<div v-if="icon_type == 'warn'" class="iconfont icon-close-circle"></div>
 			</div>
-			<div class="aeorusUI_toast_content ac" :class="icon_type">{{toast_content}}</div>
+			<div class="aeorusUI_toast_content textOverflow ac" :class="icon_type">{{toast_content}}</div>
 		</div>
 	</div>
 </template>

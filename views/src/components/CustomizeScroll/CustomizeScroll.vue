@@ -1,13 +1,13 @@
 <template>
 	<vuescroll
 		class="aeorusUI_scroll_frame"
-		:ops="slideOptions"
-		@refresh-activate="refreshActivate"
-		@refresh-start="refreshStart"
-		@refresh-before-deactivate="refreshBeforeDeactivate"
-		@load-activate="loadActivate"
-		@load-start="loadStart"
-		@load-before-deactivate="loadBeforeDeactivate">
+		:ops="slide_options"
+		@refresh-activate="_scroll_refreshActivate"
+		@refresh-start="_scroll_refreshStart"
+		@refresh-before-deactivate="_scroll_refreshBeforeDeactivate"
+		@load-activate="_scroll_loadActivate"
+		@load-start="_scroll_loadStart"
+		@load-before-deactivate="_scroll_loadBeforeDeactivate">
 		<div class="aeorusUI_scroll_reload_slot" slot="refresh-deactive">
 			<div class="aeorusUI_scroll_reload_slot_text">下拉刷新</div>
 			<div class="iconfont icon-down"></div>

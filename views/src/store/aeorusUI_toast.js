@@ -1,7 +1,7 @@
 export default {
 	state: {
 		aeorusUI_toast_isShow: false,
-		aeorusUI_toast_icon: null,
+		aeorusUI_toast_icon: '',
 		aeorusUI_toast_content: ''
 	},
 	mutations: {

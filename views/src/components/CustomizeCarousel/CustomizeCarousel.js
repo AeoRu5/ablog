@@ -12,7 +12,7 @@ export default {
 	},
 	data() {
 		return {
-			swiperOption: {
+			carousel_option: {
 				loop: true,
 				autoplay: true,
 				pagination: {
@@ -20,7 +20,18 @@ export default {
 					el: '.swiper-pagination'
 				}
 			},
-			swiperSlides: [defaultImage]
+			carousel_visible: false,
+			carousel_swiperSlidesLength: 0,
+			carousel_swiperSlides: [defaultImage, defaultImage]
+		}
+	},
+	methods: {
+		_carousel_rendered() {
+			this.carousel_swiperSlidesLength++;
+
+			if (this.carousel_swiperSlidesLength == this.carousel_swiperSlides.length) {
+				this.carousel_visible = true;
+			}
 		}
 	}
 }
