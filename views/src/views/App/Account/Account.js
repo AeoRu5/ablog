@@ -45,6 +45,8 @@ export default {
 		_account_userInfo_render() {
 			this._account_userInfo_get().then(userInfo => {
 				this.account_userInfoLoadedStatus = 1;
+				userInfo.createDate = userInfo.createDate.substring(0, 10);
+				
 				this.saveUserInfo(userInfo);
 			}).catch(err => {
 				console.log(err);

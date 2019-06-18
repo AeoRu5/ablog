@@ -21,9 +21,6 @@ export default {
 			userInfo && this.saveUserInfo(JSON.parse(userInfo));
 		}
 	},
-	mounted() {
-		this.userInfo.createDate = this.userInfo.createDate.substring(0, 10);
-	},
 	methods: {
 		...mapActions([
 			'saveUserInfo'
@@ -39,6 +36,8 @@ export default {
 		},
 		_userInfo_render() {
 			this._userInfo_get().then(userInfo => {
+				userInfo.createDate = userInfo.createDate.substring(0, 10);
+
 				this.saveUserInfo(userInfo);
 			}).catch(err => {
 				this.$showToast({
