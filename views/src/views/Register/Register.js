@@ -94,8 +94,6 @@ export default {
 				return;
 			}
 
-			this.$showLoading('注册中~');
-
 			this.$requestPost('/aeoru5/signUp', {
 					data: {
 						tel: Number(this.view_register_tel),
@@ -105,8 +103,6 @@ export default {
 					}
 				},
 				res => {
-					this.$hideLoading();
-
 					if (res.success) {
 						this.$showToast({
 							icon: 'success',
@@ -127,13 +123,13 @@ export default {
 					}
 				},
 				err => {
-					this.$hideLoading();
 					this.$showToast({
 						icon: 'netError',
 						content: '你的网络大概炸了?',
 						duration: 2000
 					});
-				}
+				},
+				'注册中~'
 			);
 		}
 	},

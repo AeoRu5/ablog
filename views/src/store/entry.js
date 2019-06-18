@@ -7,14 +7,10 @@ export default {
 	},
 	mutations: {
 		component_aniSvg_loadAniSvgTxt(state, callback) {
-			this._vm.$showLoading();
-
 			this._vm.$requestPost('/aeoru5/aniSvgTxt', {
 
 				},
 				res => {
-					this._vm.$hideLoading();
-
 					if (res.success) {
 						state.component_aniSvg_aniSvgTxt = res.aniSvgTxt;
 
@@ -28,7 +24,6 @@ export default {
 					}
 				},
 				err => {
-					this._vm.$hideLoading();
 					console.log(err);
 				}
 			);

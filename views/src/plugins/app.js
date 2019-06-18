@@ -9,7 +9,9 @@ export default {
 		Vue.prototype.$isEmptyObject = this.isEmptyObject;
 		Vue.prototype.$checkAnimationEnd = this.checkAnimationEnd;
 	},
-	requestGet(url, params, successCallback, errorCallback) {
+	requestGet(url, params, successCallback, errorCallback, message) {
+		this.$showLoading(message);
+
 		let _linkRequestParams,
 			headers = params.headers || {};
 
@@ -30,6 +32,8 @@ export default {
 		axios.get(url + _linkRequestParams, {
 			headers
 		}).then(res => {
+			this.$hideLoading();
+
 			if (res.request.readyState == 4 && res.status == 200) {
 				let result = res.data;
 
@@ -47,10 +51,13 @@ export default {
 				errorCallback && errorCallback(result);
 			}
 		}).catch(e => {
+			this.$hideLoading();
 			errorCallback && errorCallback(e);
 		});
 	},
-	requestPost(url, params, successCallback, errorCallback) {
+	requestPost(url, params, successCallback, errorCallback, message) {
+		this.$showLoading(message);
+
 		let headers = params.headers || {};
 
 		delete params.headers;
@@ -58,8 +65,11 @@ export default {
 		axios.post(url, params.data, {
 			headers
 		}).then(res => {
+			this.$hideLoading();
+
 			if (res.request.readyState == 4 && res.status == 200) {
 				let result = res.data;
+
 				if (result.needLoad) {
 					router.replace({
 						name: 'login',
@@ -74,18 +84,15 @@ export default {
 				errorCallback && errorCallback(result);
 			}
 		}).catch(e => {
+			this.$hideLoading();
 			errorCallback && errorCallback(e);
 		});
 	},
 	getUserInfo(successCallback, errorCallback) {
-		this.$showLoading();
-
 		this.$requestGet('/aeoru5/userInfo', {
 
 			},
 			res => {
-				this.$hideLoading();
-
 				if (res.success) {
 					successCallback && successCallback(res.userInfo);
 				} else {
@@ -97,7 +104,6 @@ export default {
 				}
 			},
 			err => {
-				this.$hideLoading();
 				errorCallback && errorCallback(err);
 			}
 		);

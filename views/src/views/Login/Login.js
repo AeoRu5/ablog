@@ -33,8 +33,6 @@ export default {
 				return;
 			}
 
-			this.$showLoading('登录中~');
-
 			this.$requestPost('/aeoru5/signIn', {
 					data: {
 						tel: Number(this.view_login_tel),
@@ -42,8 +40,6 @@ export default {
 					}
 				},
 				res => {
-					this.$hideLoading();
-
 					if (res.success) {
 						this.$showToast({
 							icon: 'success',
@@ -62,13 +58,13 @@ export default {
 					}
 				},
 				err => {
-					this.$hideLoading();
 					this.$showToast({
 						icon: 'netError',
 						content: '你的网络大概炸了?',
 						duration: 2000
 					});
-				}
+				},
+				'登录中~'
 			);
 		}
 	}
