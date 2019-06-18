@@ -56,7 +56,8 @@ sup {
 }
 img {
   display:block;
-  border-style:none
+  border-style:none;
+  object-fit: contain
 }
 img[src=""],img:not([src]) {
   opacity: 0
