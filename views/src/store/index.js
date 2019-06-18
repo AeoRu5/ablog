@@ -43,6 +43,28 @@ export default new vuex.Store({
 		saveUserInfo(state, params) {
 			state.userInfo = Object.assign({}, params);
 			sessionStorage.setItem('USERINFO', JSON.stringify(state.userInfo));
+		},
+		getUserInfo(state, params) {
+			return new Promise((resolve, reject) => {
+				this._vm.$getUserInfo(userInfo => {
+					resolve(userInfo);
+				}, err => {
+					reject(err);
+				});
+			}).then(userInfo => {
+				userInfo.createDate = userInfo.createDate.substring(0, 10);
+
+				this.commit('saveUserInfo', userInfo);
+
+				params.success && params.success();
+			}).catch(err => {
+				this.$showToast({
+					icon: 'warn',
+					content: '网络有点小问题，重试一下~'
+				}, () => {
+					params.fail && params.fail();
+				});
+			});
 		}
 	},
 	actions: {
@@ -51,6 +73,9 @@ export default new vuex.Store({
 		},
 		saveUserInfo(ctx, params) {
 			ctx.commit('saveUserInfo', params);
+		},
+		getUserInfo(ctx, params) {
+			ctx.commit('getUserInfo', params);
 		}
 	}
 })

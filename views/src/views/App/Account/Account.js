@@ -26,34 +26,24 @@ export default {
 
 			return;
 		} else {
-			this._account_userInfo_render();
+			let self = this;
+
+			this.getUserInfo({
+				success() {
+					self.account_userInfoLoadedStatus = 1;
+				},
+				fail() {
+					self.account_userInfoLoadedStatus = 2;
+					self.reloadMethod = '_account_userInfo_render';
+				}
+			});
 		}
 	},
 	methods: {
 		...mapActions([
-			'saveUserInfo'
+			'saveUserInfo',
+			'getUserInfo'
 		]),
-		_account_userInfo_get() {
-			return new Promise((resolve, reject) => {
-				this.$getUserInfo(userInfo => {
-					resolve(userInfo);
-				}, err => {
-					reject(err);
-				});
-			});
-		},
-		_account_userInfo_render() {
-			this._account_userInfo_get().then(userInfo => {
-				this.account_userInfoLoadedStatus = 1;
-				userInfo.createDate = userInfo.createDate.substring(0, 10);
-				
-				this.saveUserInfo(userInfo);
-			}).catch(err => {
-				console.log(err);
-				this.account_userInfoLoadedStatus = 2;
-				this.reloadMethod = '_account_userInfo_render';
-			})
-		},
 		_account_avatar_rendered() {
 			this.account_avaterVisible = true;
 		},

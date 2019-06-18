@@ -14,7 +14,7 @@ export default {
 	},
 	beforeMount() {
 		if (this.avater_upload_success) {
-			this._userInfo_render();
+			this.getUserInfo();
 		} else {
 			let userInfo = sessionStorage.getItem('USERINFO');
 
@@ -23,29 +23,9 @@ export default {
 	},
 	methods: {
 		...mapActions([
-			'saveUserInfo'
+			'saveUserInfo',
+			'getUserInfo'
 		]),
-		_userInfo_get() {
-			return new Promise((resolve, reject) => {
-				this.$getUserInfo(userInfo => {
-					resolve(userInfo);
-				}, err => {
-					reject(err);
-				});
-			});
-		},
-		_userInfo_render() {
-			this._userInfo_get().then(userInfo => {
-				userInfo.createDate = userInfo.createDate.substring(0, 10);
-
-				this.saveUserInfo(userInfo);
-			}).catch(err => {
-				this.$showToast({
-					icon: 'warn',
-					content: '网络有点小问题，重试一下~'
-				})
-			})
-		},
 		_userInfo_avatar_rendered() {
 			this.userInfo_avaterVisible = true;
 		},
