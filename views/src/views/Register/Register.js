@@ -47,7 +47,7 @@ export default {
 				this.view_register_securityCodeTxt = `${restSecs}s后重新获取`;
 
 				getSecurityCodeTimer = setInterval(() => {
-					if (restSecs >= 0) {
+					if (restSecs > 0) {
 						--restSecs;
 						this.view_register_securityCodeTxt = `${restSecs}s后重新获取`;
 					} else {
