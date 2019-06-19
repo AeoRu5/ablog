@@ -46,23 +46,38 @@ export default new vuex.Store({
 		},
 		getUserInfo(state, params) {
 			return new Promise((resolve, reject) => {
-				this._vm.$getUserInfo(userInfo => {
-					resolve(userInfo);
-				}, err => {
-					reject(err);
-				});
+				this._vm.$requestGet('/aeoru5/userInfo', {
+
+					},
+					res => {
+						if (res.success) {
+							resolve(res.userInfo);
+						} else {
+							this.$showToast({
+								icon: 'warn',
+								content: res.message,
+								duration: 2000
+							}, () => {
+								reject();
+							});
+						}
+					},
+					err => {
+						reject();
+					}
+				);
 			}).then(userInfo => {
 				userInfo.createDate = userInfo.createDate.substring(0, 10);
 
 				this.commit('saveUserInfo', userInfo);
 
-				params.success && params.success();
+				params && params.success && typeof params.success === 'function' && params.success();
 			}).catch(err => {
-				this.$showToast({
+				this._vm.$showToast({
 					icon: 'warn',
 					content: '网络有点小问题，重试一下~'
 				}, () => {
-					params.fail && params.fail();
+					params && params.fail && typeof params.fail === 'function' && params.fail();
 				});
 			});
 		}

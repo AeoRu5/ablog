@@ -1,8 +1,6 @@
 <template>
-	<div class="component_image_preview_frame_ignore absolute">
-		<img
-			:src="preview_defaultImage"
-			class="component_image_preview" />
+	<div ref="component_image_preview_frame" class="component_image_preview_frame_ignore relative">
+		<canvas ref="canvas" class="absolute horVerMid"></canvas>
 		<div class="component_image_preview_btns themeBackgroundColorSub fixed horMid">
 			<div
 				class="component_image_preview_btn_cancel component_image_preview_btn themeFontColorMain"

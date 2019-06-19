@@ -5,7 +5,6 @@ export default {
 	install(Vue, options) {
 		Vue.prototype.$requestGet = this.requestGet;
 		Vue.prototype.$requestPost = this.requestPost;
-		Vue.prototype.$getUserInfo = this.getUserInfo;
 		Vue.prototype.$isEmptyObject = this.isEmptyObject;
 		Vue.prototype.$checkAnimationEnd = this.checkAnimationEnd;
 	},
@@ -45,14 +44,14 @@ export default {
 						}
 					});
 				} else {
-					successCallback && successCallback(result);
+					successCallback && typeof successCallback === 'function' && successCallback(result);
 				}
 			} else {
-				errorCallback && errorCallback(result);
+				errorCallback && typeof errorCallback === 'function' && errorCallback(result);
 			}
 		}).catch(e => {
 			this.$hideLoading();
-			errorCallback && errorCallback(e);
+			errorCallback && typeof errorCallback === 'function' && errorCallback(e);
 		});
 	},
 	requestPost(url, params, successCallback, errorCallback, message) {
@@ -78,35 +77,15 @@ export default {
 						}
 					});
 				} else {
-					successCallback && successCallback(result);
+					successCallback && typeof successCallback === 'function' && successCallback(result);
 				}
 			} else {
-				errorCallback && errorCallback(result);
+				errorCallback && typeof errorCallback === 'function' && errorCallback(result);
 			}
 		}).catch(e => {
 			this.$hideLoading();
-			errorCallback && errorCallback(e);
+			errorCallback && typeof errorCallback === 'function' && errorCallback(e);
 		});
-	},
-	getUserInfo(successCallback, errorCallback) {
-		this.$requestGet('/aeoru5/userInfo', {
-
-			},
-			res => {
-				if (res.success) {
-					successCallback && successCallback(res.userInfo);
-				} else {
-					this.$showToast({
-						icon: 'warn',
-						content: res.message,
-						duration: 2000
-					});
-				}
-			},
-			err => {
-				errorCallback && errorCallback(err);
-			}
-		);
 	},
 	isEmptyObject(object) {
 		return Object.keys(object).length == 0 ? true : false;

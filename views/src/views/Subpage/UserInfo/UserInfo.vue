@@ -1,5 +1,5 @@
 <template>
-	<div class="component_userInfo_frame_ignore absolute">
+	<div class="component_userInfo_frame_ignore">
 		<div class="component_userInfo_block component_userInfo_avatar">
 			<div class="component_userInfo_left">头像</div>
 			<div class="component_userInfo_right relative">

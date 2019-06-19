@@ -14,7 +14,7 @@ export default {
 					if (res.success) {
 						state.component_aniSvg_text = res.aniSvgText;
 
-						callback && callback();
+						callback && typeof callback === 'function' && callback();
 					} else {
 						this._vm.$showToast({
 							icon: 'warn',

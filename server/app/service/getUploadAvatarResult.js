@@ -23,7 +23,11 @@ class GetUploadAvatarResultService extends Service {
 			});
 
 			if (selectUserResult.avatar) {
-				fs.unlinkSync(path.join(this.config.baseDir, 'app/public/avatar', selectUserResult.avatar));
+				fs.exists(path.join(this.config.baseDir, 'app/public/avatar', selectUserResult.avatar), flag => {
+					if (flag) {
+						fs.unlinkSync(path.join(this.config.baseDir, 'app/public/avatar', selectUserResult.avatar));
+					}
+				});
 			}
 
 			const updateUserAvatarResult = await this.app.mysql.update('users', {

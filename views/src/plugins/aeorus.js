@@ -33,8 +33,8 @@ export default {
 			let modalTimer = setTimeout(() => {
 				store._mutations.aeorusUI_modal_hide[0]();
 
-				confirm && confirm();
-				completed && completed();
+				confirm && typeof confirm === 'function' && confirm();
+				completed && typeof completed === 'function' && completed();
 
 				clearTimeout(modalTimer);
 			}, 500);
@@ -46,8 +46,8 @@ export default {
 			let modalTimer = setTimeout(() => {
 				store._mutations.aeorusUI_modal_hide[0]();
 
-				cancel && cancel();
-				completed && completed();
+				cancel && typeof cancel === 'function' && cancel();
+				completed && typeof completed === 'function' && completed();
 
 				clearTimeout(modalTimer);
 			}, 500);
@@ -79,7 +79,7 @@ export default {
 		toastTimer = setTimeout(() => {
 			store._mutations.aeorusUI_toast_hide[0]();
 
-			callback && callback();
+			callback && typeof callback === 'function' && callback();
 			clearTimeout(toastTimer);
 		}, duration);
 	},

@@ -1,5 +1,5 @@
 <template>
-	<div class="view_app_frame_ignore frameConfig relative">
+	<div class="view_app_frame_ignore frameConfig">
 		<Navigator :app_tab_lists="app_tab_lists" />
 		<UserInfo
 			v-if="$route.query.target == 'userInfo' && !avater_preview_start"
