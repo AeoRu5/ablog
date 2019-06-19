@@ -34,6 +34,7 @@
 							redirect: $route.query.redirect
 						}
 					}"
+					replace
 					class="view_loginRegister_toEachOther_btn themeAfterBackgroundColor themeFontColorMain block relative ac cp">注册账号</router-link>
 			</div>
 		</div>

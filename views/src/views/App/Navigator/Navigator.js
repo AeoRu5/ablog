@@ -1,5 +1,6 @@
 import {
-	mapState
+	mapState,
+	mapActions
 } from 'vuex'
 
 export default {
@@ -8,5 +9,13 @@ export default {
 		...mapState({
 			tabBar_actived: state => state.tabBar.component_tabBar_actived
 		})
+	},
+	methods: {
+		...mapActions([
+			'component_tabBar_switch'
+		]),
+		_navigator_return() {
+			this.$router.go(-1);
+		}
 	}
 }

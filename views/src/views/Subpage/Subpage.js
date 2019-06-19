@@ -18,14 +18,18 @@ export default {
 	},
 	created() {
 		let target = this.$route.query.target,
+			returnUrl = '',
+			returnPage = '',
 			navigator = '';
 
 		if (target == 'userInfo') {
 			navigator = '我的资料';
+			returnPage = 'account';
 		}
 
 		this.app_tab_lists.push({
 			navigator,
+			return: true,
 			alwaysShow: true
 		});
 	},
