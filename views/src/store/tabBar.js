@@ -5,6 +5,7 @@ export default {
 	mutations: {
 		component_tabBar_switch(state, param) {
 			state.component_tabBar_actived = param;
+			sessionStorage.setItem('TABBAR', param);
 		}
 	},
 	actions: {

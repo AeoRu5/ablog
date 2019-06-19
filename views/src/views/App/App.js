@@ -1,5 +1,6 @@
 import {
-	mapState
+	mapState,
+	mapActions
 } from 'vuex'
 import Home from './Home/Home.vue'
 import TabBar from './TabBar/TabBar.vue'
@@ -36,6 +37,14 @@ export default {
 				functionIcon: 'icon-settings'
 			}]
 		}
+	},
+	created() {
+		this.component_tabBar_switch(sessionStorage.getItem('TABBAR'));
+	},
+	methods: {
+		...mapActions([
+			'component_tabBar_switch'
+		])
 	},
 	computed: {
 		...mapState({
