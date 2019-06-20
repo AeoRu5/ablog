@@ -15,10 +15,10 @@ import Constructing from './components/Constructing/Constructing.vue'
 Vue.use(app)
 Vue.use(aeorus)
 Vue.use(animate)
+Vue.config.productionTip = false
 /* 全局组件 */
 Vue.component('NetError', NetError)
 Vue.component('Constructing', Constructing)
-Vue.config.productionTip = false
 
 new Vue({
 	router,

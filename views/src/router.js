@@ -39,10 +39,18 @@ export default new Router({
 			keepAlive: true
 		}
 	}, {
-		path: '/subpage',
-		name: 'subpage',
+		path: '/userInfo',
+		name: 'userInfo',
 		component: () =>
-			import ('@/views/Subpage/Subpage.vue'),
+			import ('@/views/Account/UserInfo/UserInfo.vue'),
+		meta: {
+			keepAlive: false
+		}
+	}, {
+		path: '/imagePreview',
+		name: 'imagePreview',
+		component: () =>
+			import ('@/views/Account/ImagePreview/ImagePreview.vue'),
 		meta: {
 			keepAlive: false
 		}

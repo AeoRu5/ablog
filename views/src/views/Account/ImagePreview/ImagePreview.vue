@@ -12,6 +12,6 @@
 	</div>
 </template>
 
-<script src="./CustomizeImagePreview.js"></script>
+<script src="./ImagePreview.js"></script>
 
-<style scoped lang="less" src="./CustomizeImagePreview.less"></style>
+<style scoped lang="less" src="./ImagePreview.less"></style>

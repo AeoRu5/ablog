@@ -1,50 +1,13 @@
 import {
-	mapState,
-	mapActions
+	mapState
 } from 'vuex'
-import Home from './Home/Home.vue'
-import TabBar from './TabBar/TabBar.vue'
-import Message from './Message/Message.vue'
-import Account from './Account/Account.vue'
-import Navigator from './Navigator/Navigator.vue'
+import AppConfig from '@/AppConfig.js'
 
 export default {
-	components: {
-		Home,
-		TabBar,
-		Message,
-		Account,
-		Navigator
-	},
 	data() {
 		return {
-			app_tab_lists: [{
-				navigator: '兔走',
-				tabBar: '首页',
-				target: 'home',
-				icon: 'icon-fire',
-				functionIcon: 'icon-RectangleCopy'
-			}, {
-				navigator: '消息',
-				tabBar: '消息',
-				target: 'message',
-				icon: 'icon-rocket'
-			}, {
-				navigator: '我的',
-				tabBar: '我的',
-				target: 'account',
-				icon: 'icon-mobile',
-				functionIcon: 'icon-settings'
-			}]
+			AppConfig: AppConfig.tabBarLists
 		}
-	},
-	created() {
-		this.component_tabBar_switch(sessionStorage.getItem('TABBAR'));
-	},
-	methods: {
-		...mapActions([
-			'component_tabBar_switch'
-		])
 	},
 	computed: {
 		...mapState({

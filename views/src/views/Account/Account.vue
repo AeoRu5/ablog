@@ -19,13 +19,10 @@
 			<div class="component_account_functions_frame themeFontColorMain">
 				<router-link
 					:to="{
-						name: 'subpage',
-						query: {
-							target: 'userInfo'
-						}
+						name: 'userInfo'
 					}"
 					class="component_account_function_block themeFontColorMain relative arrows">
-					<div class="iconfont icon-fire"></div>
+					<div class="iconfont icon-settings"></div>
 					<div class="component_account_function_name">我的资料</div>
 				</router-link>
 			</div>

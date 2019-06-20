@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import vuex from 'vuex'
+import AppConfig from '@/AppConfig.js'
 import entry from './entry.js'
 import tabBar from './tabBar.js'
 import aeorusUI_modal from './aeorusUI_modal.js'
@@ -18,7 +19,11 @@ export default new vuex.Store({
 	},
 	state: {
 		userInfo: {},
-		is_mobile: false
+		is_mobile: false,
+		returnUrl: [],
+		currentUrl: '',
+		isReturn: false,
+		app_tab_lists: AppConfig.tabBarLists
 	},
 	mutations: {
 		checkClient(state) {
@@ -80,6 +85,29 @@ export default new vuex.Store({
 					params && params.fail && typeof params.fail === 'function' && params.fail();
 				});
 			});
+		},
+		setCurrentUrl(state, params) {
+			state.currentUrl = params;
+			state.isReturn = false;
+		},
+		setNavigatorReturn(state, params) {
+			let returnUrl = state.returnUrl;
+
+			if (params.isReturn) {
+				returnUrl.pop();
+				state.isReturn = true;
+			} else {
+				params.name && returnUrl.push(params.name);
+			}
+
+			state.returnUrl = returnUrl;
+
+			sessionStorage.setItem('RETURNURL', JSON.stringify({
+				returnUrlArrayList: state.returnUrl
+			}));
+		},
+		resetNavigatorReturn(state, params) {
+			state.returnUrl = params;
 		}
 	},
 	actions: {
@@ -91,6 +119,15 @@ export default new vuex.Store({
 		},
 		getUserInfo(ctx, params) {
 			ctx.commit('getUserInfo', params);
+		},
+		setCurrentUrl(ctx, params) {
+			ctx.commit('setCurrentUrl', params);
+		},
+		setNavigatorReturn(ctx, params) {
+			ctx.commit('setNavigatorReturn', params);
+		},
+		resetNavigatorReturn(ctx, params) {
+			ctx.commit('resetNavigatorReturn', params);
 		}
 	}
 })

@@ -6,8 +6,8 @@
 				<div class="component_userInfo_right_hasArrows">
 					<input
 						type="file"
-						accept="image"
 						enctype="multipart/form-data"
+						accept="image/gif,image/png,image/jpeg,image/jpg,image/bmp"
 						class="component_userInfo_avatar_upload absolute"
 						@change="_userInfo_avatar_upload($event)" />
 					<img

@@ -1,54 +1,64 @@
 import {
-	mapState
+	mapState,
+	mapActions
 } from 'vuex'
 
 export default {
-	props: ['avater_preview_info'],
 	data() {
 		return {
-			preview_defaultImage: '',
-			file: {}
+			file: {},
+			preview_defaultImage: ''
 		}
 	},
 	created() {
-		let self = this,
-			image = new Image(),
-			reader = new FileReader(),
-			file = this.avater_preview_info.target.files[0];
+		if (!this.$route.query.avatarInfo.target) {
+			this._image_preview_btn_cancel();
 
-		this.$showLoading();
+			return;
+		} else {
+			let self = this,
+				image = new Image(),
+				reader = new FileReader(),
+				file = this.$route.query.avatarInfo.target.files[0];
 
-		reader.readAsDataURL(file);
+			this.$showLoading();
 
-		reader.onload = function() {
-			file.src = this.result;
+			reader.readAsDataURL(file);
 
-			image.onload = function() {
-				let width = image.width,
-					height = image.height;
+			reader.onload = function() {
+				file.src = this.result;
 
-				file.width = width;
-				file.height = height;
-				self.preview_defaultImage = file.src;
-			};
+				image.onload = function() {
+					let width = image.width,
+						height = image.height;
 
-			image.src = file.src;
+					file.width = width;
+					file.height = height;
+					self.preview_defaultImage = file.src;
+				};
 
-			if (file.size / 1024 >= 1024) {
-				self.imgCompress(file, {
-					quality: 0.2
-				});
-			} else {
-				self.imgCompress(file, {
-					quality: 1
-				});
+				image.src = file.src;
+
+				if (file.size / 1024 >= 1024) {
+					self.imgCompress(file, {
+						quality: 0.2
+					});
+				} else {
+					self.imgCompress(file, {
+						quality: 1
+					});
+				}
 			}
 		}
 	},
 	methods: {
+		...mapActions([
+			'setNavigatorReturn'
+		]),
 		_image_preview_btn_cancel() {
-			this.$emit('_userInfo_avatar_preview', {
-				isSelected: false
+			this.$router.replace(this.returnUrl[this.returnUrl.length - 1]);
+			this.setNavigatorReturn({
+				isReturn: true
 			});
 		},
 		_image_preview_btn_confirm() {
@@ -61,9 +71,15 @@ export default {
 				},
 				res => {
 					if (res.success) {
-						this.$emit('_userInfo_avatar_preview', {
-							isSelected: false,
-							isSuccessUpload: true
+						this.$router.replace({
+							name: this.returnUrl[this.returnUrl.length - 1],
+							query: {
+								avater_upload_success: true
+							}
+						});
+
+						this.setNavigatorReturn({
+							isReturn: true
 						});
 					} else {
 						this.$showToast({
@@ -102,7 +118,7 @@ export default {
 
 					this.width = w;
 					this.height = h;
-						
+
 					canvasWidth.nodeValue = w;
 					canvasHeight.nodeValue = h;
 					canvas.setAttributeNode(canvasWidth);
@@ -119,7 +135,7 @@ export default {
 
 					this.width = w;
 					this.height = h;
-						
+
 					canvasWidth.nodeValue = w;
 					canvasHeight.nodeValue = h;
 					canvas.setAttributeNode(canvasWidth);
@@ -128,7 +144,7 @@ export default {
 				} else if (this.width <= offsetWidth && this.height <= offsetHeight) {
 					let w = this.width,
 						h = this.height;
-						
+
 					canvasWidth.nodeValue = w;
 					canvasHeight.nodeValue = h;
 					canvas.setAttributeNode(canvasWidth);
@@ -168,7 +184,8 @@ export default {
 	},
 	computed: {
 		...mapState({
-			userInfo: state => state.userInfo
+			userInfo: state => state.userInfo,
+			returnUrl: state => state.returnUrl
 		})
 	}
 }

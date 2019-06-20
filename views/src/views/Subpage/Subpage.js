@@ -1,13 +1,13 @@
-import UserInfo from './UserInfo/UserInfo.vue'
-import Navigator from '@/views/App/Navigator/Navigator.vue'
+import UserInfo from '@/views/Account/UserInfo/UserInfo.vue'
 import ImagePreview from '@/components/CustomizeImagePreview/CustomizeImagePreview.vue'
+import mixin from './mixin';
 
 export default {
 	components: {
 		UserInfo,
-		Navigator,
 		ImagePreview
 	},
+	mixins: [ mixin ],
 	data() {
 		return {
 			app_tab_lists: [],
@@ -15,23 +15,6 @@ export default {
 			avater_preview_start: false,
 			avater_upload_success: false
 		}
-	},
-	created() {
-		let target = this.$route.query.target,
-			returnUrl = '',
-			returnPage = '',
-			navigator = '';
-
-		if (target == 'userInfo') {
-			navigator = '我的资料';
-			returnPage = 'account';
-		}
-
-		this.app_tab_lists.push({
-			navigator,
-			return: true,
-			alwaysShow: true
-		});
 	},
 	methods: {
 		_userInfo_avatar_preview_get(data) {
