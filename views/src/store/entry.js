@@ -32,7 +32,8 @@ export default {
 			state.view_entry_isAniSvgAnimationEnd = true;
 		},
 		view_entry_btn(state) {
-			router.replace('/app');
+			router.replace('app');
+			this.commit('component_tabBar_switch', 'home');
 		}
 	},
 	actions: {

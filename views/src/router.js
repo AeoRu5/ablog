@@ -12,7 +12,8 @@ export default new Router({
 		component: () =>
 			import ('@/views/Entry/Entry.vue'),
 		meta: {
-			keepAlive: false
+			keepAlive: false,
+			hideNavigator: true
 		}
 	}, {
 		path: '/login',
@@ -20,7 +21,8 @@ export default new Router({
 		component: () =>
 			import ('@/views/Login/Login.vue'),
 		meta: {
-			keepAlive: false
+			keepAlive: false,
+			hideNavigator: true
 		}
 	}, {
 		path: '/register',
@@ -28,7 +30,8 @@ export default new Router({
 		component: () =>
 			import ('@/views/Register/Register.vue'),
 		meta: {
-			keepAlive: false
+			keepAlive: false,
+			hideNavigator: true
 		}
 	}, {
 		path: '/app',

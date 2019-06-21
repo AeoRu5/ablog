@@ -73,7 +73,7 @@ export default {
 					if (res.success) {
 						this.$router.replace({
 							name: this.returnUrl[this.returnUrl.length - 1],
-							query: {
+							params: {
 								avater_upload_success: true
 							}
 						});

@@ -12,17 +12,17 @@ export default {
 	},
 	data() {
 		return {
+			loadStatus: 0,
 			reloadMethod: '',
 			account_avaterVisible: false,
-			account_userInfoLoadedStatus: 0,
 			account_backgroundVisible: false,
 			account_defaultBackground: defaultBackground,
-			account_defaultAvatar: `this.src="${defaultAvatar}"`,
+			account_defaultAvatar: `this.src="${defaultAvatar}"`
 		}
 	},
 	created() {
 		if (!this.$isEmptyObject(this.userInfo)) {
-			this.account_userInfoLoadedStatus = 1;
+			this.loadStatus = 1;
 
 			return;
 		} else {
@@ -30,10 +30,10 @@ export default {
 
 			this.getUserInfo({
 				success() {
-					self.account_userInfoLoadedStatus = 1;
+					self.loadStatus = 1;
 				},
 				fail() {
-					self.account_userInfoLoadedStatus = 2;
+					self.loadStatus = 2;
 					self.reloadMethod = '_account_userInfo_render';
 				}
 			});

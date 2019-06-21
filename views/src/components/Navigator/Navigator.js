@@ -6,7 +6,6 @@ import {
 export default {
 	data() {
 		return {
-			isShowReturn: false,
 			navigator: '兔走'
 		}
 	},
@@ -24,9 +23,7 @@ export default {
 	computed: {
 		...mapState({
 			returnUrl: state => state.returnUrl,
-			currentUrl: state => state.currentUrl,
-			app_tab_lists: state => state.app_tab_lists,
-			tabBar_actived: state => state.tabBar.component_tabBar_actived
+			currentUrl: state => state.currentUrl
 		})
 	}
 }

@@ -12,8 +12,18 @@ export default {
 		}
 	},
 	beforeMount() {
-		if (this.$route.query.avater_upload_success) {
-			this.getUserInfo();
+		if (this.$route.params.avater_upload_success) {
+			this.getUserInfo({
+				success() {
+					this.$showToast('刷新成功~');
+				},
+				fail() {
+					this.$router.replace(this.returnUrl[this.returnUrl.length - 1]);
+					this.setNavigatorReturn({
+						isReturn: true
+					});
+				}
+			});
 		} else {
 			let userInfo = sessionStorage.getItem('USERINFO');
 

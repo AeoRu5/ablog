@@ -1,5 +1,5 @@
 <template>
-	<div v-if="currentUrl != 'entry'" class="component_navigator_frame_ignore fixed">
+	<div class="component_navigator_frame_ignore fixed">
 		<div class="component_navigator_title relative ac">{{navigator}}
 			<div
 				v-if="currentUrl != 'app'"

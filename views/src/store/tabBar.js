@@ -1,6 +1,9 @@
+import AppConfig from '@/AppConfig.js'
+
 export default {
 	state: {
-		component_tabBar_actived: 'home'
+		component_tabBar_actived: 'home',
+		app_tab_lists: AppConfig.tabBarLists
 	},
 	mutations: {
 		component_tabBar_switch(state, param) {

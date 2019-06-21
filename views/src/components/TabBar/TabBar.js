@@ -11,7 +11,7 @@ export default {
 	},
 	computed: {
 		...mapState({
-			app_tab_lists: state => state.app_tab_lists,
+			app_tab_lists: state => state.tabBar.app_tab_lists,
 			tabBar_actived: state => state.tabBar.component_tabBar_actived
 		})
 	}

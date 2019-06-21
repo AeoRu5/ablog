@@ -1,6 +1,5 @@
 import Vue from 'vue'
 import vuex from 'vuex'
-import AppConfig from '@/AppConfig.js'
 import entry from './entry.js'
 import tabBar from './tabBar.js'
 import aeorusUI_modal from './aeorusUI_modal.js'
@@ -22,8 +21,7 @@ export default new vuex.Store({
 		is_mobile: false,
 		returnUrl: [],
 		currentUrl: '',
-		isReturn: false,
-		app_tab_lists: AppConfig.tabBarLists
+		isReturn: false
 	},
 	mutations: {
 		checkClient(state) {
