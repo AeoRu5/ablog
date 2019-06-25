@@ -6,7 +6,7 @@ const Service = require('egg').Service,
 class GetUserInfoResultService extends Service {
 	async get() {
 		try {
-			const getUserSession = this.ctx.session.USERINFO,
+			const getUserSession = this.ctx.session.USERSESSION,
 				selectUserResult = await this.app.mysql.get('users', {
 					userid: getUserSession.userid
 				});

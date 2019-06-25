@@ -33,7 +33,7 @@ export default {
 				return;
 			}
 
-			this.$requestPost('/aeoru5/signIn', {
+			this.$post('/aeoru5/signIn', {
 					data: {
 						tel: Number(this.login_tel),
 						password: new MD5().update(this.login_tel + this.login_password).digest('hex')
@@ -52,6 +52,7 @@ export default {
 						});
 					} else {
 						this.$showToast({
+							icon: 'warn',
 							content: res.message,
 							duration: 2000
 						});

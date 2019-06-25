@@ -1,7 +1,6 @@
 <template>
 	<div>
-		<Skeleton v-if="loadStatus == 0" />
-		<div v-else-if="loadStatus == 1" class="component_account_frame_ignore frameConfig">
+		<div v-if="loadSuccess" class="component_account_frame_ignore frameConfig">
 			<div v-show="account_backgroundVisible && account_avaterVisible" class="component_account_userInfo_frame relative">
 				<img
 					:src="account_defaultBackground"
@@ -27,7 +26,7 @@
 				</router-link>
 			</div>
 		</div>
-		<NetError v-else-if="loadStatus == 2" :reloadMethod="reloadMethod" />
+		<NetError v-else :reloadMethod="reloadMethod" />
 	</div>
 </template>
 

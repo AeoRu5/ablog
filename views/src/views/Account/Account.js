@@ -3,16 +3,12 @@ import {
 	mapActions
 } from 'vuex'
 import defaultAvatar from '@/assets/img/defaultAvatar.png'
-import Skeleton from '@/components/Skeleton/Skeleton.vue'
 import defaultBackground from '@/assets/img/account_background.png'
 
 export default {
-	components: {
-		Skeleton
-	},
 	data() {
 		return {
-			loadStatus: 0,
+			loadSuccess: false,
 			reloadMethod: '',
 			account_avaterVisible: false,
 			account_backgroundVisible: false,
@@ -22,7 +18,7 @@ export default {
 	},
 	created() {
 		if (!this.$isEmptyObject(this.userInfo)) {
-			this.loadStatus = 1;
+			this.loadSuccess = true;
 
 			return;
 		} else {
@@ -30,10 +26,10 @@ export default {
 
 			this.getUserInfo({
 				success() {
-					self.loadStatus = 1;
+					self.loadSuccess = true;
 				},
 				fail() {
-					self.loadStatus = 2;
+					self.loadSuccess = false;
 					self.reloadMethod = '_account_userInfo_render';
 				}
 			});

@@ -66,7 +66,7 @@ export default {
 
 			avatarFormData.append(this.userInfo.tel, this.file);
 
-			this.$requestPost('/aeoru5/uploadAvatar', {
+			this.$post('/aeoru5/uploadAvatar', {
 					data: avatarFormData
 				},
 				res => {

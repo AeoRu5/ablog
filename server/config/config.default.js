@@ -20,7 +20,7 @@ module.exports = appInfo => {
 		renew: true,
 		encrypt: true,
 		signed: true,
-		key: 'USERINFO',
+		key: 'USERSESSION',
 		httpOnly: false,
 		maxAge: 3600 * 1000
 	};
@@ -48,7 +48,7 @@ module.exports = appInfo => {
 		// 是否加载到 app 上，默认开启
 		app: true,
 		// 是否加载到 agent 上，默认关闭
-		agent: false,
+		agent: false
 	};
 
 	config.middleware = ['notFoundHandler', 'checkLoadStatus'];

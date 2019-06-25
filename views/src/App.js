@@ -40,7 +40,7 @@ export default {
 			if (JSON.parse(sessionStorage.getItem('RETURNURL')) && JSON.parse(sessionStorage.getItem('RETURNURL')).returnUrlArrayList.length > this.returnUrl.length) {
 				this.resetNavigatorReturn(JSON.parse(sessionStorage.getItem('RETURNURL')).returnUrlArrayList);
 			} else {
-				if (!this.isReturn) {
+				if (!this.isReturn && !/^entry$|^login$|^register$/.test(oldVal.name) && !/^entry$|^login$|^register$/.test(newVal.name)) {
 					this.setNavigatorReturn({
 						name: oldVal.name,
 						isReturn: false

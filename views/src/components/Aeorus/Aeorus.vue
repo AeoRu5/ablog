@@ -1,16 +1,18 @@
 <template>
 	<div>
 		<div
-			v-if="(modal_show || loading_show || toast_show) && is_mobile"
+			v-if="(form_show || toast_show || modal_show || loading_show) && is_mobile"
 			class="aeorusUI_mask_frame frameConfig fixed"
 			:class="!modal_show && !loading_show && toast_show ? 'aeorusUI_transparent_mask' : ''">
+			<CustomizeForm />
 			<CustomizeToast />
 			<CustomizeModal />
 			<CustomizeLoading />
 		</div>
 		<div
-			v-if="modal_show || loading_show || toast_show"
+			v-if="modal_show || loading_show || toast_show || form_show"
 			class="aeorusUI_mask_frame aeorusUI_transparent_mask frameConfig fixed">
+			<CustomizeForm />
 			<CustomizeToast />
 			<CustomizeModal />
 			<CustomizeLoading />

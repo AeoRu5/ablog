@@ -5,11 +5,50 @@ let toastTimer;
 export default {
 	install(Vue, options) {
 		Vue.component('Aeorus', Aeorus);
+		Vue.prototype.$showForm = this.showForm;
 		Vue.prototype.$showModal = this.showModal;
 		Vue.prototype.$showToast = this.showToast;
 		Vue.prototype.$hideToast = this.hideToast;
 		Vue.prototype.$showLoading = this.showLoading;
 		Vue.prototype.$hideLoading = this.hideLoading;
+	},
+	showForm({
+		input,
+		placeholder,
+		confirm,
+		cancel,
+		completed
+	}) {
+		store._mutations.aeorusUI_form_show[0]({
+			input,
+			placeholder
+		});
+
+		store._mutations.aeorusUI_form_confirm[0] = () => {
+			store._mutations.aeorusUI_form_showOut[0]();
+
+			let formTimer = setTimeout(() => {
+				store._mutations.aeorusUI_form_hide[0]();
+
+				confirm && typeof confirm === 'function' && confirm();
+				completed && typeof completed === 'function' && completed();
+
+				clearTimeout(formTimer);
+			}, 500);
+		};
+
+		store._mutations.aeorusUI_form_cancel[0] = () => {
+			store._mutations.aeorusUI_form_showOut[0]();
+
+			let formTimer = setTimeout(() => {
+				store._mutations.aeorusUI_form_hide[0]();
+
+				cancel && typeof cancel === 'function' && cancel();
+				completed && typeof completed === 'function' && completed();
+
+				clearTimeout(formTimer);
+			}, 500);
+		};
 	},
 	showModal({
 		title = '提示',
@@ -19,7 +58,7 @@ export default {
 		cancel,
 		completed
 	}) {
-		this.hideToast();
+		this.$hideToast();
 
 		store._mutations.aeorusUI_modal_show[0]({
 			title,

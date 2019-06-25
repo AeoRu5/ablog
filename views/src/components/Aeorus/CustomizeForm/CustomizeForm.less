@@ -1,6 +1,6 @@
-@border-radius: 50px;
+@border-radius: 10px;
 
-@keyframes modalAnimationShow {
+@keyframes formAnimationShow {
 	0% {
 		top: 50%;
 		left: 50%;
@@ -12,7 +12,7 @@
 		transform: translate(-50%, -50%)
 	}
 }
-@keyframes modalAnimationHide {
+@keyframes formAnimationHide {
 	0% {
 		top: 50%;
 		left: 50%;
@@ -27,26 +27,30 @@
 .animationMixin(@animationName) {
 	animation: @animationName .5s ease-out forwards;
 }
-.aeorusUI_modal_frame_animation_showIn {
-	.animationMixin(modalAnimationShow);
+.aeorusUI_form_frame_animation_showIn {
+	.animationMixin(formAnimationShow);
 }
-.aeorusUI_modal_frame_animation_showOut {
-	.animationMixin(modalAnimationHide);
+.aeorusUI_form_frame_animation_showOut {
+	.animationMixin(formAnimationHide);
 }
-.aeorusUI_modal_frame {
+.aeorusUI_form_frame {
 	width: 80%;
 	z-index: 9998;
 	display: flex;
-	min-height: 200px;
+	min-height: 100px;
 	border-radius: @border-radius;
 	flex-direction: column;
 	background-color: #ffffff;
 
-	.aeorusUI_modal_title {
-		height: 50px;
+	.aeorusUI_form_input {
+		flex: 1;
+		border: 0;
+		margin: 0 20px;
 		font-size: 20px;
 		font-weight: 700;
 		line-height: 50px;
+		border-radius: @border-radius @border-radius 0 0;
+		border-bottom: 1px solid #7b68ee1a;
 
 		&::after {
 			left: 50%;
@@ -60,39 +64,43 @@
 		}
 	}
 
-	.aeorusUI_modal_content {
-		flex: 1;
-		display: flex;
-		font-size: 18px;
-		padding: 20px 20px;
-		align-items: center;
-		justify-content: center;
+	::-webkit-input-placeholder {
+		font-size: 12px;
 	}
 
-	.aeorusUI_modal_btns {
+	::-moz-placeholder {
+		font-size: 12px;
+	}
+
+	:-ms-input-placeholder {
+		font-size: 12px;
+	}
+	
+	:-moz-placeholder {
+		font-size: 12px;
+	}
+
+	.aeorusUI_form_btns {
 		height: 50px;
 		display: flex;
 		font-size: 14px;
+		margin-top: 20px;
 
-		.aeorusUI_modal_btn {
+		.aeorusUI_form_btn {
 			width: 50%;
 			height: 100%;
 			line-height: 50px;
 			letter-spacing: 15px;
 		}
 
-		.aeorusUI_modal_btn_cancel {
+		.aeorusUI_form_btn_cancel {
 			background-color: #ffffff;
 			border-radius: 0 0 0 @border-radius;
 		}
 
-		.aeorusUI_modal_btn_confirm {
+		.aeorusUI_form_btn_confirm {
 			color: #ffffff;
 			border-radius: @border-radius 0 @border-radius 0;
-		}
-
-		.aeorusUI_modal_btn_confirm_only {
-			border-radius: 0 0 @border-radius @border-radius;
 		}
 	}
 }

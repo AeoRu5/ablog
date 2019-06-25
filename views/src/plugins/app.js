@@ -3,12 +3,12 @@ import router from '@/router'
 
 export default {
 	install(Vue, options) {
-		Vue.prototype.$requestGet = this.requestGet;
-		Vue.prototype.$requestPost = this.requestPost;
+		Vue.prototype.$get = this.get;
+		Vue.prototype.$post = this.post;
 		Vue.prototype.$isEmptyObject = this.isEmptyObject;
 		Vue.prototype.$checkAnimationEnd = this.checkAnimationEnd;
 	},
-	requestGet(url, params, successCallback, errorCallback, message) {
+	get(url, params, successCallback, errorCallback, message) {
 		this.$showLoading(message);
 
 		let _linkRequestParams,
@@ -54,7 +54,7 @@ export default {
 			errorCallback && typeof errorCallback === 'function' && errorCallback(e);
 		});
 	},
-	requestPost(url, params, successCallback, errorCallback, message) {
+	post(url, params, successCallback, errorCallback, message) {
 		this.$showLoading(message);
 
 		let headers = params.headers || {};

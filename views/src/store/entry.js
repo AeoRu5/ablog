@@ -7,7 +7,7 @@ export default {
 	},
 	mutations: {
 		component_aniSvg_loadAniSvgText(state, callback) {
-			this._vm.$requestPost('/aeoru5/aniSvgText', {
+			this._vm.$post('/aeoru5/aniSvgText', {
 
 				},
 				res => {
@@ -24,7 +24,11 @@ export default {
 					}
 				},
 				err => {
-					console.log(err);
+					this._vm.$showToast({
+						icon: 'netError',
+						content: '你的网络大概炸了?',
+						duration: 2000
+					});
 				}
 			);
 		},

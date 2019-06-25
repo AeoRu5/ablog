@@ -2,6 +2,7 @@ import Vue from 'vue'
 import vuex from 'vuex'
 import entry from './entry.js'
 import tabBar from './tabBar.js'
+import aeorusUI_form from './aeorusUI_form.js'
 import aeorusUI_modal from './aeorusUI_modal.js'
 import aeorusUI_toast from './aeorusUI_toast.js'
 import aeorusUI_loading from './aeorusUI_loading.js'
@@ -12,6 +13,7 @@ export default new vuex.Store({
 	modules: {
 		entry,
 		tabBar,
+		aeorusUI_form,
 		aeorusUI_modal,
 		aeorusUI_toast,
 		aeorusUI_loading
@@ -49,7 +51,7 @@ export default new vuex.Store({
 		},
 		getUserInfo(state, params) {
 			return new Promise((resolve, reject) => {
-				this._vm.$requestGet('/aeoru5/userInfo', {
+				this._vm.$get('/aeoru5/userInfo', {
 
 					},
 					res => {

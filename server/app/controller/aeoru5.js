@@ -108,6 +108,38 @@ module.exports = app => {
 
 			ctx.body = await ctx.service.getUploadAvatarResult.post();
 		}
+		async updateUserInfo() {
+			const {
+				ctx,
+				app
+			} = this;
+			
+			try {
+				ctx.validate({
+					nickname: {
+						type: 'string',
+						require: true
+					}
+				}, ctx.request.body);
+			} catch (e) {
+				ctx.logger.warn(e);
+
+				let errors = e.errors,
+					message = '';
+
+				errors.map((error, index) => {
+					message += index > 0 ? ` and '${error.field}' ${error.message}` : `'${error.field}' ${error.message}`;
+				});
+
+				ctx.body = {
+					success: false
+				};
+
+				return;
+			}
+
+			ctx.body = await ctx.service.updateUserInfoResult.post(ctx.request.body);
+		}
 		async saveTemporaryInfo() {
 			const {
 				ctx,

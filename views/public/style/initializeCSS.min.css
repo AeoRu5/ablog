@@ -82,18 +82,6 @@ button::-moz-focus-inner,[type='button']::-moz-focus-inner,[type='reset']::-moz-
 button:-moz-focusring,[type='button']:-moz-focusring,[type='reset']:-moz-focusring,[type='submit']:-moz-focusring {
   outline:1px dotted ButtonText
 }
-::-webkit-input-placeholder {
-  color:#3a3c4c
-}
-:-moz-placeholder {
-  color:#3a3c4c
-}
-::-moz-placeholder {
-  color:#3a3c4c
-}
-:-ms-input-placeholder {
-  color:#3a3c4c
-}
 textarea {
   overflow:auto
 }

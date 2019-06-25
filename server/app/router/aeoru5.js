@@ -11,5 +11,6 @@ module.exports = app => {
   app.post('/aeoru5/signIn', aeoru5.signIn);
   app.post('/aeoru5/aniSvgText', aeoru5.getAniSvgText);
   app.post('/aeoru5/uploadAvatar', aeoru5.uploadAvatar);
+  app.post('/aeoru5/updateUserInfo', aeoru5.updateUserInfo);
   app.post('/aeoru5/saveTemporaryInfo', aeoru5.saveTemporaryInfo);
 };

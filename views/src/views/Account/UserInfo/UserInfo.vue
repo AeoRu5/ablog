@@ -3,13 +3,13 @@
 		<div class="component_userInfo_block component_userInfo_avatar">
 			<div class="component_userInfo_left">头像</div>
 			<div class="component_userInfo_right relative">
+				<input
+					type="file"
+					enctype="multipart/form-data"
+					accept="image/gif,image/png,image/jpeg,image/jpg,image/bmp"
+					class="component_userInfo_avatar_upload absolute"
+					@change="_userInfo_avatar_upload($event)" />
 				<div class="component_userInfo_right_hasArrows">
-					<input
-						type="file"
-						enctype="multipart/form-data"
-						accept="image/gif,image/png,image/jpeg,image/jpg,image/bmp"
-						class="component_userInfo_avatar_upload absolute"
-						@change="_userInfo_avatar_upload($event)" />
 					<img
 						v-show="userInfo_avaterVisible"
 						:src="'/avatar/' + userInfo.avatar || userInfo_defaultAvatar"
@@ -22,7 +22,7 @@
 		</div>
 		<div class="component_userInfo_block">
 			<div class="component_userInfo_left">昵称</div>
-			<div class="component_userInfo_right relative">
+			<div class="component_userInfo_right relative" @click="_userInfo_nickname_update">
 				<div class="component_userInfo_right_hasArrows">{{userInfo.nickname}}</div>
 				<div class="arrows"></div>
 			</div>

@@ -34,7 +34,7 @@ export default {
 			}
 
 			if (!this.register_securityCode_isGetting) {
-				this.$requestPost('/aeoru5/saveTemporaryInfo', {
+				this.$post('/aeoru5/saveTemporaryInfo', {
 					data: {
 						tel: Number(this.register_tel),
 						nickname: this.register_nickname
@@ -94,7 +94,7 @@ export default {
 				return;
 			}
 
-			this.$requestPost('/aeoru5/signUp', {
+			this.$post('/aeoru5/signUp', {
 					data: {
 						tel: Number(this.register_tel),
 						nickname: this.register_nickname,
@@ -117,6 +117,7 @@ export default {
 						});
 					} else {
 						this.$showToast({
+							icon: 'warn',
 							content: res.message,
 							duration: 2000
 						});
