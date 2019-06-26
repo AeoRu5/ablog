@@ -3,7 +3,7 @@
 		<div
 			v-if="(form_show || toast_show || modal_show || loading_show) && is_mobile"
 			class="aeorusUI_mask_frame frameConfig fixed"
-			:class="!modal_show && !loading_show && toast_show ? 'aeorusUI_transparent_mask' : ''">
+			:class="!form_show && !modal_show && !loading_show && toast_show ? 'aeorusUI_transparent_mask' : ''">
 			<CustomizeForm />
 			<CustomizeToast />
 			<CustomizeModal />

@@ -51,6 +51,7 @@ export default {
 			}
 		}).catch(e => {
 			this.$hideLoading();
+			
 			errorCallback && typeof errorCallback === 'function' && errorCallback(e);
 		});
 	},
@@ -84,6 +85,7 @@ export default {
 			}
 		}).catch(e => {
 			this.$hideLoading();
+
 			errorCallback && typeof errorCallback === 'function' && errorCallback(e);
 		});
 	},

@@ -24,7 +24,8 @@ export default {
 		...mapActions([
 			'getUserInfo',
 			'saveUserInfo',
-			'aeorusUI_form_reset'
+			'aeorusUI_form_hide',
+			'aeorusUI_form_showOut'
 		]),
 		_userInfo_refresh(callback) {
 			let self = this;
@@ -59,34 +60,60 @@ export default {
 
 			this.$showForm({
 				input: 'text',
-				placeholder: '请输入新的昵称',
-				confirm() {
-					self.$post('/aeoru5/updateUserInfo', {
-							data: {
-								nickname: self.form_value
-							}
-						},
-						res => {
-							if (res.success) {
-								self._userInfo_refresh(() => {
-									self.aeorusUI_form_reset();
-								});
-							} else {
+				items: [{
+					property: 'nickname',
+					placeholder: '请输入新的昵称'
+				}],
+				confirm(res) {
+					let data = {},
+						isAllInputed = true;
+
+					res.map(item => {
+						if (!item.value) {
+							isAllInputed = false;
+
+							self.$showToast({
+								icon: 'warn',
+								content: item.placeholder,
+								duration: 2000
+							});
+						} else {
+							data[item.property] = item.value;
+						}
+					});
+
+					if (isAllInputed) {
+						self.$post('/aeoru5/updateUserInfo', {
+								data
+							},
+							res => {
+								if (res.success) {
+									self.aeorusUI_form_showOut();
+
+									let formTimer = setTimeout(() => {
+										self.aeorusUI_form_hide();
+										self._userInfo_refresh();
+
+										clearTimeout(formTimer);
+									}, 500);
+
+								} else {
+									self.$showToast({
+										icon: 'warn',
+										content: res.message,
+										duration: 2000
+									});
+								}
+							},
+							err => {
 								self.$showToast({
-									icon: 'warn',
-									content: res.message,
+									icon: 'netError',
+									content: '你的网络大概炸了?',
 									duration: 2000
 								});
 							}
-						},
-						err => {
-							self.$showToast({
-								icon: 'netError',
-								content: '你的网络大概炸了?',
-								duration: 2000
-							});
-						}
-					);
+						);
+					}
 				}
 			});
 		}
@@ -94,14 +121,6 @@ export default {
 	computed: {
 		...mapState({
 			userInfo: state => state.userInfo
-		}),
-		form_value: {
-			get() {
-				return this.$store.state.aeorusUI_form.aeorusUI_form_value;
-			},
-			set(val) {
-				this.$store.state.aeorusUI_form.aeorusUI_form_value = val;
-			}
-		}
+		})
 	}
 }

@@ -51,10 +51,14 @@ export default new vuex.Store({
 		},
 		getUserInfo(state, params) {
 			return new Promise((resolve, reject) => {
+				this._vm.$showLoading();
+
 				this._vm.$get('/aeoru5/userInfo', {
 
 					},
 					res => {
+						this._vm.$hideLoading();
+
 						if (res.success) {
 							resolve(res.userInfo);
 						} else {
@@ -68,6 +72,8 @@ export default new vuex.Store({
 						}
 					},
 					err => {
+						this._vm.$hideLoading();
+
 						reject();
 					}
 				);

@@ -14,27 +14,19 @@ export default {
 	},
 	showForm({
 		input,
-		placeholder,
+		items,
 		confirm,
 		cancel,
 		completed
 	}) {
 		store._mutations.aeorusUI_form_show[0]({
 			input,
-			placeholder
+			items
 		});
 
-		store._mutations.aeorusUI_form_confirm[0] = () => {
-			store._mutations.aeorusUI_form_showOut[0]();
-
-			let formTimer = setTimeout(() => {
-				store._mutations.aeorusUI_form_hide[0]();
-
-				confirm && typeof confirm === 'function' && confirm();
-				completed && typeof completed === 'function' && completed();
-
-				clearTimeout(formTimer);
-			}, 500);
+		store._mutations.aeorusUI_form_confirm[0] = params => {
+			confirm && typeof confirm === 'function' && confirm(params);
+			completed && typeof completed === 'function' && completed();
 		};
 
 		store._mutations.aeorusUI_form_cancel[0] = () => {

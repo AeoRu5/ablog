@@ -7,9 +7,7 @@ class UpdateUserInfoResultService extends Service {
 		try {
 			let UpdateUserInfoResult;
 			const getUserSession = this.ctx.session.USERSESSION,
-				updateUserInfoResult = await this.app.mysql.update('users', {
-					nickname: params.nickname
-				}, {
+				updateUserInfoResult = await this.app.mysql.update('users', params, {
 					where: {
 						userid: getUserSession.userid
 					}
