@@ -2,6 +2,49 @@
 
 ## 项目
 
+### Nginx
+
+```bash
+$ http {
+	server {
+		listen 80;
+		server_name  aeorus.xyz;
+		rewrite ^(.*) https://$server_name$1 permanent;
+	}
+}
+$ https {
+	server {
+		listen 443 ssl;
+		server_name aeorus.xyz;
+		ssl_certificate      /usr/local/nginx/cert/aeorus.xyz.pem;
+		ssl_certificate_key  /usr/local/nginx/cert/aeorus.xyz.key;
+
+		ssl_session_cache    shared:SSL:1m;
+		ssl_session_timeout  5m;
+
+		ssl_ciphers  HIGH:!aNULL:!MD5;
+		ssl_prefer_server_ciphers  on;
+
+		location / {
+			root   /data/aeoru5;
+			index  index.html index.htm;
+			error_page  404  /index.html;
+			proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+		}
+
+		location /aeoru5 {
+			proxy_pass http://127.0.0.1:7001/aeoru5;
+			proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+		}
+
+		location /avatar {
+			proxy_pass http://127.0.0.1:7001/public/avatar;
+			proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+		}
+	}
+}
+```
+
 ### Server
 
 ```bash
