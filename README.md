@@ -41,6 +41,11 @@ $ https {
 			proxy_pass http://127.0.0.1:7001/public/avatar;
 			proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
 		}
+
+		location /video {
+        proxy_pass http://127.0.0.1:7001/public/video;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+    }
 	}
 }
 ```

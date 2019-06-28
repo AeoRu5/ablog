@@ -3,13 +3,13 @@ import {
 	swiperSlide
 } from 'vue-awesome-swiper'
 import 'swiper/dist/css/swiper.css'
-import defaultImage from '@/assets/img/usagi.jpg'
 
 export default {
 	components: {
 		swiper,
 		swiperSlide
 	},
+	props: [ 'carousel_swiperSlides' ],
 	data() {
 		return {
 			carousel_option: {
@@ -21,8 +21,7 @@ export default {
 				}
 			},
 			carousel_visible: false,
-			carousel_swiperSlidesLength: 0,
-			carousel_swiperSlides: [defaultImage, defaultImage]
+			carousel_swiperSlidesLength: 0
 		}
 	},
 	methods: {
