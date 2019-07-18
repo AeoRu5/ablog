@@ -90,7 +90,7 @@ export default {
 		});
 	},
 	isEmptyObject(object) {
-		return Object.keys(object).length == 0 ? true : false;
+		return Object.keys(object).length === 0;
 	},
 	checkAnimationEnd(vm, event, callback) {
 		vm.addEventListener(event, callback);

@@ -17,10 +17,11 @@ $ npm run build
 this.$get/$post(url, {
 	headers: {},
 	data: {},
+},
 	res => {},
 	err => {},
 	loadingMessage
-});
+);
 ```
 ### UI structure API
 ```
