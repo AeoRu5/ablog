@@ -1,4 +1,4 @@
-# aeorus
+# aeorus-dev
 
 ## 项目
 
